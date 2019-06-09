@@ -1,0 +1,10 @@
+---
+# Config data for RedHat-family VMs running under VMware.
+
+packages:
+  - open-vm-tools
+
+# Local Variables:
+# coding: utf-8
+# End:
+...

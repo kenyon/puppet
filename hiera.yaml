@@ -1,0 +1,65 @@
+---
+
+version: 5
+
+defaults:
+  # The default value for "datadir" is "data" under the same directory as the hiera.yaml
+  # file (this file)
+  # When specifying a datadir, make sure the directory exists.
+  # See https://puppet.com/docs/puppet/latest/environments_about.html for further details on environments.
+  # datadir: data
+  # data_hash: yaml_data
+
+hierarchy:
+
+  - name: Per-node data (FQDN)
+    path: "nodes/%{::trusted.certname}.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+    # example facts database:
+    # https://github.com/camptocamp/facterdb
+
+  - name: Per OS family and virtualization type data
+    path: "virtualization/%{facts.virtual}/%{facts.os.family}.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+  - name: Per virtualization type data
+    path: "virtualization/%{facts.virtual}.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+    # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
+  - name: Per-OS-name data
+    path: "os/name/%{facts.os.name}.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+    # example OS families: RedHat, Debian
+  - name: Per-OS-family data
+    path: "os/family/%{facts.os.family}.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+  - name: Common data
+    path: common.yaml
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+# Local Variables:
+# coding: utf-8
+# End:
+...

@@ -1,0 +1,45 @@
+---
+# Configuration data for darwin.kenyonralph.com.
+
+classes:
+  - r10k::config
+  - r10k::webhook
+  - r10k::webhook::config
+  - mysite::vms::linode
+  - mysite::roles::puppetmaster
+  - mysite::roles::puppetmaster::hiera_eyaml
+
+packages:
+  - ruby
+  - augeas-tools
+
+gems:
+  - hiera-eyaml
+  - r10k
+
+mysite::roles::puppetmaster::puppetserver_gems:
+  - hiera-eyaml
+  - r10k
+
+mysite::roles::puppetmaster::hiera_eyaml::eyaml_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+mysite::roles::puppetmaster::hiera_eyaml::eyaml_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+mysite::roles::puppetmaster::hiera_eyaml::eyaml_config:      /etc/eyaml/config.yaml
+
+r10k::config::remote: https://github.com/kenyon/puppet.git
+r10k::config::deploy_settings:
+  purge_levels: [ 'deployment', 'environment', 'puppetfile' ]
+
+# This webhook setup runs a web server on port 8088. Then I have
+# configured a webhook in my bitbucket repository for URL
+# http://puppet.kenyonralph.com/payload that runs on push events:
+# https://github.com/kenyon/puppet/settings/hooks So when I push to
+# github, 'r10k deploy environment --verbose --puppetfile' gets run.
+r10k::webhook::use_mcollective: false
+r10k::webhook::user: root
+r10k::webhook::group: root
+r10k::webhook::config::enable_ssl: false
+r10k::webhook::config::use_mcollective: false
+r10k::webhook::config::protected: true
+# r10k::webhook::config::github_secret: FIXME eyaml encrypted github secret string here
+
+...

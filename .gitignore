@@ -1,0 +1,11 @@
+# emacs backup files
+*~
+
+# emacs interlock files
+.\#*
+
+# emacs auto save files
+\#*\#
+
+# vim swap files
+.*.sw?

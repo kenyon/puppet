@@ -1,0 +1,10 @@
+---
+# Config data for RedHat-family VMs running under KVM.
+
+classes:
+  - mysite::redhat::vm_kvm
+
+# Local Variables:
+# coding: utf-8
+# End:
+...

@@ -1,0 +1,109 @@
+---
+# Debian-family-specific data.
+
+classes:
+  - mysite::debian
+  - apt
+
+rsyslog::client::global_config:
+  workDirectory:
+    value: /var/spool/rsyslog
+
+packages:
+  - apt-file
+  - apt-listbugs
+  - apt-listchanges
+  - apt-show-versions
+  - apt-transport-https
+  - apticron
+  - aptitude
+  - aptitude-doc-en
+  - bash-completion
+  - bind9-host
+  - debian-goodies
+  - dlocate
+  - dnsutils
+  # Need the backports kernel for config PTP_1588_CLOCK_KVM, so chrony
+  # can sync VM clocks with the host.
+  #- linux-image-amd64/stretch-backports
+  - lsb-release
+  - man-db
+  - manpages-dev
+  - molly-guard
+  - popularity-contest
+  - vim
+
+apt::include_defaults:
+  deb: true
+  src: true
+
+apt::purge:
+  sources.list: true
+  sources.list.d: true
+  preferences: true
+  preferences.d: true
+
+apt::sources:
+  debian:
+    location: https://deb.debian.org/debian
+    release: "%{facts.os.distro.codename}"
+    repos: main contrib non-free
+  security:
+    location: https://deb.debian.org/debian-security
+    release: "%{facts.os.distro.codename}/updates"
+    repos: main contrib non-free
+  updates:
+    location: https://deb.debian.org/debian
+    release: "%{facts.os.distro.codename}-updates"
+    repos: main contrib non-free
+  backports:
+    location: https://deb.debian.org/debian
+    release: "%{facts.os.distro.codename}-backports"
+    repos: main contrib non-free
+  puppet6:
+    location: https://apt.puppetlabs.com
+    release: "%{facts.os.distro.codename}"
+    repos: puppet6
+    include:
+      src: false
+
+apt::confs:
+  aptitude:
+    content: |
+      Aptitude {
+          CmdLine {
+              Always-Prompt "1";
+              Show-Versions "1";
+          };
+          UI {
+              Advance-On-Action "1";
+          }
+      };
+  periodic_update:
+    content: "APT::Periodic::Update-Package-Lists \"1\";\n"
+  unattended_upgrade:
+    content: "Unattended-Upgrade::Mail \"root@localhost\";\n"
+
+augeases:
+  apt_listchanges.conf:
+    incl: /etc/apt/listchanges.conf
+    lens: Puppet.lns
+    changes:
+      - set apt/confirm yes
+      - set apt/which both
+    require: Package[apt-listchanges]
+  cron_defaults:
+    context: /files/etc/default/cron
+    changes:
+      - set EXTRA_OPTS '"-L 15"' # that quoting weirdness https://www.redhat.com/archives/augeas-devel/2008-October/msg00023.html
+    notify: Service[cron]
+
+services:
+  cron:
+    ensure: running
+    enable: true
+
+# Local Variables:
+# coding: utf-8
+# End:
+...

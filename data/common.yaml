@@ -1,0 +1,177 @@
+---
+# Common data.
+
+classes:
+  - timezone
+  - sudo
+  - git
+  - ssh
+  # TODO:
+  #- rsyslog::client
+
+lookup_options:
+  apt::sources:
+    merge: hash
+  rhsm::enabled_repo_ids:
+    merge: unique
+  rsyslog::client::actions:
+    merge: hash
+  rsyslog::client::global_config:
+    merge: hash
+  rsyslog::client::inputs:
+    merge: hash
+  rsyslog::client::modules:
+    merge: hash
+
+timezone::timezone: America/Los_Angeles
+
+ntp_servers:
+  - darwin.kenyonralph.com
+
+ntp_pools:
+  - 2.pool.ntp.org
+
+# Packages I want installed.
+packages:
+  - aspell
+  - colordiff
+  - curl
+  - emacs-nox
+  - etckeeper
+  - htop
+  - info
+  - irqbalance
+  - keychain
+  - lsof
+  - mlocate
+  - multitail
+  - mutt
+  - ndisc6
+  # nmap includes ncat, its version of netcat (nc)
+  - nmap
+  - psmisc
+  - pwgen
+  - rsync
+  - subnetcalc
+  - time
+  - tmux
+  - tree
+  - unzip
+  - w3m
+  - wget
+  - whois
+  - zsh
+
+# Packages I want to be absent.
+# Can't really remove multiple packages though, even if I have listed
+# all of their dependencies, because it tries to remove each package
+# individually:
+# https://tickets.puppetlabs.com/browse/PUP-146
+# https://tickets.puppetlabs.com/browse/PUP-1061
+packages_absent:
+  - nano
+
+# Ruby gems.
+gems: []
+
+services:
+  ctrl-alt-del.target:
+    ensure: stopped
+    enable: mask
+
+sudo::configs:
+  insults:
+    content: Defaults insults
+  kenyon:
+    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
+  lessenv:
+    content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
+  lessenv2:
+    content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
+
+git::configs:
+  user.name:
+    value: Kenyon Ralph
+    user: kenyon
+  user.email:
+    value: kenyon@kenyonralph.com
+    user: kenyon
+  user.signingkey:
+    value: 0x98FF3EF9C9B912D5
+    user: kenyon
+  color.ui:
+    value: always
+    user: kenyon
+  commit.verbose:
+    value: 'true'
+    user: kenyon
+  commit.gpgsign:
+    value: 'true'
+    user: kenyon
+  core.pager:
+    value: less --quit-if-one-screen --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init
+    user: kenyon
+  log.decorate:
+    value: full
+    user: kenyon
+
+augeases:
+  puppet.conf:
+    context: /files/etc/puppetlabs/puppet/puppet.conf
+    changes:
+      - set main/show_diff true
+      - set main/server puppet.kenyonralph.com
+  system.conf:
+    incl: /etc/systemd/system.conf
+    lens: Puppet.lns
+    changes:
+      - set Manager/CtrlAltDelBurstAction none
+    notify: Exec[systemd_reload]
+
+cronjobs: {}
+
+execs:
+  systemd_reload:
+    command: /bin/systemctl daemon-reload
+    refreshonly: true
+
+files:
+  /etc/zlogout:
+    ensure: absent
+  /etc/puppetlabs/facter:
+    ensure: directory
+    mode: '0755'
+    owner: root
+    group: root
+  /etc/puppetlabs/facter/facter.conf:
+    ensure: file
+    mode: '0644'
+    owner: root
+    group: root
+    content: |
+      facts : {
+          blocklist : [ "EC2" ],
+      }
+
+sysctls:
+  net.core.default_qdisc:
+    ensure: present
+    value: fq_codel
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_ecn:
+    ensure: present
+    value: 1
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_mtu_probing:
+    ensure: present
+    value: 2
+    target: /etc/sysctl.d/97-net-sysctl.conf
+
+ssh::client_options:
+  Host *:
+    HashKnownHosts: no
+
+# Local Variables:
+# coding: utf-8
+# End:
+...
