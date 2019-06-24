@@ -79,6 +79,10 @@ services:
     ensure: stopped
     enable: mask
 
+# TODO
+users: {}
+groups: {}
+
 sudo::configs:
   insults:
     content: Defaults insults
@@ -135,6 +139,8 @@ execs:
     command: /bin/systemctl daemon-reload
     refreshonly: true
 
+file_lines: {}
+
 files:
   /etc/zlogout:
     ensure: absent
@@ -170,6 +176,9 @@ sysctls:
 ssh::client_options:
   Host *:
     HashKnownHosts: no
+
+postfix_configs: {}
+postfix_hashes: {}
 
 # Local Variables:
 # coding: utf-8
