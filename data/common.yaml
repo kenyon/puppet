@@ -97,7 +97,7 @@ git::configs:
     value: kenyon@kenyonralph.com
     user: kenyon
   user.signingkey:
-    value: 0x98FF3EF9C9B912D5
+    value: '0x98FF3EF9C9B912D5'
     user: kenyon
   color.ui:
     value: always
