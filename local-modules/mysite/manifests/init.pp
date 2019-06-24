@@ -16,10 +16,10 @@ class mysite {
   create_resources('postfix::config', lookup('postfix_configs', Hash, 'hash'))
   create_resources('postfix::hash',   lookup('postfix_hashes',  Hash, 'hash'))
 
-  stdlib::ensure_packages(mysite::lookup_filter('packages'),
+  ensure_packages(mysite::lookup_filter('packages'),
                           {ensure => installed})
 
-  stdlib::ensure_packages(mysite::lookup_filter('packages_absent'),
+  ensure_packages(mysite::lookup_filter('packages_absent'),
                           {ensure => absent})
 
   Package['ruby'] -> Package <| provider == 'gem' |>
