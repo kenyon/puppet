@@ -3,6 +3,7 @@
 mod 'aboe-chrony', '0.2.5'
 mod 'camptocamp-augeas', '1.7.0'
 mod 'camptocamp-kmod', '2.3.0'
+mod 'camptocamp-systemd', '2.6.0'
 mod 'herculesteam-augeasproviders_core', '2.4.0'
 mod 'herculesteam-augeasproviders_sysctl', '2.3.1'
 mod 'puppet-logrotate', '3.4.0'

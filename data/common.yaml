@@ -2,6 +2,7 @@
 # Common data.
 
 classes:
+  - systemd::systemctl::daemon_reload
   - timezone
   - sudo
   - git
@@ -128,14 +129,11 @@ augeases:
     lens: Puppet.lns
     changes:
       - set Manager/CtrlAltDelBurstAction none
-    notify: Exec[systemd_reload]
+    notify: Exec[systemctl-daemon-reload]
 
 cronjobs: {}
 
-execs:
-  systemd_reload:
-    command: /bin/systemctl daemon-reload
-    refreshonly: true
+execs: {}
 
 file_lines: {}
 
