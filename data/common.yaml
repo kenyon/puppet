@@ -40,7 +40,6 @@ packages:
   - etckeeper
   - htop
   - info
-  - irqbalance
   - keychain
   - lsof
   - mlocate
