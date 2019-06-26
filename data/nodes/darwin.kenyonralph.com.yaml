@@ -4,4 +4,6 @@
 classes:
   - mysite::vms::linode
 
+mysite::ntp::servers: "%{alias('ntp_servers')}"
+
 ...

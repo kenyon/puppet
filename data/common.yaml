@@ -7,6 +7,7 @@ classes:
   - sudo
   - git
   - ssh
+  - mysite::ntp
   # TODO:
   #- rsyslog::client
 
@@ -26,11 +27,11 @@ lookup_options:
 
 timezone::timezone: America/Los_Angeles
 
+# NTP servers to use for hosts that are in the NTP Pool.
 ntp_servers:
-  - darwin.kenyonralph.com
-
-ntp_pools:
-  - 2.pool.ntp.org
+  - clock.fmt.he.net
+  - ntp.caida.org
+  - ntp.vt.edu
 
 # Packages I want installed.
 packages:

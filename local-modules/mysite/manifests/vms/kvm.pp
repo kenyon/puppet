@@ -11,6 +11,10 @@ class mysite::vms::kvm {
     # module (ptp_kvm) in RHEL 7, compiled-in in Debian's
     # stretch-backports kernel, and not available in Debian stretch
     # standard kernel package.
+
+    # FIXME: add code for the above logic that uses apt::pin to ensure
+    # the stretch-backports kernel is installed, if on Debian stretch.
+
     refclocks => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
   }
 
@@ -18,7 +22,7 @@ class mysite::vms::kvm {
     before => Service['chrony'],
   }
 
-  stdlib::ensure_packages(
+  ensure_packages(
     ['qemu-guest-agent'],
     {ensure => installed},
   )

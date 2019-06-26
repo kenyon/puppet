@@ -1,28 +1,6 @@
 ---
 # Config data for Debian-family physical machines.
 
-classes:
-  - ntp
-
-ntp::iburst_enable: true
-ntp::servers: "%{alias('ntp_servers')}"
-ntp::pool: "%{alias('ntp_pools')}"
-ntp::restrict:
-  - localhost
-  - default limited noquery
-ntp::disable_monitor: false
-ntp::driftfile: /var/lib/ntp/ntp.drift
-ntp::leapfile: /etc/ntp/leap-seconds.list
-
-files:
-  /etc/ntp/leap-seconds.list:
-    ensure: file
-    source: https://www.ietf.org/timezones/data/leap-seconds.list
-    mode: '0644'
-    owner: root
-    group: root
-    notify: Service[ntp]
-
 # Local Variables:
 # coding: utf-8
 # End:
