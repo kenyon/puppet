@@ -46,8 +46,7 @@ packages:
   - multitail
   - mutt
   - ndisc6
-  # nmap includes ncat, its version of netcat (nc)
-  - nmap
+  - nmap # nmap includes ncat, its version of netcat (nc)
   - psmisc
   - pwgen
   - rsync
