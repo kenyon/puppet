@@ -2,6 +2,8 @@
 # Configuration data for puppet.kenyonralph.com.
 
 classes:
+  - puppetdb
+  - puppetdb::master::config
   - r10k::config
   - r10k::webhook
   - r10k::webhook::config
