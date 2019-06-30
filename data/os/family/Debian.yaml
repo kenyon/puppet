@@ -23,9 +23,6 @@ packages:
   - debian-goodies
   - dlocate
   - dnsutils
-  # Need the backports kernel for config PTP_1588_CLOCK_KVM, so chrony
-  # can sync VM clocks with the host.
-  #- linux-image-amd64/stretch-backports
   - lsb-release
   - man-db
   - manpages-dev

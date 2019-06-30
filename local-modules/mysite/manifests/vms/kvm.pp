@@ -4,6 +4,24 @@
 class mysite::vms::kvm {
   include ::kmod
 
+  ensure_packages(
+    ['ntp'],
+    {ensure => absent},
+  )
+
+  if $facts['os']['distro']['codename'] == 'stretch' {
+    apt::pin { 'backports_kernel':
+      packages => 'linux-image-amd64',
+      priority => 500,
+      release  => 'stretch-backports',
+    }
+
+    ensure_packages(
+      ['linux-image-amd64'],
+      {ensure => latest},
+    )
+  }
+
   class { '::chrony':
     servers   => [],
     # Special refclock that syncs the VM clock with the host system
@@ -11,10 +29,6 @@ class mysite::vms::kvm {
     # module (ptp_kvm) in RHEL 7, compiled-in in Debian's
     # stretch-backports kernel, and not available in Debian stretch
     # standard kernel package.
-
-    # FIXME: add code for the above logic that uses apt::pin to ensure
-    # the stretch-backports kernel is installed, if on Debian stretch.
-
     refclocks => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
   }
 
