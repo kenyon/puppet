@@ -5,7 +5,9 @@ classes:
   - r10k::config
   - r10k::webhook
   - r10k::webhook::config
-  #- mysite::vms::linode
+  - --mysite::ntp # remove when this becomes a linode.
+  #- mysite::vms::linode # uncomment when this becomes a linode.
+  - mysite::vms::kvm # remove when this becomes a linode.
   - mysite::roles::puppetmaster
   - mysite::roles::puppetmaster::hiera_eyaml
 
