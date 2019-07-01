@@ -7,7 +7,7 @@ class mysite::roles::hypervisor_kvm {
       capability => 'cap_net_admin+ep',
     }
 
-    stdlib::ensure_packages(
+    ensure_packages(
       ['libosinfo-bin', 'virtinst'],
       {ensure => installed},
     )
