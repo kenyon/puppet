@@ -3,6 +3,7 @@
 
 classes:
   - mysite::vms::linode
+  - mysite::roles::dns_server
 
 mysite::ntp::servers: "%{alias('ntp_servers')}"
 
