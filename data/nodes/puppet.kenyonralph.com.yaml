@@ -2,6 +2,7 @@
 # Configuration data for puppet.kenyonralph.com.
 
 classes:
+  - logrotate
   - puppetdb
   - puppetdb::master::config
   - r10k::config
@@ -46,5 +47,25 @@ r10k::webhook::config::enable_ssl: false
 r10k::webhook::config::use_mcollective: false
 r10k::webhook::config::protected: false
 # r10k::webhook::config::github_secret: #TODO once puppet deployed on linode: eyaml encrypted github secret string here
+
+rsyslog::client::modules:
+  imfile: {}
+rsyslog::client::inputs:
+  puppetserver:
+    type: imfile
+    config:
+      file: "%{settings::logdir}/puppetserver.log"
+      tag: ''
+  webhook:
+    type: imfile
+    config:
+      file: /var/log/webhook/access.log
+      tag: ''
+
+logrotate::rules:
+  webhook:
+    path: /var/log/webhook/access.log
+    missingok: true
+    postrotate: systemctl restart webhook
 
 ...
