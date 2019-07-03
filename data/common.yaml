@@ -9,8 +9,13 @@ classes:
   - ssh
   - mysite::ntp
   - rsyslog::client
+  - accounts
 
 lookup_options:
+  accounts::user_list:
+    merge: deep
+  accounts::group_list:
+    merge: deep
   apt::sources:
     merge: hash
   rhsm::enabled_repo_ids:
@@ -79,8 +84,18 @@ services:
     ensure: stopped
     enable: mask
 
-users: {}
-groups: {}
+accounts::user_list:
+  kenyon:
+    ignore_password_if_empty: true
+    password: ''
+    comment: Kenyon Ralph
+    shell: /bin/zsh
+    groups:
+      - sudo
+      - adm
+    managevim: false
+    sshkeys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
 
 sudo::configs:
   insults:

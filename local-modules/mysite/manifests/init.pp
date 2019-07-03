@@ -4,8 +4,6 @@
 class mysite {
   mysite::lookup_filter('classes').include
 
-  create_resources('accounts::user',  lookup('users',           Hash, 'deep'))
-  create_resources(group,             lookup('groups',          Hash, 'deep'))
   create_resources(augeas,            lookup('augeases',        Hash, 'hash'))
   create_resources(cron,              lookup('cronjobs',        Hash, 'hash'))
   create_resources(exec,              lookup('execs',           Hash, 'hash'))
