@@ -8,8 +8,7 @@ classes:
   - git
   - ssh
   - mysite::ntp
-  # TODO:
-  #- rsyslog::client
+  - rsyslog::client
 
 lookup_options:
   apt::sources:
@@ -52,6 +51,7 @@ packages:
   - psmisc
   - pwgen
   - rsync
+  - rsyslog-relp
   - subnetcalc
   - time
   - tmux
@@ -79,7 +79,6 @@ services:
     ensure: stopped
     enable: mask
 
-# TODO
 users: {}
 groups: {}
 
@@ -176,6 +175,43 @@ ssh::client_options:
 
 postfix_configs: {}
 postfix_hashes: {}
+
+rsyslog::client::global_config:
+  # This can be placed in the global() configuration object in
+  # rsyslog 8.26.0+.
+  umask:
+    value: '0022'
+    type: legacy
+
+rsyslog::client::modules:
+  imuxsock: {}
+  imklog: {}
+  immark: {}
+  omrelp: {}
+  omfile:
+    type: builtin
+    config:
+      FileCreateMode: '0640'
+      FileOwner: root
+      FileGroup: adm
+
+rsyslog::client::actions:
+  forward_all:
+    type: omrelp
+    facility: '*.*'
+    config:
+      target: syslog.kenyonralph.com
+      port: 20514
+  syslog:
+    type: omfile
+    facility: '*.*'
+    config:
+      file: /var/log/syslog
+  mail:
+    type: omfile
+    facility: mail.*
+    config:
+      file: /var/log/mail.log
 
 # Local Variables:
 # coding: utf-8
