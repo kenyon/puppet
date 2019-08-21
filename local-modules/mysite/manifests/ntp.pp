@@ -4,15 +4,7 @@
 # and instead include mysite::vms::kvm.
 
 class mysite::ntp (Array[String] $servers = []) {
-  file { '/etc/ntp':
-    ensure => directory,
-  }
-
-  file { '/etc/ntp/leap-seconds.list':
-    ensure => file,
-    source => 'https://www.ietf.org/timezones/data/leap-seconds.list',
-  }
-  -> class { '::ntp':
+  class { '::ntp':
     iburst_enable   => true,
     servers         => $servers,
     pool            => [
@@ -24,6 +16,6 @@ class mysite::ntp (Array[String] $servers = []) {
     ],
     disable_monitor => false,
     driftfile       => '/var/lib/ntp/ntp.drift',
-    leapfile        => '/etc/ntp/leap-seconds.list',
+    leapfile        => '/usr/share/zoneinfo/leap-seconds.list',
   }
 }
