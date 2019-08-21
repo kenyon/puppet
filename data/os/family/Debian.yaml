@@ -28,6 +28,7 @@ packages:
   - manpages-dev
   - molly-guard
   - popularity-contest
+  - unattended-upgrades
   - vim
 
 apt::include_defaults:
@@ -77,9 +78,15 @@ apt::confs:
           }
       };
   periodic_update:
-    content: "APT::Periodic::Update-Package-Lists \"1\";\n"
-  unattended_upgrade:
-    content: "Unattended-Upgrade::Mail \"root@localhost\";\n"
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+  unattended_upgrade_settings:
+    content: |
+      Unattended-Upgrade {
+          Mail "root@localhost";
+          SyslogEnable "true";
+      };
 
 augeases:
   apt_listchanges.conf:
