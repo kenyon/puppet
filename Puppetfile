@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-mod 'aboe-chrony', '0.2.5'
-mod 'camptocamp-augeas', '1.7.0'
+mod 'aboe-chrony', '0.3.0'
+mod 'camptocamp-augeas', '1.8.0'
 mod 'camptocamp-kmod', '2.3.0'
 mod 'camptocamp-systemd', '2.6.0'
 mod 'herculesteam-augeasproviders_core', '2.4.0'
@@ -19,6 +19,7 @@ mod 'puppetlabs-puppetdb', '7.3.0'
 mod 'puppetlabs-puppetserver_gem', '1.1.0'
 mod 'puppetlabs-stdlib', '6.0.0'
 mod 'puppetlabs-translate', '1.2.0'
+mod 'puppetlabs-vcsrepo', '3.0.0'
 mod 'saz-ssh', '6.0.0'
 mod 'saz-sudo', '6.0.0'
 mod 'saz-timezone', '5.1.1'
