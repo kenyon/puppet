@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-mod 'aboe-chrony', '0.3.0'
+mod 'aboe-chrony', '0.3.1'
 mod 'camptocamp-augeas', '1.8.0'
 mod 'camptocamp-kmod', '2.3.0'
 mod 'camptocamp-systemd', '2.6.0'
