@@ -8,9 +8,9 @@ classes:
   - r10k::config
   - r10k::webhook
   - r10k::webhook::config
-  - --mysite::ntp # remove when this becomes a linode.
+  - --mysite::ntp        # remove when this becomes a linode.
   #- mysite::vms::linode # uncomment when this becomes a linode.
-  - mysite::vms::kvm # remove when this becomes a linode.
+  - mysite::vms::kvm     # remove when this becomes a linode.
   - mysite::roles::puppetmaster
   - mysite::roles::puppetmaster::hiera_eyaml
 
@@ -32,11 +32,14 @@ mysite::roles::puppetmaster::hiera_eyaml::eyaml_config:      /etc/eyaml/config.y
 
 r10k::config::remote: https://github.com/kenyon/puppet.git
 r10k::config::deploy_settings:
-  purge_levels: [ 'deployment', 'environment', 'puppetfile' ]
+  purge_levels:
+    - deployment
+    - environment
+    - puppetfile
 
 # This webhook setup runs a web server on port 8088. Then I have
-# configured a webhook in my bitbucket repository for URL
-# http://puppet.kenyonralph.com/payload that runs on push events:
+# configured a webhook in my puppet environments git repository for
+# URL http://puppet.kenyonralph.com/payload that runs on push events:
 # https://github.com/kenyon/puppet/settings/hooks So when I push to
 # github, 'r10k deploy environment --verbose --puppetfile' gets run.
 r10k::webhook::use_mcollective: false
