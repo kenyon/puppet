@@ -63,6 +63,7 @@ packages:
   - tree
   - unzip
   - w3m
+  - wdiff
   - wget
   - whois
   - zsh
