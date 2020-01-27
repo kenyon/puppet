@@ -27,6 +27,7 @@ packages:
   - man-db
   - manpages-dev
   - molly-guard
+  - moreutils
   - popularity-contest
   - unattended-upgrades
   - vim
