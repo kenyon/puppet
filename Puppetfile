@@ -29,6 +29,7 @@ mod 'stm-debconf', '3.0.0'
 mod 'stm-file_capability', '3.0.0'
 
 # https://tickets.puppetlabs.com/browse/MODULES-5362
+# Using my fork on gitlab because github doesn't have IPv6.
 mod 'puppetlabs-git',
-    :git    => 'https://github.com/puppetlabs/puppetlabs-git',
+    :git    => 'https://gitlab.com/kenyon/puppetlabs-git.git',
     :commit => '4e4498e3db218cefc27e40b7eb4e442177ccab28'
