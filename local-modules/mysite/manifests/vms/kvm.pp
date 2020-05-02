@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Configure things specific to VMs running under KVM (except Linodes).
 
-class mysite::vms::kvm {
+class mysite::vms::kvm (Boolean $enable_serial_console = true) {
   include ::kmod
 
   ensure_packages(
@@ -41,10 +41,12 @@ class mysite::vms::kvm {
     {ensure => installed},
   )
 
-  # This systemd service allows for accessing the VM's serial console
-  # using "virsh console <domain>".
-  service { 'serial-getty@ttyS0':
-    ensure => true,
-    enable => true,
+  if $enable_serial_console {
+    # This systemd service allows for accessing the VM's serial console
+    # using "virsh console <domain>".
+    service { 'serial-getty@ttyS0':
+      ensure => true,
+      enable => true,
+    }
   }
 }
