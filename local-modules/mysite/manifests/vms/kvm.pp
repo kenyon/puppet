@@ -26,9 +26,7 @@ class mysite::vms::kvm (Boolean $enable_serial_console = true) {
     servers   => [],
     # Special refclock that syncs the VM clock with the host system
     # clock. Requires kernel config PTP_1588_CLOCK_KVM, which is a
-    # module (ptp_kvm) in RHEL 7, compiled-in in Debian's
-    # stretch-backports kernel, and not available in Debian stretch
-    # standard kernel package.
+    # module (ptp_kvm) in RHEL 7 and a module in Debian buster.
     refclocks => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
   }
 
