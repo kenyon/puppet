@@ -28,10 +28,6 @@ mysite::roles::puppetmaster::puppetserver_gems:
 # console through Vultr's web interface).
 mysite::vms::kvm::enable_serial_console: no
 
-mysite::roles::puppetmaster::hiera_eyaml::eyaml_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
-mysite::roles::puppetmaster::hiera_eyaml::eyaml_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
-mysite::roles::puppetmaster::hiera_eyaml::eyaml_config:      /etc/eyaml/config.yaml
-
 r10k::config::remote: https://gitlab.com/kenyon/puppet.git
 r10k::config::deploy_settings:
   purge_levels:
