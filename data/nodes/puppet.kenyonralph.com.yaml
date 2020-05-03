@@ -8,9 +8,8 @@ classes:
   - r10k::config
   - r10k::webhook
   - r10k::webhook::config
-  - --mysite::ntp        # remove when this becomes a linode.
-  #- mysite::vms::linode # uncomment when this becomes a linode.
-  - mysite::vms::kvm     # remove when this becomes a linode.
+  - --mysite::ntp
+  - mysite::vms::kvm
   - mysite::roles::puppetmaster
   - mysite::roles::puppetmaster::hiera_eyaml
 
@@ -26,11 +25,15 @@ mysite::roles::puppetmaster::puppetserver_gems:
   - hiera-eyaml
   - r10k
 
+# As a Vultr VM, don't need to set up serial console (can access
+# console through Vultr's web interface).
+mysite::vms::kvm::enable_serial_console: no
+
 mysite::roles::puppetmaster::hiera_eyaml::eyaml_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
 mysite::roles::puppetmaster::hiera_eyaml::eyaml_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
 mysite::roles::puppetmaster::hiera_eyaml::eyaml_config:      /etc/eyaml/config.yaml
 
-r10k::config::remote: https://github.com/kenyon/puppet.git
+r10k::config::remote: https://gitlab.com/kenyon/puppet.git
 r10k::config::deploy_settings:
   purge_levels:
     - deployment
@@ -40,15 +43,18 @@ r10k::config::deploy_settings:
 # This webhook setup runs a web server on port 8088. Then I have
 # configured a webhook in my puppet environments git repository for
 # URL http://puppet.kenyonralph.com/payload that runs on push events:
-# https://github.com/kenyon/puppet/settings/hooks So when I push to
-# github, 'r10k deploy environment --verbose --puppetfile' gets run.
+# https://gitlab.com/kenyon/puppet/hooks
+# So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile' gets run.
 r10k::webhook::use_mcollective: false
 r10k::webhook::user: root
 r10k::webhook::group: root
 r10k::webhook::config::enable_ssl: false
 r10k::webhook::config::use_mcollective: false
 r10k::webhook::config::protected: false
-# r10k::webhook::config::github_secret: #TODO once puppet deployed on linode: eyaml encrypted github secret string here
+
+# TODO: implement gitlab secret token support in https://github.com/voxpupuli/puppet-r10k/blob/master/templates/webhook.bin.erb
+# Then have the eyaml-encrypted gitlab secret string here.
+# r10k::webhook::config::github_secret:
 
 rsyslog::client::modules:
   imfile: {}
