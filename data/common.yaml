@@ -193,11 +193,8 @@ postfix_configs: {}
 postfix_hashes: {}
 
 rsyslog::client::global_config:
-  # This can be placed in the global() configuration object in
-  # rsyslog 8.26.0+.
   umask:
     value: '0022'
-    type: legacy
 
 rsyslog::client::modules:
   imuxsock: {}
