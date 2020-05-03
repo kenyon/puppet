@@ -8,7 +8,6 @@ classes:
   - git
   - ssh
   - mysite::ntp
-  - rsyslog::client
   - accounts
 
 lookup_options:
@@ -20,14 +19,6 @@ lookup_options:
     merge: hash
   rhsm::enabled_repo_ids:
     merge: unique
-  rsyslog::client::actions:
-    merge: hash
-  rsyslog::client::global_config:
-    merge: hash
-  rsyslog::client::inputs:
-    merge: hash
-  rsyslog::client::modules:
-    merge: hash
 
 timezone::timezone: America/Los_Angeles
 
@@ -56,7 +47,6 @@ packages:
   - psmisc
   - pwgen
   - rsync
-  - rsyslog-relp
   - subnetcalc
   - time
   - tmux
@@ -76,6 +66,7 @@ packages:
 # https://tickets.puppetlabs.com/browse/PUP-1061
 packages_absent:
   - nano
+  - rsyslog
 
 # Ruby gems.
 gems: []
@@ -191,40 +182,6 @@ ssh::client_options:
 
 postfix_configs: {}
 postfix_hashes: {}
-
-rsyslog::client::global_config:
-  umask:
-    value: '0022'
-
-rsyslog::client::modules:
-  imuxsock: {}
-  imklog: {}
-  immark: {}
-  omrelp: {}
-  omfile:
-    type: builtin
-    config:
-      FileCreateMode: '0640'
-      FileOwner: root
-      FileGroup: adm
-
-rsyslog::client::actions:
-  forward_all:
-    type: omrelp
-    facility: '*.*'
-    config:
-      target: syslog.kenyonralph.com
-      port: 20514
-  syslog:
-    type: omfile
-    facility: '*.*'
-    config:
-      file: /var/log/syslog
-  mail:
-    type: omfile
-    facility: mail.*
-    config:
-      file: /var/log/mail.log
 
 # Local Variables:
 # coding: utf-8

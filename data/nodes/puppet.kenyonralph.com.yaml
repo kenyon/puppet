@@ -2,7 +2,6 @@
 # Configuration data for puppet.kenyonralph.com.
 
 classes:
-  - logrotate
   - puppetdb
   - puppetdb::master::config
   - r10k::config
@@ -56,24 +55,8 @@ r10k::webhook::config::protected: false
 # Then have the eyaml-encrypted gitlab secret string here.
 # r10k::webhook::config::github_secret:
 
-rsyslog::client::modules:
-  imfile: {}
-rsyslog::client::inputs:
-  puppetserver:
-    type: imfile
-    config:
-      file: "%{settings::logdir}/puppetserver.log"
-      tag: ''
-  webhook:
-    type: imfile
-    config:
-      file: /var/log/webhook/access.log
-      tag: ''
-
-logrotate::rules:
-  webhook:
-    path: /var/log/webhook/access.log
-    missingok: true
-    postrotate: systemctl restart webhook
+# TODO: have puppetserver and webhook logs just go to standard output so that they are logged by systemd journal.
+# https://puppet.com/docs/puppetserver/latest/config_logging_advanced.html
+# http://logback.qos.ch/manual/appenders.html
 
 ...

@@ -2,9 +2,6 @@
 # Configuration data for darwin.kenyonralph.com.
 
 classes:
-  - --rsyslog::client
-  # TODO
-  #- rsyslog::server
   - mysite::vms::linode
   - mysite::roles::dns_server
 

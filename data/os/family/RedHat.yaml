@@ -3,37 +3,10 @@
 
 classes:
   - mysite::redhat
-  - logrotate
   - chrony
 
 chrony::pools: "%{alias('ntp_pools')}"
 chrony::servers: "%{alias('ntp_servers')}"
-
-logrotate::config:
-  compress: false
-  dateext: true
-
-logrotate::rules:
-  puppet_rsyslog:
-    path:
-      - /var/log/auth.log
-      - /var/log/kern.log
-      - /var/log/mail.log
-      - /var/log/mail.info
-      - /var/log/mail.warn
-      - /var/log/mail.err
-      - /var/log/user.log
-    missingok: true
-    sharedscripts: true
-    postrotate: '/bin/kill -HUP $(cat /var/run/syslogd.pid 2>/dev/null) 2>/dev/null || true'
-
-rsyslog::client::global_config:
-  workDirectory:
-    value: /var/lib/rsyslog
-
-rsyslog::client::modules:
-  # loading imjournal on debian causes every log message to be duplicated
-  imjournal: {}
 
 packages:
   - bind-utils
