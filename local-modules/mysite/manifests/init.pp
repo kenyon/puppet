@@ -4,15 +4,59 @@
 class mysite {
   mysite::lookup_filter('classes').include
 
-  create_resources(augeas,            lookup('augeases',        Hash, 'hash'))
-  create_resources(cron,              lookup('cronjobs',        Hash, 'hash'))
-  create_resources(exec,              lookup('execs',           Hash, 'hash'))
-  create_resources(file,              lookup('files',           Hash, 'hash'))
-  create_resources('file_line',       lookup('file_lines',      Hash, 'hash'))
-  create_resources(service,           lookup('services',        Hash, 'hash'))
-  create_resources(sysctl,            lookup('sysctls',         Hash, 'hash'))
-  create_resources('postfix::config', lookup('postfix_configs', Hash, 'hash'))
-  create_resources('postfix::hash',   lookup('postfix_hashes',  Hash, 'hash'))
+  lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
+    augeas { $key:
+      * => $value,
+    }
+  }
+
+  lookup('cronjobs', Hash, 'hash', {}).each |$key, $value| {
+    cron { $key:
+      * => $value,
+    }
+  }
+
+  lookup('execs', Hash, 'hash', {}).each |$key, $value| {
+    exec { $key:
+      * => $value,
+    }
+  }
+
+  lookup('files', Hash, 'hash', {}).each |$key, $value| {
+    file { $key:
+      * => $value,
+    }
+  }
+
+  lookup('file_lines', Hash, 'hash', {}).each |$key, $value| {
+    file_line { $key:
+      * => $value,
+    }
+  }
+
+  lookup('services', Hash, 'hash', {}).each |$key, $value| {
+    service { $key:
+      * => $value,
+    }
+  }
+
+  lookup('sysctls', Hash, 'hash', {}).each |$key, $value| {
+    sysctl { $key:
+      * => $value,
+    }
+  }
+
+  lookup('postfix_configs', Hash, 'hash', {}).each |$key, $value| {
+    ::postfix::config { $key:
+      * => $value,
+    }
+  }
+
+  lookup('postfix_hashes', Hash, 'hash', {}).each |$key, $value| {
+    ::postfix::hash { $key:
+      * => $value,
+    }
+  }
 
   ensure_packages(mysite::lookup_filter('packages'),
                           {ensure => installed})

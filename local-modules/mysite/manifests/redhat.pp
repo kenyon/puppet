@@ -17,5 +17,9 @@ class mysite::redhat {
 
   #Package['yum-cron'] -> Service['yum-cron']
 
-  #create_resources('yumrepo', lookup('yumrepos', Hash, 'hash'))
+  # lookup('yumrepos', Hash, 'hash', {}).each |$key, $value| {
+  #   yumrepo { $key:
+  #     * => $value,
+  #   }
+  # }
 }

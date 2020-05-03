@@ -138,12 +138,6 @@ augeases:
       - set Manager/CtrlAltDelBurstAction none
     notify: Exec[systemctl-daemon-reload]
 
-cronjobs: {}
-
-execs: {}
-
-file_lines: {}
-
 files:
   /etc/zlogout:
     ensure: absent
@@ -179,9 +173,6 @@ sysctls:
 ssh::client_options:
   Host *:
     HashKnownHosts: no
-
-postfix_configs: {}
-postfix_hashes: {}
 
 # Local Variables:
 # coding: utf-8
