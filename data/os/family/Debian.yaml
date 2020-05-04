@@ -55,10 +55,10 @@ apt::sources:
     location: https://deb.debian.org/debian
     release: "%{facts.os.distro.codename}-backports"
     repos: main contrib non-free
-  puppet6:
+  puppet:
     location: https://apt.puppetlabs.com
     release: "%{facts.os.distro.codename}"
-    repos: puppet6
+    repos: puppet
     include:
       src: false
 
