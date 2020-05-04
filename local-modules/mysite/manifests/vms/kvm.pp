@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 # Configure things specific to VMs running under KVM (except Linodes).
 
-class mysite::vms::kvm (Boolean $enable_serial_console = true) {
+class mysite::vms::kvm (
+  Boolean $enable_serial_console = true,
+  Boolean $install_qemu_guest_agent = true,
+) {
   include ::kmod
 
   ensure_packages(
@@ -34,10 +37,13 @@ class mysite::vms::kvm (Boolean $enable_serial_console = true) {
     before => Service['chrony'],
   }
 
-  ensure_packages(
-    ['qemu-guest-agent'],
-    {ensure => installed},
-  )
+  # Don't install this on Linodes, it just hangs when it starts.
+  if $install_qemu_guest_agent {
+    ensure_packages(
+      ['qemu-guest-agent'],
+      {ensure => installed},
+    )
+  }
 
   if $enable_serial_console {
     # This systemd service allows for accessing the VM's serial console
