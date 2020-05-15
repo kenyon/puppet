@@ -28,6 +28,9 @@ mysite::roles::puppetmaster::puppetserver_gems:
 # console through Linode's web interface).
 mysite::vms::kvm::enable_serial_console: no
 
+# qemu-guest-agent just hangs on Linodes.
+mysite::vms::kvm::install_qemu_guest_agent: no
+
 r10k::config::remote: https://gitlab.com/kenyon/puppet.git
 r10k::config::deploy_settings:
   purge_levels:
