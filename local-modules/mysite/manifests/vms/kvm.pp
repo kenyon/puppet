@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Configure things specific to VMs running under KVM (except Linodes).
+# Configure things specific to VMs running under KVM.
 
 class mysite::vms::kvm (
   Boolean $enable_serial_console = true,
