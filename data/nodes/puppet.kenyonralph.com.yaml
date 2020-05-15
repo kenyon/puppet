@@ -24,8 +24,8 @@ mysite::roles::puppetmaster::puppetserver_gems:
   - hiera-eyaml
   - r10k
 
-# As a Vultr VM, don't need to set up serial console (can access
-# console through Vultr's web interface).
+# As a Linode VM, don't need to set up serial console (can access
+# console through Linode's web interface).
 mysite::vms::kvm::enable_serial_console: no
 
 r10k::config::remote: https://gitlab.com/kenyon/puppet.git
