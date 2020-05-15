@@ -8,14 +8,4 @@ packages:
   - --emacs-nox
   - emacs
 
-apt::sources:
-  unifi:
-    location: http://www.ubnt.com/downloads/unifi/debian
-    release: stable
-    repos: ubiquiti
-  unifi-video:
-    location: http://www.ubnt.com/downloads/unifi-video/apt-3.x
-    release: jessie
-    repos: ubiquiti
-
 ...
