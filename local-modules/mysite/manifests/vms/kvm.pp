@@ -33,8 +33,12 @@ class mysite::vms::kvm (
     refclocks => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
   }
 
-  kmod::load { 'ptp_kvm':
-    before => Service['chrony'],
+  # Linode kernels have CONFIG_PTP_1588_CLOCK and
+  # CONFIG_PTP_1588_CLOCK_KVM built in (not as modules).
+  unless $facts['kernelrelease'] =~ /linode/ {
+    kmod::load { 'ptp_kvm':
+      before => Service['chrony'],
+    }
   }
 
   # Don't install this on Linodes, it just hangs when it starts.
