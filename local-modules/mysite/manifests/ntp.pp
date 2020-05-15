@@ -1,7 +1,6 @@
 # My standard NTP (ntpd) configuration.
 
-# For non-Linode KVM VM nodes, exclude this class (- --mysite::ntp)
-# and instead include mysite::vms::kvm.
+# For KVM VM nodes, exclude this class (- --mysite::ntp).
 
 class mysite::ntp (Array[String] $servers = []) {
   class { '::ntp':

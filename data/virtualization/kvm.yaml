@@ -1,6 +1,10 @@
 ---
 # Config data for virtual machines running under KVM, including Linodes.
 
+classes:
+  - --mysite::ntp
+  - mysite::vms::kvm
+
 # Local Variables:
 # coding: utf-8
 # End:

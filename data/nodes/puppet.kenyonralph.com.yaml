@@ -7,8 +7,6 @@ classes:
   - r10k::config
   - r10k::webhook
   - r10k::webhook::config
-  - --mysite::ntp
-  - mysite::vms::kvm
   - mysite::roles::puppetmaster
   - mysite::roles::puppetmaster::hiera_eyaml
 
