@@ -26,11 +26,13 @@ class mysite::vms::kvm (
   }
 
   class { '::chrony':
-    servers   => [],
+    servers    => [],
     # Special refclock that syncs the VM clock with the host system
     # clock. Requires kernel config PTP_1588_CLOCK_KVM, which is a
     # module (ptp_kvm) in RHEL 7 and a module in Debian buster.
-    refclocks => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
+    refclocks  => ['PHC /dev/ptp0 poll 3 dpoll -2 offset 0'],
+    port       => '123',
+    queryhosts => '',
   }
 
   # Linode kernels have CONFIG_PTP_1588_CLOCK and
