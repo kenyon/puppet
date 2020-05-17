@@ -38,7 +38,7 @@ r10k::config::deploy_settings:
 
 # This webhook setup runs a web server on port 8088. Then I have
 # configured a webhook in my puppet environments git repository for
-# URL http://puppet.kenyonralph.com/payload that runs on push events:
+# URL http://puppet.kenyonralph.com:8088/payload that runs on push events:
 # https://gitlab.com/kenyon/puppet/hooks
 # So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile' gets run.
 r10k::webhook::use_mcollective: false
