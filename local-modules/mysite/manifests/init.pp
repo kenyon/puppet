@@ -67,7 +67,7 @@ class mysite {
   Package['ruby'] -> Package <| provider == 'gem' |>
 
   # Ruby gems.
-  lookup('gems', Array[String], 'unique').each |String $gem| {
+  lookup('gems', Array[String], 'unique', []).each |String $gem| {
     package { "gem_${gem}":
       ensure          => installed,
       provider        => gem,

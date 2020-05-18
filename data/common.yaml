@@ -68,9 +68,6 @@ packages_absent:
   - nano
   - rsyslog
 
-# Ruby gems.
-gems: []
-
 services:
   ctrl-alt-del.target:
     ensure: stopped
