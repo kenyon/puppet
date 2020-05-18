@@ -64,6 +64,12 @@ class mysite {
     }
   }
 
+  lookup('vcsrepos', Hash, 'hash', {}).each |$key, $value| {
+    vcsrepo { $key:
+      * => $value,
+    }
+  }
+
   ensure_packages(mysite::lookup_filter('packages'),
                           {ensure => installed})
 
