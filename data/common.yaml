@@ -152,6 +152,11 @@ files:
       facts : {
           blocklist : [ "EC2" ],
       }
+  /home/kenyon/.puppet-managed:
+    ensure: directory
+    owner: kenyon
+    group: kenyon
+    require: User[kenyon]
 
 sysctls:
   net.core.default_qdisc:
@@ -276,6 +281,20 @@ sshkeys:
     type: ed25519
     host_aliases: *turing_aliases
     key: AAAAC3NzaC1lZDI1NTE5AAAAIIHgJAOsIt2Q50bojzd/B3OlV3LIkg3C+fp/WeEwJqLX
+
+vcsrepos:
+  /home/kenyon/.puppet-managed/dotfiles:
+    ensure: latest
+    provider: git
+    require: File[/home/kenyon/.puppet-managed]
+    source: https://gitlab.com/kenyon/dotfiles.git
+    user: kenyon
+  /home/kenyon/.puppet-managed/scripts:
+    ensure: latest
+    provider: git
+    require: File[/home/kenyon/.puppet-managed]
+    source: https://gitlab.com/kenyon/scripts.git
+    user: kenyon
 
 # Local Variables:
 # coding: utf-8
