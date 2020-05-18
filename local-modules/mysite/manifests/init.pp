@@ -52,6 +52,12 @@ class mysite {
     }
   }
 
+  lookup('sshkeys', Hash, 'hash', {}).each |$key, $value| {
+    sshkey { $key:
+      * => $value,
+    }
+  }
+
   lookup('sysctls', Hash, 'hash', {}).each |$key, $value| {
     sysctl { $key:
       * => $value,
