@@ -180,6 +180,29 @@ ssh::server_options:
   AllowUsers: kenyon root
   PermitRootLogin: without-password
 
+# Additional entries for /etc/ssh/ssh_known_hosts for hosts not
+# managed by puppet. Puppet-managed hosts are automatically added by
+# the ssh module.
+sshkeys:
+  einstein_rsa:
+    type: rsa
+    key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDGsvrpsky8KORBCApL6t/bcwOeWgtwlq9r4KT7DngxtFo/+b3h/Z7XCbrF5QWh0dQNqv/IBBzBorgfNj5YUz95fnmuRdDgK4zWjKioSrdlWlP2E5lDiKSceb0EL8k9za2QbTifrdya9oyMRuBWNij6JwD/FfOTYIP1Zre9PbLYCc0E13XhWDWoPNND/Rc+oi3qiRhOqKZTY/BK/GIz6vS5hP9p5aePgx4JpoUMndT2m8HpCqJJBJk5Xl2X+ekaKNG0jNwGHXumzAqHml0rmVTONHCiufDIp/a78dKdJRtsPxs42R84tCLzbDegzVbvdkA7GfKCBfuQrO1pnVpeilHZ
+    host_aliases:
+      - einstein
+      - einstein.kenyonralph.com
+  einstein_ecdsa:
+    type: ecdsa-sha2-nistp256
+    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJCq/itOjURSkwD0N551LFNJzd9a8grgi/W0aNF3abngiBUm/+QOgy0TDsG3LUZsO8doTWvmxB2rSDvPIuTjBa8=
+    host_aliases:
+      - einstein
+      - einstein.kenyonralph.com
+  einstein_ed25519:
+    type: ed25519
+    key: AAAAC3NzaC1lZDI1NTE5AAAAIO6JhMp1iWslik8qiRmdiAVUlgjZN8IyG5iokL5lFKYp
+    host_aliases:
+      - einstein
+      - einstein.kenyonralph.com
+
 # Local Variables:
 # coding: utf-8
 # End:
