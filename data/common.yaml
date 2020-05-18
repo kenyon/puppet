@@ -172,7 +172,16 @@ sysctls:
 
 ssh::client_options:
   Host *:
+    ForwardAgent: yes
+    ForwardX11: yes
     HashKnownHosts: no
+    SendEnv: LANG LC_*
+    VerifyHostKeyDNS: yes
+    VisualHostKey: yes
+
+ssh::server_options:
+  AllowUsers: kenyon root
+  PermitRootLogin: without-password
 
 # Local Variables:
 # coding: utf-8
