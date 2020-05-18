@@ -34,18 +34,6 @@ class mysite {
     }
   }
 
-  lookup('services', Hash, 'hash', {}).each |$key, $value| {
-    service { $key:
-      * => $value,
-    }
-  }
-
-  lookup('sysctls', Hash, 'hash', {}).each |$key, $value| {
-    sysctl { $key:
-      * => $value,
-    }
-  }
-
   lookup('postfix_configs', Hash, 'hash', {}).each |$key, $value| {
     ::postfix::config { $key:
       * => $value,
@@ -54,6 +42,18 @@ class mysite {
 
   lookup('postfix_hashes', Hash, 'hash', {}).each |$key, $value| {
     ::postfix::hash { $key:
+      * => $value,
+    }
+  }
+
+  lookup('services', Hash, 'hash', {}).each |$key, $value| {
+    service { $key:
+      * => $value,
+    }
+  }
+
+  lookup('sysctls', Hash, 'hash', {}).each |$key, $value| {
+    sysctl { $key:
       * => $value,
     }
   }
