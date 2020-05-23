@@ -64,6 +64,12 @@ class mysite {
     }
   }
 
+  lookup('systemd_dropin_files', Hash, 'hash', {}).each |$key, $value| {
+    systemd::dropin_file { $key:
+      * => $value,
+    }
+  }
+
   lookup('vcsrepos', Hash, 'hash', {}).each |$key, $value| {
     vcsrepo { $key:
       * => $value,
