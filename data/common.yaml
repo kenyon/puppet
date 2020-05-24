@@ -189,6 +189,7 @@ ssh::client_options:
     VisualHostKey: yes
 
 ssh::server_options:
+  AddressFamily: inet6
   AllowUsers: kenyon root
   PermitRootLogin: without-password
 
