@@ -155,8 +155,34 @@ files:
   /home/kenyon/.puppet-managed:
     ensure: directory
     owner: kenyon
-    group: kenyon
     require: User[kenyon]
+  /home/kenyon/.config/git:
+    ensure: directory
+    owner: kenyon
+    require: User[kenyon]
+
+kenyon_dotfiles:
+  - .aspell.en.prepl
+  - .aspell.en.pws
+  - .bash_aliases
+  - .bash_profile
+  - .bashrc
+  - .config/git/ignore
+  - .devscripts
+  - .dput.cf
+  - .emacs.d
+  - .inputrc
+  - .profile
+  - .quiltrc
+  - .screenrc
+  - .signature
+  - .tmux.conf
+  - .toprc
+  - .vim
+  - .vimrc
+  - .zlogin
+  - .zshenv
+  - .zshrc
 
 sysctls:
   net.core.default_qdisc:
