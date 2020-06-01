@@ -10,7 +10,6 @@ packages:
   - apt-listbugs
   - apt-listchanges
   - apt-show-versions
-  - apt-transport-https
   - apticron
   - aptitude
   - aptitude-doc-en
