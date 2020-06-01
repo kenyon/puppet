@@ -60,7 +60,8 @@ packages:
 # https://tickets.puppetlabs.com/browse/PUP-1061
 packages_absent:
   - nano
-  - rsyslog
+  # Remove rsyslog package when I've converted to using systemd journal.
+  #- rsyslog
 
 services:
   ctrl-alt-del.target:
