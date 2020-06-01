@@ -218,23 +218,6 @@ ssh::server_options:
 # managed by puppet. Puppet-managed hosts are automatically added by
 # the ssh module.
 sshkeys:
-  darwin_rsa:
-    type: rsa
-    key: AAAAB3NzaC1yc2EAAAABIwAAAQEAzHRwgTD49Ok+okAKSN75dpCW39vOKj/WIjgcbO1MSDEWB8gNuzAR6pS7X0dU3xRLdvqnnJpbeH1QgNdZL42KykdA/kMP1u7iDb+x+CVCBnSX3xboO67uhlvzZ5DeVeenqCP8nXZe2ron9h6Ek6+ppBj26neZZA+w0UAiVcjmWpZu6tyml+5ebFqpsm5QeLwrEJ/KUSESTjpPx/s5TNZKOWmon9WEVKnU7eiQW+uZ8uzyXMjXxYmLhTImmabj4NFcE3Yhv/krE7Uw5rdVwEW+5KXSJmRjonVF1m2ZyB0yG+JmcGwdOt9oWHHMGqJOKnMTwg9JXCpwRDy3oG+993T0dQ==
-    host_aliases: &darwin_aliases
-      - darwin
-      - darwin.kenyonralph.com
-      - 173.255.215.209
-      - 2600:3c01::f03c:91ff:fe93:b0d1
-  darwin_ecdsa:
-    type: ecdsa-sha2-nistp256
-    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKXDW/Z2sFmaluVjg7E5el1pNcE6ow2ixnLshUjNyZq0CWyRLi7CsHIsuZLGYrMT8WYocYd4so/YslaDBRreTMY=
-    host_aliases: *darwin_aliases
-  darwin_ed25519:
-    type: ed25519
-    key: AAAAC3NzaC1lZDI1NTE5AAAAIIv4RWF8z3/cFXilpsHlqUI0RCdxWVKxGLoyM4xloQRv
-    host_aliases: *darwin_aliases
-
   galileo_rsa:
     type: rsa
     key: AAAAB3NzaC1yc2EAAAADAQABAAABAQCxD4iEPoeNC+6/nIKa4NAMPbEhCJZJNJRx1wmGCTQa85SthIgXAAAiwrXrBKbjEkzb0AJGbQbtIQY+lln9acDmEtZdsHShklIFeLa3QCoDHaVS7rmc9UgtKQx3bqlwPGveOfDfaFsU5gEfDI1ZqAyCpKnHBuE6S5WkmGobhtnnjJMeVEiNdjJtq4/2S1KyQRUvvMpPqyckgxziXqYGmUNFLb7j6Z0YdaaY0qL74+SqxGCkVMCYjy5JEIZdv9UhyXnbSI2cVqOU7zypk/A69WeyiEwQvXUn5xK8usjA9jFsDi0ULinmmfP+Ux7g8woS3S+7vLU5N9ynR82YjHD0rEPB
