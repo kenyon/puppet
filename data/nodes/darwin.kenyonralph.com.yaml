@@ -7,5 +7,20 @@ files:
     target: /home/kenyon/.puppet-managed/scripts/learnspam
     owner: kenyon
     require: Vcsrepo[/home/kenyon/.puppet-managed/scripts]
+  /home/kenyon/bin/sign-release:
+    ensure: file
+    owner: kenyon
+    mode: '0755'
+    require: File[/home/kenyon/bin]
+    content: |
+      #!/bin/bash
+      set -o errexit
+      rm --force Release.gpg.tmp
+      gpg --default-key 0x98FF3EF9C9B912D5 --detach-sign -o Release.gpg.tmp "$1"
+      mv Release.gpg.tmp Release.gpg
+
+kenyon_host_dotfiles:
+  - .mini-dinstall.conf
+  - .ikiwiki
 
 ...
