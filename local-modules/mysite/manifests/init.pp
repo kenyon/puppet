@@ -39,7 +39,7 @@ class mysite {
       ensure  => link,
       owner   => 'kenyon',
       target  => "/home/kenyon/.puppet-managed/dotfiles/${dotfile}",
-      require => User['kenyon'],
+      require => Vcsrepo['/home/kenyon/.puppet-managed/dotfiles'],
     }
   }
 
@@ -49,7 +49,7 @@ class mysite {
       ensure  => link,
       owner   => 'kenyon',
       target  => "/home/kenyon/.puppet-managed/dotfiles/hosts/${trusted['hostname']}/${dotfile}",
-      require => User['kenyon'],
+      require => Vcsrepo['/home/kenyon/.puppet-managed/dotfiles'],
     }
   }
 

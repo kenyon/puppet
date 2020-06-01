@@ -300,13 +300,17 @@ vcsrepos:
   /home/kenyon/.puppet-managed/dotfiles:
     ensure: latest
     provider: git
-    require: File[/home/kenyon/.puppet-managed]
+    require:
+      - User[kenyon]
+      - File[/home/kenyon/.puppet-managed]
     source: https://gitlab.com/kenyon/dotfiles.git
     user: kenyon
   /home/kenyon/.puppet-managed/scripts:
     ensure: latest
     provider: git
-    require: File[/home/kenyon/.puppet-managed]
+    require:
+      - User[kenyon]
+      - File[/home/kenyon/.puppet-managed]
     source: https://gitlab.com/kenyon/scripts.git
     user: kenyon
 
