@@ -6,7 +6,6 @@ classes:
   - chrony
 
 chrony::pools: "%{alias('ntp_pools')}"
-chrony::servers: "%{alias('ntp_servers')}"
 
 packages:
   - bind-utils
