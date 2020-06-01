@@ -43,6 +43,16 @@ class mysite {
     }
   }
 
+  # Host-specific dotfiles.
+  lookup('kenyon_host_dotfiles', Array, 'unique', []).each |$dotfile| {
+    file { "/home/kenyon/${dotfile}":
+      ensure  => link,
+      owner   => 'kenyon',
+      target  => "/home/kenyon/.puppet-managed/dotfiles/hosts/${trusted['hostname']}/${dotfile}",
+      require => User['kenyon'],
+    }
+  }
+
   lookup('postfix_configs', Hash, 'hash', {}).each |$key, $value| {
     ::postfix::config { $key:
       * => $value,
