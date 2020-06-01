@@ -212,6 +212,7 @@ ssh::client_options:
 ssh::server_options:
   AddressFamily: inet6
   AllowUsers: kenyon root
+  PasswordAuthentication: no
   PermitRootLogin: without-password
 
 # Additional entries for /etc/ssh/ssh_known_hosts for hosts not
