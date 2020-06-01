@@ -149,6 +149,10 @@ files:
       facts : {
           blocklist : [ "EC2" ],
       }
+  /home/kenyon/bin:
+    ensure: directory
+    owner: kenyon
+    require: User[kenyon]
   /home/kenyon/.puppet-managed:
     ensure: directory
     owner: kenyon
