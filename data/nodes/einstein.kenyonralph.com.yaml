@@ -8,4 +8,11 @@ packages:
   - --emacs-nox
   - emacs
 
+kenyon_host_dotfiles:
+  - .Xmodmap
+  - .mailcap
+  - .xmobarrc
+  - .xmonad/xmonad.hs
+  - .xsession
+
 ...
