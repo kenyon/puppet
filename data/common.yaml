@@ -123,6 +123,8 @@ augeases:
     changes:
       - set main/show_diff true
       - set main/server puppet.kenyonralph.com
+      # https://puppet.com/docs/puppet/latest/report.html
+      - set master/reports log
   system.conf:
     incl: /etc/systemd/system.conf
     lens: Puppet.lns
