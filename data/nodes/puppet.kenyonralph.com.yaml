@@ -19,7 +19,6 @@ gems:
   - r10k
 
 mysite::roles::puppetmaster::puppetserver_gems:
-  - hiera-eyaml
   - r10k
 
 r10k::config::remote: https://gitlab.com/kenyon/puppet.git
