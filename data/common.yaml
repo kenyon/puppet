@@ -157,6 +157,11 @@ files:
     ensure: directory
     owner: kenyon
     require: User[kenyon]
+  /home/kenyon/.config:
+    ensure: directory
+    mode: '0700'
+    owner: kenyon
+    require: User[kenyon]
   /home/kenyon/.config/git:
     ensure: directory
     owner: kenyon
