@@ -38,14 +38,14 @@ class mysite::vms::kvm (
 
   # Linode kernels have CONFIG_PTP_1588_CLOCK and
   # CONFIG_PTP_1588_CLOCK_KVM built in (not as modules).
-  unless $facts['kernelrelease'] =~ /linode/ {
+  unless mysite::is_linode() {
     kmod::load { 'ptp_kvm':
       before => Service['chrony'],
     }
   }
 
   # Don't install this on Linodes, it just hangs when it starts.
-  if $install_qemu_guest_agent and $facts['kernelrelease'] !~ /linode/ {
+  if $install_qemu_guest_agent and !mysite::is_linode() {
     ensure_packages(
       ['qemu-guest-agent'],
       {ensure => installed},
@@ -54,7 +54,7 @@ class mysite::vms::kvm (
 
   # Linodes don't need to set up serial console (can access console
   # through Linode's web interface).
-  if $enable_serial_console and $facts['kernelrelease'] !~ /linode/ {
+  if $enable_serial_console and !mysite::is_linode() {
     # This systemd service allows for accessing the VM's serial console
     # using "virsh console <domain>".
     service { 'serial-getty@ttyS0':
