@@ -101,6 +101,8 @@ class mysite {
   ensure_packages(mysite::lookup_filter('packages_absent'),
                           {ensure => absent})
 
+  Package['zsh'] -> User['kenyon']
+
   Package['ruby'] -> Package <| provider == 'gem' |>
 
   # Ruby gems.
