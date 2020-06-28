@@ -83,6 +83,10 @@ apt::confs:
       Unattended-Upgrade {
           Mail "root@localhost";
           SyslogEnable "true";
+          Origins-Pattern {
+              "origin=Puppetlabs";
+              "origin=apt.postgresql.org";
+          };
       };
 
 augeases:
