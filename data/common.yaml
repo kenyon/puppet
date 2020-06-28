@@ -130,7 +130,7 @@ augeases:
     lens: Puppet.lns
     changes:
       - set Manager/CtrlAltDelBurstAction none
-    notify: Exec[systemctl-daemon-reload]
+    notify: Class[systemd::systemctl::daemon_reload]
 
 files:
   /etc/zlogout:
