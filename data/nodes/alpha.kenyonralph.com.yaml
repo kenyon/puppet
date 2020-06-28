@@ -1,0 +1,6 @@
+---
+
+classes:
+  - mysite::roles::systemd_journal_collector
+
+...
