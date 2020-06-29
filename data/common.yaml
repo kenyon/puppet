@@ -133,7 +133,6 @@ ini_settings:
     section: Manager
     setting: CtrlAltDelBurstAction
     value: none
-    notify: Class[systemd::systemctl::daemon_reload]
 
 files:
   /etc/zlogout:
