@@ -34,6 +34,12 @@ class mysite {
     }
   }
 
+  lookup('ini_settings', Hash, 'hash', {}).each |$key, $value| {
+    ini_setting { $key:
+      * => $value,
+    }
+  }
+
   lookup('kenyon_dotfiles', Array, 'unique', []).each |$dotfile| {
     file { "/home/kenyon/${dotfile}":
       ensure  => link,

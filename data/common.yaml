@@ -125,11 +125,14 @@ augeases:
       - set main/server puppet.kenyonralph.com
       # https://puppet.com/docs/puppet/latest/report.html
       - set master/reports log
-  system.conf:
-    incl: /etc/systemd/system.conf
-    lens: Puppet.lns
-    changes:
-      - set Manager/CtrlAltDelBurstAction none
+
+ini_settings:
+  disable_systemd_CtrlAltDelBurstAction:
+    ensure: present
+    path: /etc/systemd/system.conf
+    section: Manager
+    setting: CtrlAltDelBurstAction
+    value: none
     notify: Class[systemd::systemctl::daemon_reload]
 
 files:
