@@ -2,7 +2,7 @@
 # Common data.
 
 classes:
-  - systemd::systemctl::daemon_reload
+  - systemd
   - timezone
   - sudo
   - git
