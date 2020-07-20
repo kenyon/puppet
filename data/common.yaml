@@ -80,6 +80,7 @@ accounts::user_list:
     managevim: false
     sshkeys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
 
 sudo::configs:
   insults:
