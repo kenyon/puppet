@@ -20,7 +20,7 @@ mod 'puppetlabs-puppetdb', '7.4.0'
 mod 'puppetlabs-puppetserver_gem', '1.1.1'
 mod 'puppetlabs-stdlib', '6.3.0'
 mod 'puppetlabs-translate', '2.2.0'
-#mod 'puppetlabs-vcsrepo', '3.1.0'
+mod 'puppetlabs-vcsrepo', '3.1.1'
 mod 'saz-ssh', '6.2.0'
 mod 'saz-sudo', '6.0.0'
 mod 'saz-timezone', '6.0.0'
@@ -35,7 +35,3 @@ mod 'puppetlabs-git',
 mod 'puppet-r10k',
     :git    => 'https://github.com/kenyon/puppet-r10k.git',
     :branch => 'webhook-verify-x-gitlab-token'
-
-mod 'puppetlabs-vcsrepo',
-    :git    => 'https://github.com/kenyon/puppetlabs-vcsrepo.git',
-    :branch => 'no-color'
