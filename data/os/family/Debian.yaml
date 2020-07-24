@@ -25,6 +25,7 @@ packages:
   - molly-guard
   - moreutils
   - popularity-contest
+  - rdnssd
   - unattended-upgrades
   - vim
 
