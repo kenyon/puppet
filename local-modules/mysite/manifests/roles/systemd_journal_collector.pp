@@ -13,8 +13,8 @@ class mysite::roles::systemd_journal_collector {
   }
 
   systemd::dropin_file { 'systemd-journal-remote.conf':
-    unit    => 'systemd-journal-remote.service',
+    unit   => 'systemd-journal-remote.service',
     source => "puppet:///modules/${module_name}/systemd-journal-remote.conf",
-    notify  => Service['systemd-journal-remote'],
+    notify => Service['systemd-journal-remote'],
   }
 }
