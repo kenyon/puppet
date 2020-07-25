@@ -104,6 +104,19 @@ augeases:
       - set EXTRA_OPTS '"-L 15"' # that quoting weirdness https://www.redhat.com/archives/augeas-devel/2008-October/msg00023.html
     notify: Service[cron]
 
+execs:
+  update_resolvconf:
+    command: /sbin/resolvconf -u
+    refreshonly: true
+
+files:
+  # Assuming here that resolvconf is installed,
+  # as it's a dependency of rdnssd.
+  /etc/resolvconf/resolv.conf.d/tail:
+    content: |
+      options edns0 rotate
+    notify: Exec[update_resolvconf]
+
 services:
   cron:
     ensure: running
