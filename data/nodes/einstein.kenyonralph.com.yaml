@@ -3,6 +3,7 @@
 
 classes:
   - mysite::roles::hypervisor_kvm
+  - docker
 
 packages:
   - --emacs-nox
