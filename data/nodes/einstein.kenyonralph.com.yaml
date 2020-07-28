@@ -16,4 +16,14 @@ kenyon_host_dotfiles:
   - .xmonad/xmonad.hs
   - .xsession
 
+sysctls:
+  # Docker sets this to 1 for some dumb reason. It needs to be 2
+  # because forwarding is enabled and I want RA on br0 configure the
+  # default route. Before Docker, ifupdown//etc/network/interfaces was
+  # setting this to 2.
+  net.ipv6.conf.br0.accept_ra:
+    ensure: present
+    value: 2
+    target: /etc/sysctl.d/local.conf
+
 ...
