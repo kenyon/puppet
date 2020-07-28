@@ -92,6 +92,8 @@ sudo::configs:
   lessenv2:
     content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
 
+# TODO: migrate this to ini_setting resources since the git module was abandoned
+# https://puppetcommunity.slack.com/archives/C0W298S9G/p1595630947188700
 git::configs:
   user.name:
     value: Kenyon Ralph
