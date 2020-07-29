@@ -87,6 +87,7 @@ apt::confs:
           Origins-Pattern {
               "origin=Puppetlabs";
               "origin=apt.postgresql.org";
+              "origin=download.docker.com";
           };
       };
 
