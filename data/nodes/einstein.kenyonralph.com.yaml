@@ -4,10 +4,14 @@
 classes:
   - mysite::roles::hypervisor_kvm
   - docker
+  - docker::images
 
 packages:
   - --emacs-nox
   - emacs
+
+docker::images::images:
+  docker.bintray.io/jfrog/artifactory-oss: {}
 
 kenyon_host_dotfiles:
   - .Xmodmap
