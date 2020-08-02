@@ -9,6 +9,7 @@ classes:
 packages:
   - --emacs-nox
   - emacs
+  - pdk
 
 docker::images::images:
   docker.bintray.io/jfrog/artifactory-oss: {}
