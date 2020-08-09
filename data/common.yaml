@@ -132,7 +132,6 @@ augeases:
 docker::ipv6: true
 docker::ip_masq: false
 docker::iptables: false
-docker::ipv6_cidr: 2605:e000:2700:fe02::/64
 docker::log_driver: journald
 
 ini_settings:

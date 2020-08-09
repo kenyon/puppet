@@ -11,6 +11,8 @@ packages:
   - emacs
   - pdk
 
+docker::ipv6_cidr: 2605:e000:2700:fe02::/64
+
 docker::images::images:
   docker.bintray.io/jfrog/artifactory-oss: {}
 
