@@ -4,6 +4,10 @@
 class mysite {
   mysite::lookup_filter('classes').include
 
+  if mysite::is_linode() {
+    include mysite::linode
+  }
+
   lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
     augeas { $key:
       * => $value,
