@@ -5,7 +5,7 @@ class mysite::vms::kvm (
   Boolean $enable_serial_console = true,
   Boolean $install_qemu_guest_agent = true,
 ) {
-  include ::kmod
+  include kmod
 
   ensure_packages(
     ['ntp'],
@@ -25,7 +25,7 @@ class mysite::vms::kvm (
     )
   }
 
-  class { '::chrony':
+  class { 'chrony':
     servers    => [],
     pools      => '2.pool.ntp.org',
     # Special refclock that syncs the VM clock with the host system

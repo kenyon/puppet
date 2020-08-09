@@ -60,13 +60,13 @@ class mysite {
   }
 
   lookup('postfix_configs', Hash, 'hash', {}).each |$key, $value| {
-    ::postfix::config { $key:
+    postfix::config { $key:
       * => $value,
     }
   }
 
   lookup('postfix_hashes', Hash, 'hash', {}).each |$key, $value| {
-    ::postfix::hash { $key:
+    postfix::hash { $key:
       * => $value,
     }
   }

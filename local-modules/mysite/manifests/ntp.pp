@@ -3,7 +3,7 @@
 # For KVM VM nodes, exclude this class (- --mysite::ntp).
 
 class mysite::ntp (Array[String] $servers = []) {
-  class { '::ntp':
+  class { 'ntp':
     iburst_enable   => true,
     servers         => $servers,
     pool            => [
