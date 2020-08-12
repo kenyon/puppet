@@ -5,7 +5,11 @@ class mysite {
   mysite::lookup_filter('classes').include
 
   if mysite::is_linode() {
-    include mysite::linode
+    include mysite::vms::kvm::linode
+  }
+
+  if mysite::is_vultr_vm() {
+    include mysite::vms::kvm::vultr
   }
 
   lookup('augeases', Hash, 'hash', {}).each |$key, $value| {

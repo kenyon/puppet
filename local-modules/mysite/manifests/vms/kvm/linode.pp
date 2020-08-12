@@ -1,7 +1,7 @@
 # Configure things specific to Linodes.
 # See also: mysite::vms::kvm
 
-class mysite::linode {
+class mysite::vms::kvm::linode {
   # darwin has its own special configuration
   unless $trusted['hostname'] == 'darwin' {
     ensure_packages(
