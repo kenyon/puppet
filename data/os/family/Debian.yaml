@@ -24,6 +24,7 @@ packages:
   - manpages-dev
   - molly-guard
   - moreutils
+  - mtr-tiny
   - popularity-contest
   - rdnssd
   - unattended-upgrades
