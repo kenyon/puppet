@@ -10,6 +10,7 @@ classes:
   - ssh
   - mysite::ntp
   - accounts
+  - rsyslog::config
 
 lookup_options:
   accounts::user_list:
@@ -61,8 +62,6 @@ packages:
 # https://tickets.puppetlabs.com/browse/PUP-1061
 packages_absent:
   - nano
-  # Remove rsyslog package when I've converted to using systemd journal.
-  #- rsyslog
 
 services:
   ctrl-alt-del.target:
@@ -200,6 +199,22 @@ kenyon_dotfiles:
   - .zlogin
   - .zshenv
   - .zshrc
+
+rsyslog::config::actions:
+  forward_all:
+    type: omrelp
+    config:
+      target: syslog.kenyonralph.com
+      port: 20514
+
+rsyslog::config::modules:
+  imklog: {}
+  immark: {}
+  imuxsock: {}
+  omrelp: {}
+
+rsyslog::feature_packages:
+  - rsyslog-relp
 
 sysctls:
   net.core.default_qdisc:

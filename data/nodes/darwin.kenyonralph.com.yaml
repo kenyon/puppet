@@ -23,4 +23,96 @@ kenyon_host_dotfiles:
   - .mini-dinstall.conf
   - .ikiwiki
 
+rsyslog::config::actions:
+  daemon:
+    priority: 54
+    type: omfile
+    facility: daemon.*
+    config:
+      file: /var/log/daemon.log
+  mail:
+    type: omfile
+    facility: mail.*
+    config:
+      file: /var/log/mail.log
+  syslog:
+    type: omfile
+    facility: '*.*'
+    config:
+      file: /var/log/syslog
+
+rsyslog::config::expression_filters:
+  # charon and ipsec are very spammy, and their messages are in
+  # daemon.log, so leave them out of syslog
+  charon:
+    conditionals:
+      if:
+        expression: $programname == 'charon'
+        tasks:
+          - stop: true
+  ipsec:
+    conditionals:
+      if:
+        expression: $programname == 'ipsec'
+        tasks:
+          - stop: true
+  # filter named junk messages
+  named1:
+    conditionals:
+      if:
+        expression: $msg contains 'received control channel command \'stats\''
+        tasks:
+          - stop: true
+  named2:
+    conditionals:
+      if:
+        expression: $msg contains 'dumpstats complete'
+        tasks:
+          - stop: true
+  # filter ntpd junk
+  ntpd:
+    conditionals:
+      if:
+        expression: $msg contains 'Invalid-NAK error'
+        tasks:
+          - stop: true
+  # filter edgerouter junk
+  edgerouter:
+    conditionals:
+      if:
+        expression: $msg contains '/usr/sbin/ubnt-check-unms.sh'
+        tasks:
+          - stop: true
+
+rsyslog::config::inputs:
+  imudp:
+    type: imudp
+    config:
+      port: 514
+  imrelp:
+    type: imrelp
+    config:
+      port: 20514
+  imuxsock_postfix:
+    type: imuxsock
+    config:
+      # Originally this was done in /etc/rsyslog.d/postfix.conf:
+      # Create an additional socket in postfix's chroot in order not to break
+      # mail logging when rsyslog is restarted.  If the directory is missing,
+      # rsyslog will silently skip creating the socket.
+      Socket: /var/spool/postfix/dev/log
+
+rsyslog::config::modules:
+  imklog: {}
+  immark: {}
+  imrelp: {}
+  imudp: {}
+  imuxsock: {}
+  omfile:
+    type: builtin
+    config:
+      FileCreateMode: '0640'
+      FileOwner: root
+      FileGroup: adm
+
 ...

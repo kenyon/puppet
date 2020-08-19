@@ -1,9 +1,0 @@
----
-
-classes:
-  - mysite::roles::systemd_journal_collector
-
-systemd::journald_settings:
-  Storage: persistent
-
-...
