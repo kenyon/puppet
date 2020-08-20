@@ -56,11 +56,11 @@ rsyslog::config::inputs:
     type: imfile
     config:
       file: "%{settings::logdir}/puppetserver.log"
-      tag: ''
+      tag: puppetserver.log
   webhook:
     type: imfile
     config:
       file: /var/log/webhook/access.log
-      tag: ''
+      tag: webhook access.log
 
 ...
