@@ -9,6 +9,7 @@ classes:
   - r10k::webhook::config
   - mysite::roles::puppetmaster
   - mysite::roles::puppetmaster::hiera_eyaml
+  - logrotate
 
 packages:
   - ruby
@@ -20,6 +21,15 @@ gems:
 
 mysite::roles::puppetmaster::puppetserver_gems:
   - r10k
+
+# Debian uses a systemd timer for logrotate instead of a cron job.
+logrotate::manage_cron_daily: false
+
+logrotate::rules:
+  webhook:
+    path: /var/log/webhook/access.log
+    missingok: true
+    postrotate: systemctl restart webhook
 
 r10k::config::remote: https://gitlab.com/kenyon/puppet.git
 r10k::config::deploy_settings:
@@ -41,8 +51,16 @@ r10k::webhook::config::use_mcollective: false
 r10k::webhook::config::protected: false
 r10k::webhook::config::gitlab_token: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAG43DaT3YxEE3TcUqxyndWfFO1SaPLC9kOFjprODla5XCEHMmVTbPXuuYy55WcdZ+XwHoXDNshpMCxwXsQGmdViDxJTU14MW5wyahzrX2L/GqIlNcoImxjGbaPKO1qmYOfhrxNdOumGjWWqaVEP1huLH8Zhlf90r7LVLxqnfhlTWnTW0J/0h4TOaxALcQZxFl20DlqASi658uNRoQn0Slw0G5EyIsQDA/OBnrV3GeplRNJ1eqkxU82yzyc+QIph0fnL1HQGdFBF6f9pE8dMPBNPl38BraYQ6TyAMoS0sRNb7dv0gBrIct0GIFMSZY0ryP3dEPogQxgVlrNQjMlonZXzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDE3CL/LXwvOK1YQbkGBQLngCBQ99aQ2vlf053gP6Av262OATBefd232CkjoSPGsm7Syw==]
 
-# TODO: have puppetserver and webhook logs just go to standard output so that they are logged by systemd journal.
-# https://puppet.com/docs/puppetserver/latest/config_logging_advanced.html
-# http://logback.qos.ch/manual/appenders.html
+rsyslog::config::inputs:
+  puppetserver:
+    type: imfile
+    config:
+      file: "%{settings::logdir}/puppetserver.log"
+      tag: ''
+  webhook:
+    type: imfile
+    config:
+      file: /var/log/webhook/access.log
+      tag: ''
 
 ...
