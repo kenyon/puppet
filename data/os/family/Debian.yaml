@@ -4,6 +4,7 @@
 classes:
   - mysite::debian
   - apt
+  - unattended_upgrades
 
 packages:
   - apt-file
@@ -27,7 +28,6 @@ packages:
   - mtr-tiny
   - popularity-contest
   - rdnssd
-  - unattended-upgrades
   - vim
 
 apt::include_defaults:
@@ -76,21 +76,6 @@ apt::confs:
               Advance-On-Action "1";
           }
       };
-  periodic_update:
-    content: |
-      APT::Periodic::Update-Package-Lists "1";
-      APT::Periodic::Unattended-Upgrade "1";
-  unattended_upgrade_settings:
-    content: |
-      Unattended-Upgrade {
-          Mail "root@localhost";
-          SyslogEnable "true";
-          Origins-Pattern {
-              "origin=Puppetlabs";
-              "origin=apt.postgresql.org";
-              "origin=download.docker.com";
-          };
-      };
 
 augeases:
   apt_listchanges.conf:
@@ -123,6 +108,21 @@ services:
   cron:
     ensure: running
     enable: true
+
+unattended_upgrades::extra_origins:
+  - origin=Puppetlabs
+  - origin=apt.postgresql.org
+  - origin=download.docker.com
+
+# TODO: implement the new Unattended-Upgrade::MailReport setting in the module
+unattended_upgrades::mail:
+  # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
+  # only_on_error so that we use the default "Unattended-Upgrade::MailReport: on-change"
+  only_on_error: false
+  to: root@localhost
+
+# TODO: implement this and syslog_facility in the puppet module
+unattended_upgrades::syslog_enable: true
 
 # Local Variables:
 # coding: utf-8
