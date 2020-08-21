@@ -3,7 +3,7 @@
 mod 'aboe-chrony', '0.3.2'
 mod 'camptocamp-augeas', '1.9.0'
 mod 'camptocamp-kmod', '2.5.0'
-mod 'camptocamp-systemd', '2.9.0'
+mod 'camptocamp-systemd', '2.10.0'
 mod 'cirrax-libvirt', '4.2.2'
 mod 'example42-network', '3.5.3'
 mod 'herculesteam-augeasproviders_core', '2.6.0'
