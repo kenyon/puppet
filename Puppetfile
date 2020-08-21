@@ -9,7 +9,7 @@ mod 'example42-network', '3.5.3'
 mod 'herculesteam-augeasproviders_core', '2.6.0'
 mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
 mod 'puppet-logrotate', '5.0.0'
-#mod 'puppet-r10k', '8.3.0'
+mod 'puppet-r10k', '9.0.0'
 mod 'puppet-rsyslog', '5.0.1'
 mod 'puppetlabs-accounts', '6.1.1'
 mod 'puppetlabs-apt', '7.5.0'
@@ -34,7 +34,3 @@ mod 'stm-file_capability', '3.0.0'
 mod 'puppetlabs-git',
     :git    => 'https://github.com/puppetlabs/puppetlabs-git',
     :commit => '4e4498e3db218cefc27e40b7eb4e442177ccab28'
-
-mod 'puppet-r10k',
-    :git    => 'https://github.com/kenyon/puppet-r10k.git',
-    :branch => 'webhook-verify-x-gitlab-token'
