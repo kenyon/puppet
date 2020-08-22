@@ -112,7 +112,7 @@ services:
 unattended_upgrades::extra_origins:
   - origin=Puppetlabs
   - origin=apt.postgresql.org
-  - origin=download.docker.com
+  - origin=Docker
 
 # TODO: implement the new Unattended-Upgrade::MailReport setting in the module
 unattended_upgrades::mail:
