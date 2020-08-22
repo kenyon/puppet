@@ -114,14 +114,13 @@ unattended_upgrades::extra_origins:
   - origin=apt.postgresql.org
   - origin=Docker
 
-# TODO: implement the new Unattended-Upgrade::MailReport setting in the module
 unattended_upgrades::mail:
   # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
-  # only_on_error so that we use the default "Unattended-Upgrade::MailReport: on-change"
+  # only_on_error and uncomment report.
   only_on_error: false
+  #report: on-change
   to: root@localhost
 
-# TODO: implement this and syslog_facility in the puppet module
 unattended_upgrades::syslog_enable: true
 
 # Local Variables:
