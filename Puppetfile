@@ -1,35 +1,36 @@
 # -*- coding: utf-8 -*-
 
-mod 'aboe-chrony', '0.3.2'
-mod 'camptocamp-augeas', '1.9.0'
-mod 'camptocamp-kmod', '2.5.0'
-mod 'camptocamp-systemd', '2.10.0'
-mod 'cirrax-libvirt', '4.2.2'
-mod 'example42-network', '3.5.3'
-mod 'herculesteam-augeasproviders_core', '2.6.0'
-mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
-mod 'puppet-logrotate', '5.0.0'
-mod 'puppet-r10k', '9.0.0'
-mod 'puppet-unattended_upgrades', '5.0.0'
-mod 'puppet-rsyslog', '5.0.1'
-mod 'puppetlabs-accounts', '6.2.0'
-mod 'puppetlabs-apt', '7.5.0'
-mod 'puppetlabs-concat', '6.2.0'
-mod 'puppetlabs-docker', '3.11.0'
-mod 'puppetlabs-firewall', '2.5.0'
-mod 'puppetlabs-inifile', '4.2.0'
-mod 'puppetlabs-ntp', '8.3.0'
-mod 'puppetlabs-postgresql', '6.6.0'
-mod 'puppetlabs-puppetdb', '7.5.0'
-mod 'puppetlabs-puppetserver_gem', '1.1.1'
-mod 'puppetlabs-stdlib', '6.4.0'
-mod 'puppetlabs-translate', '2.2.0'
-mod 'puppetlabs-vcsrepo', '3.1.1'
-mod 'saz-ssh', '6.2.0'
-mod 'saz-sudo', '6.0.0'
-mod 'saz-timezone', '6.0.0'
-mod 'stm-debconf', '3.2.0'
-mod 'stm-file_capability', '3.0.0'
+mod 'aboe-chrony', :latest
+mod 'camptocamp-augeas', :latest
+mod 'camptocamp-kmod', :latest
+mod 'camptocamp-postfix', :latest
+mod 'camptocamp-systemd', :latest
+mod 'cirrax-libvirt', :latest
+mod 'example42-network', :latest
+mod 'herculesteam-augeasproviders_core', :latest
+mod 'herculesteam-augeasproviders_sysctl', :latest
+mod 'puppet-logrotate', :latest
+mod 'puppet-r10k', :latest
+mod 'puppet-unattended_upgrades', :latest
+mod 'puppet-rsyslog', :latest
+mod 'puppetlabs-accounts', :latest
+mod 'puppetlabs-apt', :latest
+mod 'puppetlabs-concat', :latest
+mod 'puppetlabs-docker', :latest
+mod 'puppetlabs-firewall', :latest
+mod 'puppetlabs-inifile', :latest
+mod 'puppetlabs-ntp', :latest
+mod 'puppetlabs-postgresql', :latest
+mod 'puppetlabs-puppetdb', :latest
+mod 'puppetlabs-puppetserver_gem', :latest
+mod 'puppetlabs-stdlib', :latest
+mod 'puppetlabs-translate', :latest
+mod 'puppetlabs-vcsrepo', :latest
+mod 'saz-ssh', :latest
+mod 'saz-sudo', :latest
+mod 'saz-timezone', :latest
+mod 'stm-debconf', :latest
+mod 'stm-file_capability', :latest
 
 # https://tickets.puppetlabs.com/browse/MODULES-5362
 mod 'puppetlabs-git',
