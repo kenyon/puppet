@@ -2,6 +2,14 @@
 # Configuration for the Puppet Master.
 
 class mysite::roles::puppetmaster (Array[String] $puppetserver_gems) {
+  include puppetdb
+  include puppetdb::master::config
+  include r10k::config
+  include r10k::webhook
+  include r10k::webhook::config
+  include mysite::roles::puppetmaster::hiera_eyaml
+  include logrotate
+
   # Ruby gems for the puppetserver embedded Ruby environment.
   $puppetserver_gems.each |String $pkg| {
     package { "puppetserver_gem_${pkg}":
