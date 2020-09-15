@@ -11,8 +11,8 @@ mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-r10k', :latest
-mod 'puppet-unattended_upgrades', :latest
 mod 'puppet-rsyslog', :latest
+mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
