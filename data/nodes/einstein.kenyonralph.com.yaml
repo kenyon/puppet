@@ -5,6 +5,7 @@ classes:
   - mysite::roles::hypervisor_kvm
   - docker
   - docker::images
+  - mysite::fqdn_in_etc_hosts
 
 packages:
   - --emacs-nox
