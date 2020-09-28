@@ -114,11 +114,23 @@ git::configs:
   commit.gpgsign:
     value: 'true'
     user: kenyon
+  core.editor:
+    value: emacsclient --tty
+    user: kenyon
   core.pager:
     value: less --quit-if-one-screen --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init
     user: kenyon
   log.decorate:
     value: full
+    user: kenyon
+  http.cookiefile:
+    value: ~/.gitcookies
+    user: kenyon
+  pull.ff:
+    value: only
+    user: kenyon
+  push.default:
+    value: simple
     user: kenyon
 
 augeases:
