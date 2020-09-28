@@ -96,22 +96,13 @@ sudo::configs:
 # TODO: migrate this to ini_setting resources since the git module was abandoned
 # https://puppetcommunity.slack.com/archives/C0W298S9G/p1595630947188700
 git::configs:
-  user.name:
-    value: Kenyon Ralph
-    user: kenyon
-  user.email:
-    value: kenyon@kenyonralph.com
-    user: kenyon
-  user.signingkey:
-    value: '0x98FF3EF9C9B912D5'
-    user: kenyon
   color.ui:
     value: always
     user: kenyon
-  commit.verbose:
+  commit.gpgsign:
     value: 'true'
     user: kenyon
-  commit.gpgsign:
+  commit.verbose:
     value: 'true'
     user: kenyon
   core.editor:
@@ -120,17 +111,26 @@ git::configs:
   core.pager:
     value: less --quit-if-one-screen --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init
     user: kenyon
-  log.decorate:
-    value: full
-    user: kenyon
   http.cookiefile:
     value: ~/.gitcookies
+    user: kenyon
+  log.decorate:
+    value: full
     user: kenyon
   pull.ff:
     value: only
     user: kenyon
   push.default:
     value: simple
+    user: kenyon
+  user.email:
+    value: kenyon@kenyonralph.com
+    user: kenyon
+  user.name:
+    value: Kenyon Ralph
+    user: kenyon
+  user.signingkey:
+    value: '0x98FF3EF9C9B912D5'
     user: kenyon
 
 augeases:
