@@ -7,13 +7,13 @@ class mysite::roles::systemd_journal_uploader {
   )
 
   service { 'systemd-journal-upload':
-    ensure  => 'running',
+    ensure  => running,
     enable  => true,
     require => Package['systemd-journal-remote'],
   }
 
   ini_setting { 'systemd_journal_upload_url':
-    ensure  => 'present',
+    ensure  => present,
     path    => '/etc/systemd/journal-upload.conf',
     section => 'Upload',
     setting => 'URL',

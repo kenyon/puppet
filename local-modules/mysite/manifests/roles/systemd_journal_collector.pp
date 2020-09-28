@@ -7,7 +7,7 @@ class mysite::roles::systemd_journal_collector {
   )
 
   service { 'systemd-journal-remote':
-    ensure  => 'running',
+    ensure  => running,
     enable  => true,
     require => Package['systemd-journal-remote'],
   }
