@@ -31,8 +31,3 @@ mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest
-
-# https://tickets.puppetlabs.com/browse/MODULES-5362
-mod 'puppetlabs-git',
-    :git    => 'https://github.com/puppetlabs/puppetlabs-git',
-    :commit => '4e4498e3db218cefc27e40b7eb4e442177ccab28'
