@@ -191,6 +191,8 @@ rsyslog::feature_packages:
   - rsyslog-relp
 
 sysctls:
+  fs.inotify.max_user_watches:
+    value: 524288
   net.core.default_qdisc:
     value: fq_codel
     target: /etc/sysctl.d/97-net-sysctl.conf
