@@ -137,6 +137,7 @@ files:
   /home/kenyon/.puppet-managed:
     ensure: directory
     owner: kenyon
+    group: kenyon
     require: User[kenyon]
   /home/kenyon/.config:
     ensure: directory
