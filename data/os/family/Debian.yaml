@@ -63,6 +63,15 @@ apt::sources:
     repos: puppet
     include:
       src: false
+  vscode:
+    location: http://packages.microsoft.com/repos/vscode
+    release: stable
+    repos: main
+    key:
+      id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+      source: https://packages.microsoft.com/keys/microsoft.asc
+    include:
+      src: false
 
 apt::confs:
   aptitude:
@@ -113,6 +122,7 @@ unattended_upgrades::extra_origins:
   - origin=Puppetlabs
   - origin=apt.postgresql.org
   - origin=Docker
+  - origin=vscode stable
 
 unattended_upgrades::mail:
   # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
