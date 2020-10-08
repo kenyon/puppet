@@ -3,8 +3,6 @@
 
 classes:
   - mysite::roles::hypervisor_kvm
-  - docker
-  - docker::images
   - mysite::fqdn_in_etc_hosts
 
 packages:
@@ -13,9 +11,6 @@ packages:
   - pdk
 
 docker::ipv6_cidr: 2605:e000:2700:fe02::/64
-
-docker::images::images:
-  docker.bintray.io/jfrog/artifactory-oss: {}
 
 kenyon_host_dotfiles:
   - .Xmodmap
