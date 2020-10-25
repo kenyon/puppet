@@ -29,6 +29,7 @@ packages:
   - popularity-contest
   - rdnssd
   - vim
+  - zsh-syntax-highlighting
 
 apt::include_defaults:
   deb: true
