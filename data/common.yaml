@@ -169,6 +169,7 @@ kenyon_dotfiles:
   - .toprc
   - .vim
   - .vimrc
+  - .Xresources
   - .zlogin
   - .zshenv
   - .zshrc
