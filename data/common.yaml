@@ -10,6 +10,7 @@ classes:
   - mysite::ntp
   - accounts
   - rsyslog::config
+  - nodejs
 
 lookup_options:
   accounts::user_list:
@@ -173,6 +174,10 @@ kenyon_dotfiles:
   - .zlogin
   - .zshenv
   - .zshrc
+
+nodejs::manage_package_repo: false
+nodejs::manage_nodejs_package: false
+nodejs::npm_package_ensure: present
 
 rsyslog::config::actions:
   forward_all:

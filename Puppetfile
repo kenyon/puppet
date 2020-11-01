@@ -10,6 +10,9 @@ mod 'example42-network', :latest
 mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-logrotate', :latest
+mod 'puppet-nodejs',
+    :git    => 'https://github.com/kenyon/puppet-nodejs.git',
+    :branch => 'mytest'
 mod 'puppet-r10k', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-unattended_upgrades', :latest

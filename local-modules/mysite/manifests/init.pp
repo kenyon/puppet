@@ -122,9 +122,17 @@ class mysite {
   # Ruby gems.
   lookup('gems', Array[String], 'unique', []).each |String $gem| {
     package { "gem_${gem}":
-      ensure          => installed,
-      provider        => gem,
-      name            => $gem,
+      ensure   => installed,
+      provider => gem,
+      name     => $gem,
+    }
+  }
+
+  lookup('npm_packages', Array[String], 'unique', []).each |String $pkg| {
+    package { "npm_${pkg}":
+      ensure   => present,
+      provider => 'npm',
+      name     => $pkg,
     }
   }
 }
