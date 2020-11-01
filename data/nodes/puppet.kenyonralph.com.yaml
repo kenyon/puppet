@@ -2,7 +2,7 @@
 # Configuration data for puppet.kenyonralph.com.
 
 classes:
-  - mysite::roles::puppetmaster
+  - role::puppetmaster
 
 packages:
   - ruby
@@ -12,7 +12,7 @@ gems:
   - hiera-eyaml
   - r10k
 
-mysite::roles::puppetmaster::puppetserver_gems:
+role::puppetmaster::puppetserver_gems:
   - r10k
 
 # Debian uses a systemd timer for logrotate instead of a cron job.

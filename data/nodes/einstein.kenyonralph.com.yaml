@@ -2,7 +2,7 @@
 # Configuration data for einstein.kenyonralph.com.
 
 classes:
-  - mysite::roles::hypervisor_kvm
+  - role::hypervisor_kvm
   - mysite::fqdn_in_etc_hosts
 
 packages:
