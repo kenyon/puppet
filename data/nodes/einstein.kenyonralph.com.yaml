@@ -8,6 +8,7 @@ classes:
 packages:
   - --emacs-nox
   - emacs
+  - fonts-hack
   - pdk
 
 docker::ipv6_cidr: 2605:e000:2700:fe02::/64
