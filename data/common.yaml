@@ -64,6 +64,9 @@ packages:
 packages_absent:
   - nano
 
+npm_packages:
+  - diff-so-fancy
+
 services:
   ctrl-alt-del.target:
     ensure: stopped
