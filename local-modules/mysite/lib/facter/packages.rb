@@ -6,10 +6,10 @@
 Facter.add(:packages) do
   setcode do
     packages = {}
-    case Facter.value(:os)['family']
-    when 'Debian'
+    case Facter.value(:os)["family"]
+    when "Debian"
       pkglist = Facter::Core::Execution.execute("dpkg-query --show --showformat='${Package} ${Version}\n'")
-    when 'RedHat'
+    when "RedHat"
       pkglist = Facter::Core::Execution.execute("rpm --query --all --queryformat='%{name} %{version}\n'")
     end
     pkglist.each_line do |line|
