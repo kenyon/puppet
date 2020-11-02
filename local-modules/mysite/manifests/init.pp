@@ -109,11 +109,9 @@ class mysite {
     }
   }
 
-  ensure_packages(mysite::lookup_filter('packages'),
-                          {ensure => installed})
+  ensure_packages(mysite::lookup_filter('packages'), {ensure => installed})
 
-  ensure_packages(mysite::lookup_filter('packages_absent'),
-                          {ensure => absent})
+  ensure_packages(mysite::lookup_filter('packages_absent'), {ensure => absent})
 
   Package['zsh'] -> User['kenyon']
 
