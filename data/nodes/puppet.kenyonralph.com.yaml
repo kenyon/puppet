@@ -4,56 +4,15 @@
 classes:
   - role::puppetmaster
 
-packages:
-  - ruby
-  - augeas-tools
-
-gems:
-  - hiera-eyaml
-  - r10k
-
-role::puppetmaster::puppetserver_gems:
-  - r10k
-
-# Debian uses a systemd timer for logrotate instead of a cron job.
-logrotate::manage_cron_daily: false
-
-logrotate::rules:
-  webhook:
-    path: /var/log/webhook/access.log
-    missingok: true
-    postrotate: systemctl restart webhook
-
-r10k::config::remote: https://gitlab.com/kenyon/puppet.git
-r10k::config::deploy_settings:
-  purge_levels:
-    - deployment
-    - environment
-    - puppetfile
-
-# This webhook setup runs a web server on port 8088. Then I have
-# configured a webhook in my puppet environments git repository for
-# URL http://puppet.kenyonralph.com:8088/payload that runs on push events:
-# https://gitlab.com/kenyon/puppet/hooks
-# So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile' gets run.
-r10k::webhook::use_mcollective: false
-r10k::webhook::user: root
-r10k::webhook::group: root
-r10k::webhook::config::enable_ssl: false
-r10k::webhook::config::use_mcollective: false
-r10k::webhook::config::protected: false
-r10k::webhook::config::gitlab_token: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAG43DaT3YxEE3TcUqxyndWfFO1SaPLC9kOFjprODla5XCEHMmVTbPXuuYy55WcdZ+XwHoXDNshpMCxwXsQGmdViDxJTU14MW5wyahzrX2L/GqIlNcoImxjGbaPKO1qmYOfhrxNdOumGjWWqaVEP1huLH8Zhlf90r7LVLxqnfhlTWnTW0J/0h4TOaxALcQZxFl20DlqASi658uNRoQn0Slw0G5EyIsQDA/OBnrV3GeplRNJ1eqkxU82yzyc+QIph0fnL1HQGdFBF6f9pE8dMPBNPl38BraYQ6TyAMoS0sRNb7dv0gBrIct0GIFMSZY0ryP3dEPogQxgVlrNQjMlonZXzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDE3CL/LXwvOK1YQbkGBQLngCBQ99aQ2vlf053gP6Av262OATBefd232CkjoSPGsm7Syw==]
-
-rsyslog::config::inputs:
-  puppetserver:
-    type: imfile
-    config:
-      file: "%{settings::logdir}/puppetserver.log"
-      tag: puppetserver.log
-  webhook:
-    type: imfile
-    config:
-      file: /var/log/webhook/access.log
-      tag: webhook access.log
+role::puppetmaster::r10k_remote: https://gitlab.com/kenyon/puppet.git
+role::puppetmaster::r10k_webhook_token: >-
+  ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQE
+  wDQYJKoZIhvcNAQEBBQAEggEAG43DaT3YxEE3TcUqxyndWfFO1SaPLC9kOFjprODla5XC
+  EHMmVTbPXuuYy55WcdZ+XwHoXDNshpMCxwXsQGmdViDxJTU14MW5wyahzrX2L/GqIlNco
+  ImxjGbaPKO1qmYOfhrxNdOumGjWWqaVEP1huLH8Zhlf90r7LVLxqnfhlTWnTW0J/0h4TO
+  axALcQZxFl20DlqASi658uNRoQn0Slw0G5EyIsQDA/OBnrV3GeplRNJ1eqkxU82yzyc+Q
+  Iph0fnL1HQGdFBF6f9pE8dMPBNPl38BraYQ6TyAMoS0sRNb7dv0gBrIct0GIFMSZY0ryP
+  3dEPogQxgVlrNQjMlonZXzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDE3CL/LXwvO
+  K1YQbkGBQLngCBQ99aQ2vlf053gP6Av262OATBefd232CkjoSPGsm7Syw==]
 
 ...

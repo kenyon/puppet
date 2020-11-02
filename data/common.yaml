@@ -178,6 +178,9 @@ kenyon_dotfiles:
   - .zshenv
   - .zshrc
 
+# Debian uses a systemd timer for logrotate instead of a cron job.
+logrotate::manage_cron_daily: false
+
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
 nodejs::npm_package_ensure: present

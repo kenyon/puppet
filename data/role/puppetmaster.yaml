@@ -1,0 +1,13 @@
+---
+
+rsyslog::config::inputs:
+  puppetserver:
+    type: imfile
+    config:
+      file: "%{settings::logdir}/puppetserver.log"
+      tag: puppetserver.log
+  webhook:
+    type: imfile
+    config:
+      file: /var/log/webhook/access.log
+      tag: webhook access.log
