@@ -2,15 +2,15 @@
 # Common data.
 
 classes:
+  - accounts
+  - mysite::ntp
   - network
+  - nodejs
+  - rsyslog::config
+  - ssh
+  - sudo
   - systemd
   - timezone
-  - sudo
-  - ssh
-  - mysite::ntp
-  - accounts
-  - rsyslog::config
-  - nodejs
 
 lookup_options:
   accounts::user_list:
