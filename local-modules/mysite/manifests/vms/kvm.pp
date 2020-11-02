@@ -12,19 +12,6 @@ class mysite::vms::kvm (
     {ensure => absent},
   )
 
-  if $facts['os']['distro']['codename'] == 'stretch' {
-    apt::pin { 'backports_kernel':
-      packages => 'linux-image-amd64',
-      priority => 500,
-      release  => 'stretch-backports',
-    }
-
-    ensure_packages(
-      ['linux-image-amd64'],
-      {ensure => latest},
-    )
-  }
-
   class { 'chrony':
     servers    => [],
     pools      => '2.pool.ntp.org',
