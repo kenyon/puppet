@@ -2,8 +2,9 @@
 # Configuration data for einstein.kenyonralph.com.
 
 classes:
-  - role::hypervisor_kvm
+  - docker
   - mysite::fqdn_in_etc_hosts
+  - role::hypervisor_kvm
 
 packages:
   - --emacs-nox
