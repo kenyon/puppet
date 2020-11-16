@@ -22,8 +22,6 @@ lookup_options:
   rhsm::enabled_repo_ids:
     merge: unique
 
-timezone::timezone: America/Los_Angeles
-
 # Packages I want installed.
 packages:
   - aspell
@@ -67,11 +65,6 @@ packages_absent:
 npm_packages:
   - diff-so-fancy
 
-services:
-  ctrl-alt-del.target:
-    ensure: stopped
-    enable: mask
-
 accounts::user_list:
   kenyon:
     ignore_password_if_empty: true
@@ -85,16 +78,6 @@ accounts::user_list:
     sshkeys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
-
-sudo::configs:
-  insults:
-    content: Defaults insults
-  kenyon:
-    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
-  lessenv:
-    content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
-  lessenv2:
-    content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
 
 augeases:
   puppet.conf:
@@ -202,6 +185,21 @@ rsyslog::config::modules:
 rsyslog::feature_packages:
   - rsyslog-relp
 
+services:
+  ctrl-alt-del.target:
+    ensure: stopped
+    enable: mask
+
+sudo::configs:
+  insults:
+    content: Defaults insults
+  kenyon:
+    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
+  lessenv:
+    content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
+  lessenv2:
+    content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
+
 sysctls:
   fs.inotify.max_user_watches:
     value: 524288
@@ -300,6 +298,8 @@ sshkeys:
     type: ed25519
     host_aliases: *turing_aliases
     key: AAAAC3NzaC1lZDI1NTE5AAAAIIHgJAOsIt2Q50bojzd/B3OlV3LIkg3C+fp/WeEwJqLX
+
+timezone::timezone: America/Los_Angeles
 
 vcsrepos:
   /home/kenyon/.puppet-managed/dotfiles:
