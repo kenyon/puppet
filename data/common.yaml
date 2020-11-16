@@ -119,21 +119,17 @@ files:
   /home/kenyon/bin:
     ensure: directory
     owner: kenyon
-    require: User[kenyon]
   /home/kenyon/.puppet-managed:
     ensure: directory
     owner: kenyon
     group: kenyon
-    require: User[kenyon]
   /home/kenyon/.config:
     ensure: directory
     mode: '0700'
     owner: kenyon
-    require: User[kenyon]
   /home/kenyon/.config/git:
     ensure: directory
     owner: kenyon
-    require: User[kenyon]
 
 kenyon_dotfiles:
   - .aspell.en.prepl
