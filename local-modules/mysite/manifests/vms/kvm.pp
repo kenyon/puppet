@@ -5,27 +5,10 @@ class mysite::vms::kvm (
   Boolean $enable_serial_console = true,
   Boolean $install_qemu_guest_agent = true,
 ) {
-  include kmod
-
-  ensure_packages(
-    ['ntp'],
-    {ensure => absent},
-  )
-
-  class { 'chrony':
-    servers    => [],
-    pools      => '2.pool.ntp.org',
-    # Special refclock that syncs the VM clock with the host system
-    # clock. Requires kernel config PTP_1588_CLOCK_KVM, which is a
-    # module (ptp_kvm) in RHEL 7 and a module in Debian buster.
-    refclocks  => ['PHC /dev/ptp_kvm poll 3 dpoll -2 stratum 2'],
-    port       => '123',
-    queryhosts => '',
-  }
-
   # Linode kernels have CONFIG_PTP_1588_CLOCK and
   # CONFIG_PTP_1588_CLOCK_KVM built in (not as modules).
   unless mysite::is_linode() {
+    include kmod
     kmod::load { 'ptp_kvm':
       before => Service['chrony'],
     }

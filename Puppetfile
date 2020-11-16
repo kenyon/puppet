@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-mod 'aboe-chrony', :latest
 mod 'camptocamp-augeas', :latest
 mod 'camptocamp-kmod', :latest
 mod 'camptocamp-postfix', :latest
@@ -9,6 +8,7 @@ mod 'cirrax-libvirt', :latest
 mod 'example42-network', :latest
 mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
+mod "puppet-chrony", :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs',
     :git    => 'https://github.com/kenyon/puppet-nodejs.git',
@@ -21,8 +21,7 @@ mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-firewall', :latest
-mod 'puppetlabs-inifile', :latest
-mod 'puppetlabs-ntp', :latest
+mod "puppetlabs-inifile", :latest
 mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest

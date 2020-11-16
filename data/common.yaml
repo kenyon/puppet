@@ -3,7 +3,7 @@
 
 classes:
   - accounts
-  - mysite::ntp
+  - mysite::time
   - network
   - nodejs
   - rsyslog::config
@@ -41,7 +41,6 @@ packages:
   - psmisc
   - pwgen
   - rsync
-  - sntp
   - subnetcalc
   - time
   - tmux
