@@ -1,6 +1,23 @@
 ---
 # Configuration data for darwin.kenyonralph.com.
 
+accounts::user_list:
+  mailsubmit:
+    locked: true
+    managehome: false
+    managevim: false
+    # This is the hashed password, that is, the output of mkpasswd.
+    password: >
+      ENC[PKCS7,MIIB2gYJKoZIhvcNAQcDoIIByzCCAccCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhv
+      cNAQEBBQAEggEAYdHyqviXWYlm7xsthYEH90rg08mn4jmm1rw2Mga+h3rR4OPUwjgTprENJ9rmLHFGxG
+      OR3H4ULKVJGq0t+H60nArQIgo09ehhQysVp7nsXzNSELTht3supyL4Hv67EOl1rY6e/Hu6dKSIllMmC5
+      osEXol1CEGJG79zMYUFQMg3z5by5C9HpD/9yNFfT1xmgISPVdGOGVUCpcrzXpWL+HtmgNM3+8JMjcUKh
+      uZoJv9nH846i+DrvXCaGrFJQUAwxpZKD0w2TsXEpuSoMeyht4RpQ5JlKWAKQ9PD6l9cMDXvarl8Kd93K
+      It11UGB58tzaAH5iugss1Np2kMLnLvOEA8tTCBnAYJKoZIhvcNAQcBMB0GCWCGSAFlAwQBKgQQjyixg9
+      ieGVJC8+lQ64lxZIBwnwYq4icAOgiOJMhuO48XRxApi3lxzkdTXMqZN78O2GsG32p3FMiA3WqS7m41e6
+      kguKG8yv8ag8EXqUSkJazaZkEzTLaGOm0WMOyYR2XKEvszp7nCZawbndIH1ElUYuCVmkq7AWoTUFfmv3
+      rV8Hyp8A==]
+
 files:
   /home/kenyon/bin/learnspam:
     ensure: link
@@ -92,14 +109,6 @@ rsyslog::config::inputs:
     type: imrelp
     config:
       port: 20514
-  imuxsock_postfix:
-    type: imuxsock
-    config:
-      # Originally this was done in /etc/rsyslog.d/postfix.conf:
-      # Create an additional socket in postfix's chroot in order not to break
-      # mail logging when rsyslog is restarted.  If the directory is missing,
-      # rsyslog will silently skip creating the socket.
-      Socket: /var/spool/postfix/dev/log
 
 rsyslog::config::modules:
   imklog: {}

@@ -67,18 +67,6 @@ class mysite {
     }
   }
 
-  lookup('postfix_configs', Hash, 'hash', {}).each |$key, $value| {
-    postfix::config { $key:
-      * => $value,
-    }
-  }
-
-  lookup('postfix_hashes', Hash, 'hash', {}).each |$key, $value| {
-    postfix::hash { $key:
-      * => $value,
-    }
-  }
-
   lookup('services', Hash, 'hash', {}).each |$key, $value| {
     service { $key:
       * => $value,

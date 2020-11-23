@@ -20,6 +20,7 @@ mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
+mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest

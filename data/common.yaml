@@ -3,6 +3,7 @@
 
 classes:
   - accounts
+  - mysite::mail
   - mysite::time
   - network
   - nodejs
@@ -21,6 +22,8 @@ lookup_options:
     merge: hash
   rhsm::enabled_repo_ids:
     merge: unique
+  rsyslog::config::inputs:
+    merge: hash
 
 # Packages I want installed.
 packages:
@@ -159,9 +162,39 @@ kenyon_dotfiles:
 # Debian uses a systemd timer for logrotate instead of a cron job.
 logrotate::manage_cron_daily: false
 
+mailsubmit_password: >
+  ENC[PKCS7,MIIBuQYJKoZIhvcNAQcDoIIBqjCCAaYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhv
+  cNAQEBBQAEggEAo1ZR4/PsWM9JCCtPeCC1+pOe76TI3N/Qzc69QVPsC1Vk9lBMIWOJ0Ef6c5Po52tOqa
+  eqVw3RJ28Du3tbmUaPoerLub3+tyE/96ad7kuaUu9j5Eik93v27pjBdZKE8CsBxCyCBIrZ4bKFdnmGnv
+  TWEuvak/PbTVEmQ0Abdc+xTB8m56snQM1s0GVJAX4tq4IINkNBbuXqwUOO5tcwkqj5eifRcPWx5QSbkR
+  kBB6LdYKxJL6zgFPmIWXEI8HM9AsXhkmYIBx+7ennmtslJT3bpcqfX6gKxBzk0lXHFNPWEW2gY6GzamQ
+  MA0FzC295WLACymRaZIpjP2QrDuoxrh1VMyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCzfgyNTO
+  7lqinNFUVoBPNXgFAu30NgDQrNFeFkNeda9PFd3vy/3VmxPVundgoqmK8N8DPl+UHbzMbopbXpJLigpS
+  97b6xip8c4DaeiLz9QXtfaIACc4kTUPAln3UoJJNji/Q==]
+
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
 nodejs::npm_package_ensure: present
+
+postfix::inet_interfaces: loopback-only
+# https://github.com/camptocamp/puppet-postfix/pull/256
+postfix::mydestination: $myhostname, localhost.$mydomain, localhost
+postfix::relayhost: kenyonralph.com:submission
+postfix::root_mail_recipient: kenyon@kenyonralph.com
+postfix::satellite: true
+postfix_configs:
+  smtp_sasl_auth_enable:
+    value: 'yes'
+  smtp_tls_security_level:
+    value: encrypt
+  smtp_sasl_password_maps:
+    value: hash:/etc/postfix/sasl/sasl_passwd
+  smtp_sasl_tls_security_options:
+    value: noanonymous
+postfix_hashes:
+  /etc/postfix/sasl/sasl_passwd:
+    content: |
+      %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
 
 rsyslog::config::actions:
   forward_all:
@@ -169,6 +202,16 @@ rsyslog::config::actions:
     config:
       target: syslog.kenyonralph.com
       port: 20514
+
+rsyslog::config::inputs:
+  imuxsock_postfix:
+    type: imuxsock
+    config:
+      # Originally this was done in /etc/rsyslog.d/postfix.conf:
+      # Create an additional socket in postfix's chroot in order not to break
+      # mail logging when rsyslog is restarted.  If the directory is missing,
+      # rsyslog will silently skip creating the socket.
+      Socket: /var/spool/postfix/dev/log
 
 rsyslog::config::modules:
   imfile: {}
