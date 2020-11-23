@@ -120,6 +120,7 @@ services:
     enable: true
 
 unattended_upgrades::extra_origins:
+  - origin=Debian,codename=${distro_codename}-updates,label=Debian
   - origin=Puppetlabs
   - origin=apt.postgresql.org
   - origin=Docker
