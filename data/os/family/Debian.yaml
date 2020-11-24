@@ -121,6 +121,7 @@ services:
 
 unattended_upgrades::extra_origins:
   - origin=Debian,codename=${distro_codename}-updates,label=Debian
+  - origin=Debian Backports,codename=${distro_codename}-backports,label=Debian Backports
   - origin=Puppetlabs
   - origin=apt.postgresql.org
   - origin=Docker
