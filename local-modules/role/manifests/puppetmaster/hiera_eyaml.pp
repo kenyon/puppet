@@ -23,12 +23,14 @@ class role::puppetmaster::hiera_eyaml (
     require => Package['gem_hiera-eyaml'],
   }
 
-  file { [$eyaml_private_key, $eyaml_public_key]:
-    ensure    => present,
-    mode      => '0400',
-    owner     => 'puppet',
-    group     => 'puppet',
-    subscribe => Exec['eyaml createkeys'],
+  [$eyaml_private_key, $eyaml_public_key].each |$file| {
+    file { $file:
+      ensure    => present,
+      mode      => '0400',
+      owner     => 'puppet',
+      group     => 'puppet',
+      subscribe => Exec['eyaml createkeys'],
+    }
   }
 
   file { dirname($eyaml_config):
