@@ -28,6 +28,7 @@ packages:
   - mtr-tiny
   - popularity-contest
   - rdnssd
+  - reboot-notifier
   - vim
   - zsh-syntax-highlighting
 
