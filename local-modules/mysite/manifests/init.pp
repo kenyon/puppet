@@ -121,4 +121,9 @@ class mysite {
       name     => $pkg,
     }
   }
+
+  kernel_parameter { 'quiet':
+    ensure   => absent,
+    bootmode => default,
+  }
 }
