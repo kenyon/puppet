@@ -258,6 +258,9 @@ systemd_dropin_files:
       [Service]
       TTYVTDisallocate=no
 
+systemd::journald_settings:
+  Storage: persistent
+
 ssh::client_options:
   Host *:
     ForwardAgent: yes
