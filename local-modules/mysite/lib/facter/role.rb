@@ -8,6 +8,8 @@ Facter.add('role') do
     case Facter.value(:networking)['hostname']
     when 'puppet'
       'puppetserver'
+    when 'einstein'
+      'workstation'
     end
   end
 end
