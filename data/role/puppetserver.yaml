@@ -3,6 +3,13 @@
 classes:
   - role::puppetserver
 
+file_lines:
+  # Don't want /etc/puppetlabs/code/environments tracked by etckeeper because it contains git
+  # repos. This causes etckeeper cron jobs to fail, causing unnecessary emails to me.
+  etc_gitignore_puppetlabs_code_environments:
+    path: /etc/.gitignore
+    line: puppetlabs/code/environments
+
 rsyslog::config::inputs:
   puppetserver:
     type: imfile
