@@ -1,5 +1,8 @@
 ---
 
+classes:
+  - role::puppetserver
+
 rsyslog::config::inputs:
   puppetserver:
     type: imfile

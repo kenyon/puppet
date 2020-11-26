@@ -1,26 +1,26 @@
 ---
 
-role::puppetmaster::classes:
+role::puppetserver::classes:
   - puppetdb
   - puppetdb::master::config
-  - role::puppetmaster::hiera_eyaml
+  - role::puppetserver::hiera_eyaml
 
-role::puppetmaster::gems:
+role::puppetserver::gems:
   - hiera-eyaml
   - r10k
 
-role::puppetmaster::logrotate_rules:
+role::puppetserver::logrotate_rules:
   webhook:
     path: /var/log/webhook/access.log
     missingok: true
     postrotate: systemctl restart webhook
 
-role::puppetmaster::packages:
+role::puppetserver::packages:
   - augeas-tools
   - ruby
 
 # Ruby gems for the puppetserver embedded Ruby environment.
-role::puppetmaster::puppetserver_gems:
+role::puppetserver::puppetserver_gems:
   - r10k
 
 # This webhook setup runs a web server on port 8088. Then I have
@@ -29,13 +29,13 @@ role::puppetmaster::puppetserver_gems:
 # https://gitlab.com/kenyon/puppet/hooks
 # So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile'
 # gets run.
-role::puppetmaster::r10k_deploy_settings:
+role::puppetserver::r10k_deploy_settings:
   purge_levels:
     - deployment
     - environment
     - puppetfile
-role::puppetmaster::r10k_webhook_enable_ssl: false
-role::puppetmaster::r10k_webhook_group: root
-role::puppetmaster::r10k_webhook_protected: false
-role::puppetmaster::r10k_webhook_use_mcollective: false
-role::puppetmaster::r10k_webhook_user: root
+role::puppetserver::r10k_webhook_enable_ssl: false
+role::puppetserver::r10k_webhook_group: root
+role::puppetserver::r10k_webhook_protected: false
+role::puppetserver::r10k_webhook_use_mcollective: false
+role::puppetserver::r10k_webhook_user: root

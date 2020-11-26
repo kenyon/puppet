@@ -1,11 +1,8 @@
 ---
 # Configuration data for puppet.kenyonralph.com.
 
-classes:
-  - role::puppetmaster
-
-role::puppetmaster::r10k_remote: https://gitlab.com/kenyon/puppet.git
-role::puppetmaster::r10k_webhook_token: >-
+role::puppetserver::r10k_remote: https://gitlab.com/kenyon/puppet.git
+role::puppetserver::r10k_webhook_token: >-
   ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQE
   wDQYJKoZIhvcNAQEBBQAEggEAG43DaT3YxEE3TcUqxyndWfFO1SaPLC9kOFjprODla5XC
   EHMmVTbPXuuYy55WcdZ+XwHoXDNshpMCxwXsQGmdViDxJTU14MW5wyahzrX2L/GqIlNco

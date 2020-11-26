@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Configuration for a Puppet Master.
+# Configuration for a Puppet Server.
 
-class role::puppetmaster (
+class role::puppetserver (
   Array[String] $classes,
   Array[String] $gems,
   Hash          $logrotate_rules,

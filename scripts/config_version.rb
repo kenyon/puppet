@@ -9,9 +9,9 @@ else
   environmentpath = ARGV[0]
   environment     = ARGV[1]
 
-  # Get the hostname of the Puppet master compiling the catalog.
+  # Get the hostname of the Puppet server compiling the catalog.
   # Sometimes the hostname is the fqdn, so we'll take the first segment.
-  compiling_master = Socket.gethostname.split('.').first
+  compiling_server = Socket.gethostname.split('.').first
 
   # Get the path to the environment being compiled.
   repo = Rugged::Repository.discover(File.join(environmentpath, environment))
@@ -20,6 +20,6 @@ else
   # First 12 characters of the sha1 hash of the newest commit.
   commit_id = head.target_id[0...11]
 
-  # Show the compiling master, environment name, and commit ID.
-  puts "#{compiling_master}-#{environment}-#{commit_id}"
+  # Show the compiling server, environment name, and commit ID.
+  puts "#{compiling_server}-#{environment}-#{commit_id}"
 end

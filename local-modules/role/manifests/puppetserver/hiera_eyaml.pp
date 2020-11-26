@@ -1,6 +1,6 @@
-# Configure hiera-eyaml for the Puppet Master server.
+# Configure hiera-eyaml for a Puppet server.
 
-class role::puppetmaster::hiera_eyaml (
+class role::puppetserver::hiera_eyaml (
   String $eyaml_private_key = '/etc/puppetlabs/puppet/eyaml/private_key.pem',
   String $eyaml_public_key  = '/etc/puppetlabs/puppet/eyaml/public_key.pem',
   String $eyaml_config      = '/etc/eyaml/config.yaml',

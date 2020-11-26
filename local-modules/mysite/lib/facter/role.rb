@@ -5,7 +5,7 @@ Facter.add("role") do
     # Can't access trusted facts. :(
     case Facter.value(:networking)["hostname"]
     when "puppet"
-      "puppetmaster"
+      "puppetserver"
     end
   end
 end
