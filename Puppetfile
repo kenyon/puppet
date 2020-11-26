@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 mod 'camptocamp-augeas', :latest
 mod 'camptocamp-kmod', :latest
 mod 'camptocamp-postfix', :latest
