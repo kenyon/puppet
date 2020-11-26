@@ -1,0 +1,12 @@
+---
+
+apt::sources:
+  vscode:
+    location: http://packages.microsoft.com/repos/vscode
+    release: stable
+    repos: main
+    key:
+      id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+      source: https://packages.microsoft.com/keys/microsoft.asc
+    include:
+      src: false
