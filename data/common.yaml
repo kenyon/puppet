@@ -287,6 +287,7 @@ ssh::client_options:
     ForwardX11: yes
     HashKnownHosts: no
     SendEnv: LANG LC_*
+    StrictHostKeyChecking: accept-new
     VerifyHostKeyDNS: yes
     VisualHostKey: yes
 
