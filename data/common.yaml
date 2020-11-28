@@ -7,6 +7,7 @@ classes:
   - mysite::time
   - network
   - nodejs
+  - rkhunter
   - rsyslog::config
   - ssh
   - sudo
@@ -195,6 +196,25 @@ postfix_hashes:
   /etc/postfix/sasl/sasl_passwd:
     content: |
       %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
+
+rkhunter::allowhiddendir:
+  - /etc/.git
+  - /etc/.java
+rkhunter::allowhiddenfile:
+  - /etc/.etckeeper
+  - /etc/.gitignore
+rkhunter::allowipcproc:
+  - /usr/bin/transmission-gtk
+  - /usr/bin/virt-viewer
+  - /usr/lib/firefox-esr/firefox-esr
+  - /usr/lib/thunderbird/thunderbird-bin
+  - /usr/sbin/apache2
+rkhunter::allow_syslog_remote_logging: true
+rkhunter::allow_ssh_prot_v1: '2'
+rkhunter::allow_ssh_root_user: without-password
+rkhunter::auto_x_detect: true
+rkhunter::disable_tests: suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps
+rkhunter::use_syslog: authpriv.warning
 
 rsyslog::config::actions:
   forward_all:

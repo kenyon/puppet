@@ -27,6 +27,7 @@ mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
+mod 'puppet-rkhunter', :latest
 mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-translate', :latest
 mod 'puppetlabs-vcsrepo', :latest
