@@ -213,7 +213,7 @@ rkhunter::allow_syslog_remote_logging: true
 rkhunter::allow_ssh_prot_v1: '2'
 rkhunter::allow_ssh_root_user: without-password
 rkhunter::auto_x_detect: true
-rkhunter::disable_tests: suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps
+rkhunter::disable_tests: suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps properties
 rkhunter::use_syslog: authpriv.warning
 
 rsyslog::config::actions:
