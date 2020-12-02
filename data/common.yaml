@@ -7,6 +7,7 @@ classes:
   - mysite::time
   - network
   - nodejs
+  - puppet_agent
   - rkhunter
   - rsyslog::config
   - ssh
@@ -196,6 +197,9 @@ postfix_hashes:
   /etc/postfix/sasl/sasl_passwd:
     content: |
       %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
+
+puppet_agent::package_version: auto
+puppet_agent::collection: puppet
 
 rkhunter::allowhiddendir:
   - /etc/.git
