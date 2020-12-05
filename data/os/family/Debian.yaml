@@ -125,6 +125,10 @@ unattended_upgrades::mail:
 
 unattended_upgrades::syslog_enable: true
 
+# Disable the "apt-get update" done by the apt-daily systemd service because this is done by
+# apticron, and I don't need it done twice per day.
+unattended_upgrades::update: 0
+
 # Local Variables:
 # coding: utf-8
 # End:
