@@ -1,6 +1,12 @@
 ---
 
 apt::sources:
+  puppet-tools:
+    location: http://apt.puppet.com
+    release: "%{facts.os.distro.codename}"
+    repos: puppet-tools
+    include:
+      src: false
   vscode:
     location: http://packages.microsoft.com/repos/vscode
     release: stable

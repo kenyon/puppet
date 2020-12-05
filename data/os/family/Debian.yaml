@@ -115,6 +115,7 @@ unattended_upgrades::extra_origins:
   - origin=apt.postgresql.org
   - origin=Docker
   - origin=vscode stable
+  - origin=Puppetlabs,component=puppet-tools
 
 unattended_upgrades::mail:
   # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
