@@ -4,8 +4,10 @@
 classes:
   - mysite::debian::vm_kvm
 
-packages_absent:
-  - pciutils
+# commenting this out and manually installing pciutils to work around
+# https://tickets.puppetlabs.com/browse/FACT-2081?focusedCommentId=771889&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-771889
+#packages_absent:
+#  - pciutils
 
 # Local Variables:
 # coding: utf-8
