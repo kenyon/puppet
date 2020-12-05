@@ -3,7 +3,6 @@
 
 classes:
   - docker
-  - mysite::fqdn_in_etc_hosts
   - role::hypervisor_kvm
 
 packages:

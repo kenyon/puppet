@@ -3,6 +3,7 @@
 
 classes:
   - accounts
+  - mysite::fqdn_in_etc_hosts
   - mysite::mail
   - mysite::time
   - network
