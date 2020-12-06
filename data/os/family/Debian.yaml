@@ -18,6 +18,7 @@ packages:
   - bash-doc
   - bind9-host
   - debian-goodies
+  - debsums
   - dlocate
   - dnsutils
   - lsb-release
@@ -107,6 +108,10 @@ services:
     enable: true
 
 shellvars:
+  CRON_CHECK:
+    target: /etc/default/debsums
+    value: weekly
+    require: Package[debsums]
   EXTRA_OPTS:
     target: /etc/default/cron
     value: -L 15
