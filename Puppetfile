@@ -8,6 +8,7 @@ mod 'cirrax-libvirt', :latest
 mod 'example42-network', :latest
 mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_grub', :latest
+mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony', :latest
 mod 'puppet-logrotate', :latest

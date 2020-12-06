@@ -2,8 +2,8 @@
 # Debian-family-specific data.
 
 classes:
-  - mysite::debian
   - apt
+  - mysite::debian
   - unattended_upgrades
 
 packages:
@@ -86,11 +86,6 @@ augeases:
       - set apt/confirm yes
       - set apt/which both
     require: Package[apt-listchanges]
-  cron_defaults:
-    context: /files/etc/default/cron
-    changes:
-      - set EXTRA_OPTS '"-L 15"' # that quoting weirdness https://www.redhat.com/archives/augeas-devel/2008-October/msg00023.html
-    notify: Service[cron]
 
 execs:
   update_resolvconf:
@@ -110,6 +105,12 @@ services:
   cron:
     ensure: running
     enable: true
+
+shellvars:
+  EXTRA_OPTS:
+    target: /etc/default/cron
+    value: -L 15
+    notify: Service[cron]
 
 unattended_upgrades::auto:
   clean: 1

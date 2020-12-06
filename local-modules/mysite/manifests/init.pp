@@ -73,6 +73,12 @@ class mysite {
     }
   }
 
+  lookup('shellvars', Hash, 'hash', {}).each |$key, $value| {
+    shellvar { $key:
+      * => $value,
+    }
+  }
+
   lookup('sshkeys', Hash, 'hash', {}).each |$key, $value| {
     sshkey { $key:
       * => $value,
