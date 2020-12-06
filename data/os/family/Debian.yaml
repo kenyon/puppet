@@ -88,6 +88,18 @@ augeases:
       - set apt/which both
     require: Package[apt-listchanges]
 
+concats:
+  # See /usr/share/doc/debsums/README.
+  /etc/debsums-ignore:
+    ensure: present
+
+concats_fragments:
+  # This file gets updated by rkhunter.
+  rkhunter_mirrors:
+    target: /etc/debsums-ignore
+    content: |
+      ^/var/lib/rkhunter/db/mirrors\.dat$
+
 execs:
   update_resolvconf:
     command: /sbin/resolvconf -u

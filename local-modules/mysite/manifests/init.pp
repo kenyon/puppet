@@ -18,6 +18,18 @@ class mysite {
     }
   }
 
+  lookup('concats', Hash, 'hash', {}).each |$key, $value| {
+    concat { $key:
+      * => $value,
+    }
+  }
+
+  lookup('concats_fragments', Hash, 'hash', {}).each |$key, $value| {
+    concat::fragment { $key:
+      * => $value,
+    }
+  }
+
   lookup('cronjobs', Hash, 'hash', {}).each |$key, $value| {
     cron { $key:
       * => $value,

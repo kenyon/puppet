@@ -18,6 +18,14 @@ accounts::user_list:
       kguKG8yv8ag8EXqUSkJazaZkEzTLaGOm0WMOyYR2XKEvszp7nCZawbndIH1ElUYuCVmkq7AWoTUFfmv3
       rV8Hyp8A==]
 
+concats_fragments:
+  # This file is modified because I applied the fix for this bug:
+  # https://bugs.debian.org/935800
+  rss2email_feed:
+    target: /etc/debsums-ignore
+    content: |
+      ^/usr/lib/python3/dist-packages/rss2email/feed\.py$
+
 files:
   /home/kenyon/bin/learnspam:
     ensure: link
