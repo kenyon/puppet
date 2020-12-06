@@ -109,13 +109,8 @@ files:
   /etc/puppetlabs/facter:
     ensure: directory
     mode: '0755'
-    owner: root
-    group: root
   /etc/puppetlabs/facter/facter.conf:
     ensure: file
-    mode: '0644'
-    owner: root
-    group: root
     content: |
       facts : {
           blocklist : [ "EC2" ],
@@ -135,7 +130,6 @@ files:
   /home/kenyon/.puppet-managed:
     ensure: directory
     owner: kenyon
-    group: kenyon
 
 kenyon_dotfiles:
   - .aspell.en.prepl
