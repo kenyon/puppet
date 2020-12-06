@@ -111,6 +111,9 @@ services:
     ensure: running
     enable: true
 
+unattended_upgrades::auto:
+  clean: 1
+
 unattended_upgrades::extra_origins:
   - origin=Debian,codename=${distro_codename}-updates,label=Debian
   - origin=Debian Backports,codename=${distro_codename}-backports,label=Debian Backports
