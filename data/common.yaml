@@ -106,8 +106,6 @@ ini_settings:
     value: none
 
 files:
-  /etc/zlogout:
-    ensure: absent
   /etc/puppetlabs/facter:
     ensure: directory
     mode: '0755'
@@ -122,13 +120,11 @@ files:
       facts : {
           blocklist : [ "EC2" ],
       }
+  /etc/zlogout:
+    ensure: absent
   /home/kenyon/bin:
     ensure: directory
     owner: kenyon
-  /home/kenyon/.puppet-managed:
-    ensure: directory
-    owner: kenyon
-    group: kenyon
   /home/kenyon/.config:
     ensure: directory
     mode: '0700'
@@ -136,6 +132,10 @@ files:
   /home/kenyon/.config/git:
     ensure: directory
     owner: kenyon
+  /home/kenyon/.puppet-managed:
+    ensure: directory
+    owner: kenyon
+    group: kenyon
 
 kenyon_dotfiles:
   - .aspell.en.prepl
