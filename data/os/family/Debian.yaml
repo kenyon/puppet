@@ -67,6 +67,7 @@ apt::sources:
 apt::confs:
   aptitude:
     content: |
+      # Managed by Puppet
       Aptitude {
           CmdLine {
               Always-Prompt "1";
@@ -101,6 +102,7 @@ files:
   # as it's a dependency of rdnssd.
   /etc/resolvconf/resolv.conf.d/tail:
     content: |
+      # /etc/resolvconf/resolv.conf.d/tail managed by Puppet
       options edns0 rotate
     notify: Exec[update_resolvconf]
 

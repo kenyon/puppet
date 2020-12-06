@@ -197,6 +197,7 @@ postfix_configs:
 postfix_hashes:
   /etc/postfix/sasl/sasl_passwd:
     content: |
+      # Managed by Puppet
       %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
 
 puppet_agent::package_version: auto
@@ -280,6 +281,7 @@ systemd_dropin_files:
   noclear.conf:
     unit: getty@.service
     content: |
+      # Managed by Puppet
       [Service]
       TTYVTDisallocate=no
 
