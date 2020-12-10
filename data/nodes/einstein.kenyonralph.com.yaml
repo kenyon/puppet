@@ -11,7 +11,7 @@ packages:
   - fonts-hack
   - pdk
 
-docker::ipv6_cidr: 2605:e000:2700:fe02::/64
+docker::ipv6_cidr: 2603:8001:4e01:df02::/64
 
 kenyon_host_dotfiles:
   - .Xmodmap
