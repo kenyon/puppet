@@ -111,6 +111,7 @@ files:
     content: |
       # Managed by Puppet
       gem: --user-install
+      install: --no-document
   /etc/puppetlabs/facter:
     ensure: directory
     mode: '0755'
