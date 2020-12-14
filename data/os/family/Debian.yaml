@@ -3,6 +3,7 @@
 
 classes:
   - apt
+  - apt::backports
   - mysite::debian
   - unattended_upgrades
 
@@ -33,6 +34,23 @@ packages:
   - vim
   - zsh-syntax-highlighting
 
+apt::backports::include:
+  src: true
+
+apt::confs:
+  aptitude:
+    content: |
+      # Managed by Puppet
+      Aptitude {
+          CmdLine {
+              Always-Prompt "1";
+              Show-Versions "1";
+          };
+          UI {
+              Advance-On-Action "1";
+          }
+      };
+
 apt::purge:
   sources.list: true
   sources.list.d: true
@@ -58,26 +76,6 @@ apt::sources:
     repos: main contrib non-free
     include:
       src: true
-  backports:
-    location: https://deb.debian.org/debian
-    release: "%{facts.os.distro.codename}-backports"
-    repos: main contrib non-free
-    include:
-      src: true
-
-apt::confs:
-  aptitude:
-    content: |
-      # Managed by Puppet
-      Aptitude {
-          CmdLine {
-              Always-Prompt "1";
-              Show-Versions "1";
-          };
-          UI {
-              Advance-On-Action "1";
-          }
-      };
 
 augeases:
   apt_listchanges.conf:
