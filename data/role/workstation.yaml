@@ -16,3 +16,11 @@ apt::sources:
       source: https://packages.microsoft.com/keys/microsoft.asc
     include:
       src: false
+
+concats_fragments:
+  # These files are modified on installation for some reason. Doesn't matter.
+  vscode .desktop files:
+    target: /etc/debsums-ignore
+    content: |
+      ^/usr/share/applications/code\.desktop$
+      ^/usr/share/applications/code-url-handler\.desktop$
