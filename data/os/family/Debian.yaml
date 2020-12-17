@@ -40,7 +40,6 @@ apt::backports::include:
 apt::confs:
   aptitude:
     content: |
-      # Managed by Puppet
       Aptitude {
           CmdLine {
               Always-Prompt "1";
