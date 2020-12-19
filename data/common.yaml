@@ -23,6 +23,8 @@ lookup_options:
     merge: deep
   apt::sources:
     merge: hash
+  mysite::mail::sasl_passwd_hash:
+    convert_to: Sensitive
   rhsm::enabled_repo_ids:
     merge: unique
   rsyslog::config::inputs:
@@ -180,6 +182,10 @@ mailsubmit_password: >
   7lqinNFUVoBPNXgFAu30NgDQrNFeFkNeda9PFd3vy/3VmxPVundgoqmK8N8DPl+UHbzMbopbXpJLigpS
   97b6xip8c4DaeiLz9QXtfaIACc4kTUPAln3UoJJNji/Q==]
 
+mysite::mail::sasl_passwd_hash: |
+  # Managed by Puppet
+  %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
+
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
 nodejs::npm_package_ensure: present
@@ -199,11 +205,6 @@ postfix_configs:
     value: hash:/etc/postfix/sasl/sasl_passwd
   smtp_sasl_tls_security_options:
     value: noanonymous
-postfix_hashes:
-  /etc/postfix/sasl/sasl_passwd:
-    content: |
-      # Managed by Puppet
-      %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
 
 puppet_agent::package_version: auto
 puppet_agent::collection: puppet
