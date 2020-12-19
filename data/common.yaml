@@ -392,8 +392,3 @@ vcsrepos:
       - File[/home/kenyon/.puppet-managed]
     source: https://gitlab.com/kenyon/scripts.git
     user: kenyon
-
-# Local Variables:
-# coding: utf-8
-# End:
-...
