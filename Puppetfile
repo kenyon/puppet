@@ -16,6 +16,7 @@ mod 'puppet-nodejs',
     git: 'https://github.com/voxpupuli/puppet-nodejs.git',
     branch: 'master'
 mod 'puppet-r10k', :latest
+mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
@@ -30,7 +31,6 @@ mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
-mod 'puppet-rkhunter', :latest
 mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-translate', :latest
 mod 'puppetlabs-vcsrepo', :latest
