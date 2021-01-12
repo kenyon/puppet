@@ -15,6 +15,7 @@ class role::puppetserver (
   String[1]     $r10k_webhook_user,
   Boolean       $r10k_webhook_use_mcollective,
   Boolean       $r10k_webhook_protected,
+  Variant[Stdlib::Absolutepath, Enum['stderr']] $r10k_webhook_access_logfile = 'stderr',
 ) {
   $classes.each |String $cls| {
     include $cls
@@ -36,6 +37,7 @@ class role::puppetserver (
   }
 
   class { 'r10k::webhook::config':
+    access_logfile  => $r10k_webhook_access_logfile,
     enable_ssl      => $r10k_webhook_enable_ssl,
     use_mcollective => $r10k_webhook_use_mcollective,
     gitlab_token    => $r10k_webhook_token,

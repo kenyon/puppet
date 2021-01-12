@@ -15,7 +15,9 @@ mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs',
     git: 'https://github.com/voxpupuli/puppet-nodejs.git',
     branch: 'master'
-mod 'puppet-r10k', :latest
+mod 'puppet-r10k',
+    git: 'https://github.com/kenyon/puppet-r10k.git',
+    branch: 'allow-webhook-access_logfile-to-be-nil-for-logging-to-stderr'
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-unattended_upgrades', :latest
