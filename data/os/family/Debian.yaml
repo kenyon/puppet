@@ -76,13 +76,18 @@ apt::sources:
     include:
       src: true
 
-augeases:
-  apt_listchanges.conf:
-    incl: /etc/apt/listchanges.conf
-    lens: Puppet.lns
-    changes:
-      - set apt/confirm yes
-      - set apt/which both
+ini_settings:
+  apt-listchanges confirm:
+    path: /etc/apt/listchanges.conf
+    section: apt
+    setting: confirm
+    value: 'yes'
+    require: Package[apt-listchanges]
+  apt-listchanges which:
+    path: /etc/apt/listchanges.conf
+    section: apt
+    setting: which
+    value: both
     require: Package[apt-listchanges]
 
 concats:

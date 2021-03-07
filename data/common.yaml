@@ -87,22 +87,13 @@ accounts::user_list:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
       - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE
 
-augeases:
-  puppet.conf:
-    context: /files/etc/puppetlabs/puppet/puppet.conf
-    changes:
-      - set main/show_diff true
-      - set main/server puppet.kenyonralph.com
-      # https://puppet.com/docs/puppet/latest/report.html
-      - set master/reports log
-
 docker::ipv6: true
 docker::ip_masq: false
 docker::iptables: false
 docker::log_driver: journald
 
 ini_settings:
-  disable_systemd_CtrlAltDelBurstAction:
+  systemd disable CtrlAltDelBurstAction:
     path: /etc/systemd/system.conf
     section: Manager
     setting: CtrlAltDelBurstAction
@@ -112,6 +103,22 @@ ini_settings:
     section: agent
     setting: splay
     value: 'true'
+  puppet show_diff:
+    path: /etc/puppetlabs/puppet/puppet.conf
+    section: main
+    setting: show_diff
+    value: 'true'
+  puppet server:
+    path: /etc/puppetlabs/puppet/puppet.conf
+    section: main
+    setting: server
+    value: puppet.kenyonralph.com
+  # https://puppet.com/docs/puppet/latest/report.html
+  puppet log reports:
+    path: /etc/puppetlabs/puppet/puppet.conf
+    section: master
+    setting: reports
+    value: log
 
 files:
   /etc/gemrc:
