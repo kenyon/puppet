@@ -107,6 +107,11 @@ ini_settings:
     section: Manager
     setting: CtrlAltDelBurstAction
     value: none
+  puppet agent splay:
+    path: /etc/puppetlabs/puppet/puppet.conf
+    section: agent
+    setting: splay
+    value: 'true'
 
 files:
   /etc/gemrc:
