@@ -1,41 +1,35 @@
 ---
-
 version: 5
 
 defaults:
   lookup_key: eyaml_lookup_key
   options:
     pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
-    pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pem
+    pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pem
+
+# example facts database:
+# https://github.com/camptocamp/facterdb
 
 hierarchy:
   - name: Per-node data (FQDN)
-    path: "nodes/%{::trusted.certname}.yaml"
-
-    # example facts database:
-    # https://github.com/camptocamp/facterdb
+    path: 'nodes/%{trusted.certname}.yaml'
 
   - name: Per-role data
-    path: "role/%{facts.role}.yaml"
+    path: 'role/%{facts.role}.yaml'
 
   - name: Per OS family and virtualization type data
-    path: "virtualization/%{facts.virtual}/%{facts.os.family}.yaml"
+    path: 'virtualization/%{facts.virtual}/%{facts.os.family}.yaml'
 
   - name: Per virtualization type data
-    path: "virtualization/%{facts.virtual}.yaml"
+    path: 'virtualization/%{facts.virtual}.yaml'
 
     # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
   - name: Per-OS-name data
-    path: "os/name/%{facts.os.name}.yaml"
+    path: 'os/name/%{facts.os.name}.yaml'
 
     # example OS families: RedHat, Debian
   - name: Per-OS-family data
-    path: "os/family/%{facts.os.family}.yaml"
+    path: 'os/family/%{facts.os.family}.yaml'
 
   - name: Common data
     path: common.yaml
-
-# Local Variables:
-# coding: utf-8
-# End:
-...

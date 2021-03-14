@@ -1,8 +1,8 @@
 ---
 # Configuration data for puppet.kenyonralph.com.
 
-role::puppetserver::r10k_remote: https://gitlab.com/kenyon/puppet.git
-role::puppetserver::r10k_webhook_token: >-
+profile::puppetserver::r10k_remote: https://gitlab.com/kenyon/puppet.git
+profile::puppetserver::r10k_webhook_token: >-
   ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQE
   wDQYJKoZIhvcNAQEBBQAEggEAG43DaT3YxEE3TcUqxyndWfFO1SaPLC9kOFjprODla5XC
   EHMmVTbPXuuYy55WcdZ+XwHoXDNshpMCxwXsQGmdViDxJTU14MW5wyahzrX2L/GqIlNco
@@ -11,5 +11,3 @@ role::puppetserver::r10k_webhook_token: >-
   Iph0fnL1HQGdFBF6f9pE8dMPBNPl38BraYQ6TyAMoS0sRNb7dv0gBrIct0GIFMSZY0ryP
   3dEPogQxgVlrNQjMlonZXzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDE3CL/LXwvO
   K1YQbkGBQLngCBQ99aQ2vlf053gP6Av262OATBefd232CkjoSPGsm7Syw==]
-
-...

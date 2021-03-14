@@ -1,6 +1,21 @@
 ---
 classes:
-  - role::puppetserver
+  - profile::puppetserver
+  - profile::puppetserver::hiera_eyaml
+  - puppetdb
+  - puppetdb::master::config
+
+packages:
+  - augeas-tools
+  - puppetserver
+  - ruby
+
+gems:
+  - hiera-eyaml
+  - r10k
+
+profile::puppetserver::puppetserver_gems:
+  - r10k
 
 file_lines:
   # Don't want /etc/puppetlabs/code/environments tracked by etckeeper because it contains git
@@ -8,6 +23,24 @@ file_lines:
   etc_gitignore_puppetlabs_code_environments:
     path: /etc/.gitignore
     line: puppetlabs/code/environments
+
+profile::puppetserver::logrotate_rules:
+  webhook:
+    path: /var/log/webhook/access.log
+    missingok: true
+    postrotate: systemctl restart webhook
+
+# This webhook setup runs a web server on port 8088. Then I have
+# configured a webhook in my puppet environments git repository for
+# URL http://puppet.kenyonralph.com:8088/payload that runs on push events:
+# https://gitlab.com/kenyon/puppet/hooks
+# So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile'
+# gets run.
+profile::puppetserver::r10k_deploy_settings:
+  purge_levels:
+    - deployment
+    - environment
+    - puppetfile
 
 rsyslog::config::inputs:
   puppetserver:

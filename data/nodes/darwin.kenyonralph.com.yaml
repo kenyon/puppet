@@ -18,7 +18,7 @@ accounts::user_list:
       kguKG8yv8ag8EXqUSkJazaZkEzTLaGOm0WMOyYR2XKEvszp7nCZawbndIH1ElUYuCVmkq7AWoTUFfmv3
       rV8Hyp8A==]
 
-concats_fragments:
+concat_fragments:
   # This file is modified because I applied the fix for this bug:
   # https://bugs.debian.org/935800
   rss2email_feed:
@@ -131,5 +131,3 @@ rsyslog::config::modules:
       FileCreateMode: '0640'
       FileOwner: root
       FileGroup: adm
-
-...

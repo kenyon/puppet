@@ -1,21 +1,6 @@
 ---
 # Common data.
 
-classes:
-  - accounts
-  - mysite::fqdn_in_etc_hosts
-  - mysite::mail
-  - mysite::time
-  - network
-  - nodejs
-  - puppet_agent
-  - rkhunter
-  - rsyslog::config
-  - ssh
-  - sudo
-  - systemd
-  - timezone
-
 lookup_options:
   accounts::user_list:
     merge: deep
@@ -23,12 +8,26 @@ lookup_options:
     merge: deep
   apt::sources:
     merge: hash
-  mysite::mail::sasl_passwd_hash:
+  profile::mail::sasl_passwd_hash:
     convert_to: Sensitive
   rhsm::enabled_repo_ids:
     merge: unique
   rsyslog::config::inputs:
     merge: hash
+
+classes:
+  - accounts
+  - network
+  - nodejs
+  - profile::mail
+  - profile::timesync
+  - puppet_agent
+  - rkhunter
+  - rsyslog::config
+  - ssh
+  - sudo
+  - systemd
+  - timezone
 
 # Packages I want installed.
 packages:
@@ -62,7 +61,7 @@ packages:
 
 # Packages I want to be absent.
 # Can't really remove multiple packages though, even if I have listed
-# all of their dependencies, because it tries to remove each package
+# all of their dependencies, because Puppet tries to remove each package
 # individually:
 # https://tickets.puppetlabs.com/browse/PUP-146
 # https://tickets.puppetlabs.com/browse/PUP-1061
@@ -86,6 +85,8 @@ accounts::user_list:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
       - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE
+
+bind::package_backport: true
 
 docker::ipv6: true
 docker::ip_masq: false
@@ -195,7 +196,7 @@ mailsubmit_password: >
   7lqinNFUVoBPNXgFAu30NgDQrNFeFkNeda9PFd3vy/3VmxPVundgoqmK8N8DPl+UHbzMbopbXpJLigpS
   97b6xip8c4DaeiLz9QXtfaIACc4kTUPAln3UoJJNji/Q==]
 
-mysite::mail::sasl_passwd_hash: |
+profile::mail::sasl_passwd_hash: |
   # Managed by Puppet
   %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
 
@@ -209,7 +210,7 @@ postfix::mydestination: $myhostname, localhost.$mydomain, localhost
 postfix::relayhost: kenyonralph.com:submission
 postfix::root_mail_recipient: kenyon@kenyonralph.com
 postfix::satellite: true
-postfix_configs:
+profile::mail::postfix_configs:
   smtp_sasl_auth_enable:
     value: 'yes'
   smtp_tls_security_level:

@@ -4,7 +4,7 @@
 classes:
   - apt
   - apt::backports
-  - mysite::debian
+  - profile::fqdn_in_etc_hosts
   - unattended_upgrades
 
 packages:
@@ -95,7 +95,7 @@ concats:
   /etc/debsums-ignore:
     ensure: present
 
-concats_fragments:
+concat_fragments:
   # This file gets updated by rkhunter.
   rkhunter_mirrors:
     target: /etc/debsums-ignore
@@ -115,6 +115,14 @@ files:
       # /etc/resolvconf/resolv.conf.d/tail managed by Puppet
       options edns0 rotate
     notify: Exec[update_resolvconf]
+
+profile::hypervisor_kvm::file_capabilities:
+  /usr/lib/qemu/qemu-bridge-helper:
+    capability: cap_net_admin+ep
+
+profile::hypervisor_kvm::packages:
+  - libosinfo-bin
+  - virtinst
 
 services:
   cron:
@@ -154,6 +162,3 @@ unattended_upgrades::syslog_enable: true
 # Disable the "apt-get update" done by the apt-daily systemd service because this is done by
 # apticron, and I don't need it done twice per day.
 unattended_upgrades::update: 0
-# Local Variables:
-# coding: utf-8
-# End:
