@@ -35,8 +35,7 @@ mod 'puppetlabs-facts', :latest
 mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
-# Until https://tickets.puppetlabs.com/browse/MODULES-10957 is fixed.
-mod 'puppetlabs-postgresql', '6.10.1'
+mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
