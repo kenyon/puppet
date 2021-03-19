@@ -1,3 +1,9 @@
 ---
 classes:
   - bind
+
+bind::root_hint_zone: false
+bind::zones:
+  .:
+    type: mirror
+    file: db.root
