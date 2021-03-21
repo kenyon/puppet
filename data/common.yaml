@@ -8,6 +8,8 @@ lookup_options:
     merge: deep
   apt::sources:
     merge: hash
+  bind::options:
+    merge: hash
   profile::mail::sasl_passwd_hash:
     convert_to: Sensitive
   rhsm::enabled_repo_ids:
@@ -85,6 +87,23 @@ accounts::user_list:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
       - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE
+
+bind::logging:
+  channels:
+    query:
+      file:
+        name: query.log
+        versions: 2
+        size: 1m
+      print-time: true
+      severity: info
+  categories:
+    queries:
+      channels:
+        - query
+
+bind::options:
+  zone-statistics: full
 
 bind::package_backport: true
 
