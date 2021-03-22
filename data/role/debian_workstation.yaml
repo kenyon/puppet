@@ -7,9 +7,18 @@ packages:
   - --emacs-nox
   - emacs
   - fonts-hack
+  - gh
   - pdk
 
 apt::sources:
+  github-cli:
+    location: https://cli.github.com/packages
+    release: '%{facts.os.distro.codename}'
+    repos: main
+    key:
+      id: 2CA32056ED206CB81F44A8CAC99B11DEB97541F0
+    include:
+      src: false
   puppet-tools:
     location: http://apt.puppet.com
     release: '%{facts.os.distro.codename}'

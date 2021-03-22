@@ -143,12 +143,13 @@ unattended_upgrades::auto:
   clean: 1
 
 unattended_upgrades::extra_origins:
-  - origin=Debian,codename=${distro_codename}-updates,label=Debian
-  - origin=Debian Backports,codename=${distro_codename}-backports,label=Debian Backports
   - origin=apt.postgresql.org
+  - origin=Debian Backports,codename=${distro_codename}-backports,label=Debian Backports
+  - origin=Debian,codename=${distro_codename}-updates,label=Debian
   - origin=Docker
-  - origin=vscode stable
+  - origin=gh
   - origin=Puppetlabs,component=puppet-tools
+  - origin=vscode stable
 
 unattended_upgrades::mail:
   # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
