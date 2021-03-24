@@ -118,11 +118,6 @@ ini_settings:
     section: Manager
     setting: CtrlAltDelBurstAction
     value: none
-  puppet agent splay:
-    path: /etc/puppetlabs/puppet/puppet.conf
-    section: agent
-    setting: splay
-    value: 'true'
   puppet show_diff:
     path: /etc/puppetlabs/puppet/puppet.conf
     section: main
@@ -241,6 +236,10 @@ profile::mail::postfix_configs:
 
 puppet_agent::package_version: auto
 puppet_agent::collection: puppet
+puppet_agent::config:
+  - section: agent
+    setting: splay
+    value: 'true'
 
 rkhunter::allowhiddendir:
   - /etc/.git
