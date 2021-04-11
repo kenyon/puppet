@@ -48,6 +48,9 @@ kenyon_host_dotfiles:
   - .mini-dinstall.conf
   - .ikiwiki
 
+packages:
+  - pdk
+
 rsyslog::config::actions:
   daemon:
     priority: 54
