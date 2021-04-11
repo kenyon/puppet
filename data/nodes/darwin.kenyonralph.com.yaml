@@ -50,6 +50,7 @@ kenyon_host_dotfiles:
 
 packages:
   - pdk
+  - ruby-dev
 
 rsyslog::config::actions:
   daemon:
