@@ -9,6 +9,7 @@ packages:
   - fonts-hack
   - gh
   - pdk
+  - lm-sensors
 
 apt::sources:
   github-cli:
