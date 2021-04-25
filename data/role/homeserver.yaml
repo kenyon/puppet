@@ -1,6 +1,7 @@
 ---
 classes:
   - bind
+  - profile::avahi
 
 packages:
   - lm-sensors
