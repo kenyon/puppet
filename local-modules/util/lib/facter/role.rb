@@ -7,9 +7,9 @@ Facter.add('role') do
     # Can't access trusted facts. :(
     case Facter.value(:networking)['hostname']
     when 'einstein'
-      'debian_workstation'
+      'workstation'
     when 'hydrogen'
-      'debian_homeserver'
+      'homeserver'
     when 'puppet'
       'puppetserver'
     end
