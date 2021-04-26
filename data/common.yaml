@@ -52,6 +52,7 @@ packages:
   - psmisc
   - pwgen
   - rsync
+  - smartmontools
   - subnetcalc
   - time
   - tmux
