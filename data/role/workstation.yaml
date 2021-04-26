@@ -10,31 +10,6 @@ packages:
   - gh
   - pdk
 
-apt::sources:
-  github-cli:
-    location: https://cli.github.com/packages
-    release: '%{facts.os.distro.codename}'
-    repos: main
-    key:
-      id: 2CA32056ED206CB81F44A8CAC99B11DEB97541F0
-    include:
-      src: false
-  puppet-tools:
-    location: http://apt.puppet.com
-    release: '%{facts.os.distro.codename}'
-    repos: puppet-tools
-    include:
-      src: false
-  vscode:
-    location: http://packages.microsoft.com/repos/vscode
-    release: stable
-    repos: main
-    key:
-      id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
-      source: https://packages.microsoft.com/keys/microsoft.asc
-    include:
-      src: false
-
 concat_fragments:
   # These files are modified on installation for some reason. Doesn't matter.
   vscode .desktop files:
