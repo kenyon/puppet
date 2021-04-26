@@ -260,6 +260,13 @@ rkhunter::allow_ssh_prot_v1: '2'
 rkhunter::allow_ssh_root_user: without-password
 rkhunter::auto_x_detect: true
 rkhunter::disable_tests: suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps properties
+rkhunter::scriptwhitelist:
+  - /bin/egrep
+  - /bin/fgrep
+  - /bin/which
+  - /usr/bin/groups
+  - /usr/bin/ldd
+  - /usr/sbin/adduser
 rkhunter::use_syslog: authpriv.warning
 
 rsyslog::config::actions:
