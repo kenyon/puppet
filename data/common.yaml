@@ -42,6 +42,7 @@ packages:
   - info
   - keychain
   - lsof
+  - lm-sensors
   - mlocate
   - multitail
   - mutt

@@ -3,9 +3,6 @@ classes:
   - bind
   - profile::avahi
 
-packages:
-  - lm-sensors
-
 bind::root_hint_zone: false
 bind::zones:
   .:
