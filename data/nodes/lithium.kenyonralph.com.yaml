@@ -1,0 +1,4 @@
+---
+packages:
+  - firmware-b43-installer
+  - firmware-misc-nonfree
