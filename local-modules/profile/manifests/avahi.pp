@@ -10,8 +10,7 @@ class profile::avahi {
     '/etc/dhcp/dhclient-exit-hooks.d/zzz_avahi-autoipd',
   ].each |Stdlib::Absolutepath $file| {
     file { $file:
-      mode    => 'a-x',
-      require => Package['avahi-autoipd'],
+      ensure  => absent,
     }
   }
 
@@ -21,8 +20,7 @@ class profile::avahi {
     '/etc/network/if-down.d/avahi-autoipd',
   ].each |Stdlib::Absolutepath $file| {
     file { $file:
-      mode    => 'a-x',
-      require => Package['avahi-autoipd'],
+      ensure  => absent,
     }
   }
 
