@@ -1,5 +1,6 @@
 ---
 packages:
+  - expect
   - firmware-b43-installer
   - firmware-misc-nonfree
   - gh
