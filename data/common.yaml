@@ -303,40 +303,6 @@ services:
     ensure: stopped
     enable: mask
 
-sudo::configs:
-  insults:
-    content: Defaults insults
-  kenyon:
-    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
-  lessenv:
-    content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
-  lessenv2:
-    content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
-
-sysctls:
-  fs.inotify.max_user_watches:
-    value: 524288
-  net.core.default_qdisc:
-    value: fq_codel
-    target: /etc/sysctl.d/97-net-sysctl.conf
-  net.ipv4.tcp_ecn:
-    value: 1
-    target: /etc/sysctl.d/97-net-sysctl.conf
-  net.ipv4.tcp_mtu_probing:
-    value: 2
-    target: /etc/sysctl.d/97-net-sysctl.conf
-
-systemd_dropin_files:
-  noclear.conf:
-    unit: getty@.service
-    content: |
-      # Managed by Puppet
-      [Service]
-      TTYVTDisallocate=no
-
-systemd::journald_settings:
-  Storage: persistent
-
 ssh::client_options:
   Host *:
     ForwardAgent: yes
@@ -370,11 +336,9 @@ sshkeys:
     type: ed25519
     host_aliases: *galileo_aliases
     key: AAAAC3NzaC1lZDI1NTE5AAAAICjhXAwk7deRXugeQENQSzcI97DAdUAwqBo5115YyLqd
-
   github.com:
     type: rsa
     key: AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
-
   gitlab.com_rsa:
     type: rsa
     host_aliases: gitlab.com
@@ -387,7 +351,6 @@ sshkeys:
     type: ed25519
     host_aliases: gitlab.com
     key: AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
-
   lish_fremont_rsa:
     type: rsa
     host_aliases: lish-fremont.linode.com
@@ -400,7 +363,6 @@ sshkeys:
     type: ed25519
     host_aliases: lish-fremont.linode.com
     key: AAAAC3NzaC1lZDI1NTE5AAAAIHAIXJ8SyXG2St6DgT6gQmkQSsX3pyp5FcQoSy/R2x9i
-
   turing_rsa:
     type: rsa
     host_aliases: &turing_aliases
@@ -416,6 +378,40 @@ sshkeys:
     type: ed25519
     host_aliases: *turing_aliases
     key: AAAAC3NzaC1lZDI1NTE5AAAAIIHgJAOsIt2Q50bojzd/B3OlV3LIkg3C+fp/WeEwJqLX
+
+sudo::configs:
+  insults:
+    content: Defaults insults
+  kenyon:
+    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
+  lessenv:
+    content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
+  lessenv2:
+    content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
+
+sysctls:
+  fs.inotify.max_user_watches:
+    value: 524288
+  net.core.default_qdisc:
+    value: fq_codel
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_ecn:
+    value: 1
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_mtu_probing:
+    value: 2
+    target: /etc/sysctl.d/97-net-sysctl.conf
+
+systemd_dropin_files:
+  noclear.conf:
+    unit: getty@.service
+    content: |
+      # Managed by Puppet
+      [Service]
+      TTYVTDisallocate=no
+
+systemd::journald_settings:
+  Storage: persistent
 
 timezone::timezone: America/Los_Angeles
 
