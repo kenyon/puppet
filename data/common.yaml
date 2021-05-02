@@ -86,6 +86,7 @@ accounts::user_list:
     groups:
       - sudo
       - adm
+      - dialout
     managevim: false
     sshkeys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKcX1L+30WOCRpdhUAUBB7MedN2hteApi8E7RUVOPxsO kenyon@einstein
