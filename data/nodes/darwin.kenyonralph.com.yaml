@@ -135,3 +135,5 @@ rsyslog::config::modules:
       FileCreateMode: '0640'
       FileOwner: root
       FileGroup: adm
+
+systemd::dns: '::1'

@@ -73,6 +73,8 @@ packages:
 # https://tickets.puppetlabs.com/browse/PUP-1061
 packages_absent:
   - nano
+  - rdnssd
+  - resolvconf
 
 npm_packages:
   - diff-so-fancy
@@ -414,6 +416,11 @@ systemd_dropin_files:
 
 systemd::journald_settings:
   Storage: persistent
+
+systemd::dnssec: true
+systemd::domains: kenyonralph.com
+systemd::manage_resolved: true
+systemd::use_stub_resolver: true
 
 timezone::timezone: America/Los_Angeles
 

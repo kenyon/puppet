@@ -4,7 +4,6 @@
 classes:
   - apt
   - apt::backports
-  - profile::fqdn_in_etc_hosts
   - unattended_upgrades
 
 packages:
@@ -29,7 +28,6 @@ packages:
   - moreutils
   - mtr-tiny
   - popularity-contest
-  - rdnssd
   - reboot-notifier
   - vim
   - zsh-syntax-highlighting
@@ -127,20 +125,6 @@ concat_fragments:
     target: /etc/debsums-ignore
     content: |
       ^/var/lib/rkhunter/db/mirrors\.dat$
-
-execs:
-  update_resolvconf:
-    command: /sbin/resolvconf -u
-    refreshonly: true
-
-files:
-  # Assuming here that resolvconf is installed,
-  # as it's a dependency of rdnssd.
-  /etc/resolvconf/resolv.conf.d/tail:
-    content: |
-      # /etc/resolvconf/resolv.conf.d/tail managed by Puppet
-      options edns0 rotate
-    notify: Exec[update_resolvconf]
 
 profile::hypervisor_kvm::file_capabilities:
   /usr/lib/qemu/qemu-bridge-helper:
