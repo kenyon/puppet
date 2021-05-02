@@ -19,7 +19,6 @@ lookup_options:
 
 classes:
   - accounts
-  - network
   - nodejs
   - profile::mail
   - profile::timesync
@@ -72,7 +71,11 @@ packages:
 # https://tickets.puppetlabs.com/browse/PUP-146
 # https://tickets.puppetlabs.com/browse/PUP-1061
 packages_absent:
+  - ifupdown
+  - isc-dhcp-client
   - nano
+  - network-manager
+  - openresolv
   - rdnssd
   - resolvconf
 
@@ -160,6 +163,12 @@ files:
       facts : {
           blocklist : [ "EC2" ],
       }
+  /etc/systemd/network/10-persistent-net.link:
+    ensure: absent
+  /etc/systemd/network/99-default.link:
+    ensure: absent
+  /etc/udev/rules.d/80-net-setup-link.rules:
+    ensure: absent
   /etc/zlogout:
     ensure: absent
   /home/kenyon/bin:
@@ -414,11 +423,20 @@ systemd_dropin_files:
       [Service]
       TTYVTDisallocate=no
 
-systemd::journald_settings:
-  Storage: persistent
+systemd_networks:
+  main:
+    content: |
+      [Match]
+      Name=en*
+      [Network]
+      DHCP=yes
+      LinkLocalAddressing=yes
 
 systemd::dnssec: true
 systemd::domains: kenyonralph.com
+systemd::journald_settings:
+  Storage: persistent
+systemd::manage_networkd: true
 systemd::manage_resolved: true
 systemd::use_stub_resolver: true
 

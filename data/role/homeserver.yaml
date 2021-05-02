@@ -1,7 +1,6 @@
 ---
 classes:
   - bind
-  - profile::avahi
 
 bind::root_hint_zone: false
 bind::zones:
