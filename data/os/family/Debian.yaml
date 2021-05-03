@@ -21,7 +21,7 @@ packages:
   - debian-goodies
   - debsums
   - dlocate
-  - dnsutils
+  - bind9-dnsutils
   - lsb-release
   - man-db
   - manpages-dev
@@ -33,6 +33,9 @@ packages:
   - reboot-notifier
   - vim
   - zsh-syntax-highlighting
+
+packages_absent:
+  - dnsutils
 
 apt::backports::include:
   src: true
