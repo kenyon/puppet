@@ -71,20 +71,6 @@ rsyslog::config::actions:
       file: /var/log/syslog
 
 rsyslog::config::expression_filters:
-  # charon and ipsec are very spammy, and their messages are in
-  # daemon.log, so leave them out of syslog
-  charon:
-    conditionals:
-      if:
-        expression: $programname == 'charon'
-        tasks:
-          - stop: true
-  ipsec:
-    conditionals:
-      if:
-        expression: $programname == 'ipsec'
-        tasks:
-          - stop: true
   # filter named junk messages
   named1:
     conditionals:
