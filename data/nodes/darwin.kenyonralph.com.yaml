@@ -84,6 +84,12 @@ rsyslog::config::expression_filters:
         expression: $msg contains 'dumpstats complete'
         tasks:
           - stop: true
+  named sl spam:
+    conditionals:
+      if:
+        expression: $msg contains 'query failed (REFUSED) for sl/IN/ANY'
+        tasks:
+          - stop: true
   # filter ntpd junk
   ntpd:
     conditionals:
