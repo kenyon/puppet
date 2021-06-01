@@ -2,6 +2,14 @@
 classes:
   - bind
 
+bind::options:
+  allow-query:
+    - localhost
+    - localnets
+    - 2603:8000::/24
+    - 2605:e000::/32
+    - fd73:33a5:f518:1::/64
+    - 10.0.2.0/24
 bind::root_hint_zone: false
 bind::zones:
   .:
