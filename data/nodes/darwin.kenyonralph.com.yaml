@@ -106,10 +106,6 @@ rsyslog::config::expression_filters:
           - stop: true
 
 rsyslog::config::inputs:
-  imudp:
-    type: imudp
-    config:
-      port: 514
   imrelp:
     type: imrelp
     config:
@@ -119,7 +115,6 @@ rsyslog::config::modules:
   imklog: {}
   immark: {}
   imrelp: {}
-  imudp: {}
   imuxsock: {}
   omfile:
     type: builtin
