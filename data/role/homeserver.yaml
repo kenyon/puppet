@@ -27,4 +27,17 @@ bind::zones:
     type: primary
     file: db.10.0.0
 
+rsyslog::config::inputs:
+  imudp:
+    type: imudp
+    config:
+      port: 514
+
+rsyslog::config::modules:
+  imklog: {}
+  immark: {}
+  imudp: {}
+  imuxsock: {}
+  omrelp: {}
+
 systemd::dns: '::1'
