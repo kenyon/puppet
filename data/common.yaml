@@ -433,7 +433,9 @@ systemd_networks:
       DHCP=yes
       LinkLocalAddressing=yes
 
-systemd::dnssec: true
+# DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
+# it, but this isn't in a Debian-packaged version yet.
+systemd::dnssec: false
 systemd::domains: kenyonralph.com
 systemd::journald_settings:
   Storage: persistent
