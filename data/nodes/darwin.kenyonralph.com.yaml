@@ -46,7 +46,6 @@ files:
 
 kenyon_host_dotfiles:
   - .mini-dinstall.conf
-  - .ikiwiki
 
 packages:
   - pdk
