@@ -84,13 +84,6 @@ rsyslog::config::expression_filters:
         expression: $msg contains 'query failed (REFUSED) for sl/IN/ANY'
         tasks:
           - stop: true
-  # filter ntpd junk
-  ntpd:
-    conditionals:
-      if:
-        expression: $msg contains 'Invalid-NAK error'
-        tasks:
-          - stop: true
   # filter edgerouter junk
   edgerouter:
     conditionals:
