@@ -460,3 +460,7 @@ vcsrepos:
       - File[/home/kenyon/.puppet-managed]
     source: https://gitlab.com/kenyon/scripts.git
     user: kenyon
+  /usr/local/share/zsh-autosuggestions:
+    ensure: latest
+    provider: git
+    source: https://github.com/zsh-users/zsh-autosuggestions.git
