@@ -31,7 +31,6 @@ files:
     ensure: link
     target: /home/kenyon/.puppet-managed/scripts/learnspam
     owner: kenyon
-    require: Vcsrepo[/home/kenyon/.puppet-managed/scripts]
   /home/kenyon/bin/sign-release:
     ensure: file
     owner: kenyon
