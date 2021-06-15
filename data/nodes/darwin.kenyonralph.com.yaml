@@ -46,10 +46,6 @@ files:
 kenyon_host_dotfiles:
   - .mini-dinstall.conf
 
-packages:
-  - pdk
-  - ruby-dev
-
 rsyslog::config::actions:
   daemon:
     priority: 54
