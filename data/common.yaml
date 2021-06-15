@@ -21,6 +21,7 @@ classes:
   - accounts
   - nodejs
   - profile::mail
+  - profile::multitail
   - profile::timesync
   - puppet_agent
   - rkhunter
@@ -44,7 +45,6 @@ packages:
   - lm-sensors
   - lsof
   - mlocate
-  - multitail
   - mutt
   - ndisc6
   - nmap # nmap includes ncat, its version of netcat (nc)
