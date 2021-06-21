@@ -17,10 +17,7 @@ mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
-# Until a release contains https://github.com/voxpupuli/puppet-r10k/commit/815cc56431fb3e41e2f1af3bfad0de865ab48062
-mod 'puppet-r10k',
-    git: 'https://github.com/voxpupuli/puppet-r10k.git',
-    branch: 'master'
+mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-unattended_upgrades', :latest
