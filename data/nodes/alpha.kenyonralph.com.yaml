@@ -51,6 +51,12 @@ rsyslog::config::expression_filters:
         expression: $msg contains 'query failed (REFUSED) for sl/IN/ANY'
         tasks:
           - stop: true
+  named pizzaseo.com spam:
+    conditionals:
+      if:
+        expression: $msg contains 'query failed (REFUSED) for pizzaseo.com/IN/RRSIG'
+        tasks:
+          - stop: true
   # filter edgerouter junk
   edgerouter:
     conditionals:
