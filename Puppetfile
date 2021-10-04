@@ -11,8 +11,8 @@ mod 'herculesteam-augeasproviders_grub', :latest
 mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'kenyon-bind',
-    git: 'https://github.com/kenyon/puppet-bind.git',
-    branch: 'main'
+  git: 'https://github.com/kenyon/puppet-bind.git',
+  branch: 'main'
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-logrotate', :latest
@@ -20,7 +20,9 @@ mod 'puppet-nodejs', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
-mod 'puppet-unattended_upgrades', :latest
+mod 'puppet-unattended_upgrades',
+  git: 'https://github.com/kenyon/puppet-unattended_upgrades.git',
+  branch: 'restore-main-origin'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
