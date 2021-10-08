@@ -424,8 +424,8 @@ systemd_dropin_files:
       [Service]
       TTYVTDisallocate=no
 
-systemd_networks:
-  main:
+systemd::networks:
+  main.network:
     content: |
       [Match]
       Name=en*

@@ -125,12 +125,6 @@ lookup('systemd_dropin_files', Hash, 'hash', {}).each |$key, $value| {
   }
 }
 
-lookup('systemd_networks', Hash, 'hash', {}).each |$key, $value| {
-  systemd::network { "${key}.network":
-    * => $value,
-  }
-}
-
 lookup('vcsrepos', Hash, 'hash', {}).each |$key, $value| {
   vcsrepo { $key:
     * => $value,
