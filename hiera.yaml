@@ -23,6 +23,9 @@ hierarchy:
   - name: Per virtualization type data
     path: 'virtualization/%{facts.virtual}.yaml'
 
+  - name: Per OS release codename data
+    path: 'os/codename/%{facts.os.distro.codename}.yaml'
+
     # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
   - name: Per-OS-name data
     path: 'os/name/%{facts.os.name}.yaml'

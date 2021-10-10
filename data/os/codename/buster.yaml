@@ -1,0 +1,8 @@
+---
+apt::sources:
+  security:
+    location: https://deb.debian.org/debian-security
+    release: '%{facts.os.distro.codename}/updates'
+    repos: main contrib non-free
+    include:
+      src: true
