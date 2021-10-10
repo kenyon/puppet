@@ -405,7 +405,7 @@ sudo::configs:
 
 sysctls:
   fs.inotify.max_user_watches:
-    value: 524288
+    value: 1048576
   net.core.default_qdisc:
     value: fq_codel
     target: /etc/sysctl.d/97-net-sysctl.conf
