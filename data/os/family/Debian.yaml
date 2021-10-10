@@ -38,6 +38,8 @@ packages_absent:
 apt::backports::include:
   src: true
 
+apt::backports::location: https://deb.debian.org/debian
+
 apt::confs:
   aptitude:
     content: |
