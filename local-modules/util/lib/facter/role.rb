@@ -10,6 +10,8 @@ Facter.add('role') do
       'homeserver'
     when 'puppet'
       'puppetserver'
+    when 'lithium'
+      'puppetserver'
     end
   end
 end
