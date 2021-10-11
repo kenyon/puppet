@@ -26,9 +26,6 @@
 # @param r10k_webhook_user
 #   The user the webhook should run as.
 #
-# @param r10k_webhook_use_mcollective
-#   Whether the webhook should use mcollective.
-#
 # @param r10k_webhook_protected
 #
 # @param r10k_webhook_access_logfile
@@ -42,7 +39,6 @@ class profile::puppetserver (
   Boolean $r10k_webhook_enable_ssl = false,
   String[1] $r10k_webhook_group = 'root',
   String[1] $r10k_webhook_user = 'root',
-  Boolean $r10k_webhook_use_mcollective = false,
   Boolean $r10k_webhook_protected = false,
   Variant[Stdlib::Absolutepath, Enum['stderr']] $r10k_webhook_access_logfile = 'stderr',
 ) {
@@ -56,7 +52,7 @@ class profile::puppetserver (
   }
 
   class { 'r10k::webhook':
-    use_mcollective => $r10k_webhook_use_mcollective,
+    use_mcollective => false,
     group           => $r10k_webhook_group,
     user            => $r10k_webhook_user,
   }
@@ -64,7 +60,7 @@ class profile::puppetserver (
   class { 'r10k::webhook::config':
     access_logfile  => $r10k_webhook_access_logfile,
     enable_ssl      => $r10k_webhook_enable_ssl,
-    use_mcollective => $r10k_webhook_use_mcollective,
+    use_mcollective => false,
     gitlab_token    => $r10k_webhook_token,
     protected       => $r10k_webhook_protected,
   }
