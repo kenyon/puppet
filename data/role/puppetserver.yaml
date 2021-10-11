@@ -24,7 +24,7 @@ file_lines:
     path: /etc/.gitignore
     line: puppetlabs/code/environments
 
-profile::puppetserver::logrotate_rules:
+logrotate::rules:
   webhook:
     path: /var/log/webhook/access.log
     missingok: true

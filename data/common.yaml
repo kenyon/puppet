@@ -10,6 +10,8 @@ lookup_options:
     merge: hash
   bind::options:
     merge: hash
+  logrotate::rules:
+    merge: hash
   profile::mail::sasl_passwd_hash:
     convert_to: Sensitive
   rhsm::enabled_repo_ids:
@@ -19,6 +21,7 @@ lookup_options:
 
 classes:
   - accounts
+  - logrotate
   - nodejs
   - profile::mail
   - profile::multitail

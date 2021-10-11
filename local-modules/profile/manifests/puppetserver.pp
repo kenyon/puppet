@@ -2,9 +2,6 @@
 #   This is intended to be used on a node that was initially provisioned using my puppetserver
 #   Ansible role: https://github.com/kenyon/ansible-playbooks
 #
-# @param logrotate_rules
-#   Rules for logrotate.
-#
 # @param puppetserver_gems
 #   Ruby gems for the Puppet Server's embedded Ruby environment.
 #
@@ -31,7 +28,6 @@
 # @param r10k_webhook_access_logfile
 #
 class profile::puppetserver (
-  Hash $logrotate_rules,
   Array[String[1]] $puppetserver_gems,
   Hash $r10k_deploy_settings,
   String[1] $r10k_remote,
@@ -42,10 +38,6 @@ class profile::puppetserver (
   Boolean $r10k_webhook_protected = false,
   Variant[Stdlib::Absolutepath, Enum['stderr']] $r10k_webhook_access_logfile = 'stderr',
 ) {
-  class { 'logrotate':
-    rules => $logrotate_rules,
-  }
-
   class { 'r10k::config':
     deploy_settings => $r10k_deploy_settings,
     remote          => $r10k_remote,
