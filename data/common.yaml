@@ -49,8 +49,9 @@ packages:
   - lsof
   - mlocate
   - mutt
+  - ncat
   - ndisc6
-  - nmap # nmap includes ncat, its version of netcat (nc)
+  - nmap
   - psmisc
   - pwgen
   - rsync
