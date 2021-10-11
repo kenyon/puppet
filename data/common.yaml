@@ -135,11 +135,6 @@ ini_settings:
     section: main
     setting: show_diff
     value: 'true'
-  puppet server:
-    path: /etc/puppetlabs/puppet/puppet.conf
-    section: main
-    setting: server
-    value: puppet.kenyonralph.com
   # https://puppet.com/docs/puppet/latest/report.html
   puppet log reports:
     path: /etc/puppetlabs/puppet/puppet.conf
