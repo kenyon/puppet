@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 mod 'camptocamp-augeas', :latest
-mod 'camptocamp-kmod', :latest
-mod 'camptocamp-postfix', :latest
-mod 'camptocamp-systemd', :latest
 mod 'cirrax-libvirt', :latest
 mod 'example42-network', :latest
 mod 'herculesteam-augeasproviders_core', :latest
@@ -15,11 +12,14 @@ mod 'kenyon-bind',
   branch: 'main'
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
+mod 'puppet-kmod', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
+mod 'puppet-postfix', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
+mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades',
   git: 'https://github.com/kenyon/puppet-unattended_upgrades.git',
   branch: 'restore-main-origin'
