@@ -34,5 +34,3 @@ rsyslog::config::modules:
   imudp: {}
   imuxsock: {}
   omrelp: {}
-
-systemd::dns: '::1'
