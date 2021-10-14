@@ -46,4 +46,16 @@ files:
 kenyon_host_dotfiles:
   - .mini-dinstall.conf
 
+profile::vms::kvm::linode::longview_api_key: >
+  ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBAD
+  AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAgP16mVBiKHm8Q6x1w6bkK+5RDA
+  AD5C76PqreMvRQ33Ls0gkCFv01QR1r0ef8xsDM+OxCOf6pkf/IGtnBd7w8Du
+  2JdR3ipIOhU2gzL/0thHJDqnjrfkw0yrnXW3AJIovT3CX3lDWp289yHIrul2
+  BPeUUXzqysW4dt4vtUQvaHbq51kLIvMbutWrFzTekYtnPNFCPFxtF4+k8mvX
+  1s1Xv7wQbYBpYy+pHJVpNFp7WANICVWQbwTIm9V4IZT16axccGSLY3SSTQ7U
+  7/tV3TL0K5P6k6gKiprSC2kxjlFZbPPprc8Gn7AoPMeHRbU55pjg2++3l4Ic
+  8Bx6Isk5ku5gt2RzBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBB4ghYBId
+  y2CAy2GjUjcWXMgDDNtdt9edoyAJ9YAXa5AdbkpbeYrukZgWFniaN7kxzIaI
+  vciHKIgXtVZbPbLshvejg=]
+
 systemd::dns: '::1'
