@@ -7,9 +7,6 @@ mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_grub', :latest
 mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
-mod 'kenyon-bind',
-  git: 'https://github.com/kenyon/puppet-bind.git',
-  branch: 'main'
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest

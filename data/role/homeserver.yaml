@@ -1,27 +1,4 @@
 ---
-classes:
-  - bind
-
-bind::options:
-  allow-query:
-    - localhost
-    - localnets
-    - 2603:8000::/24
-    - 2605:e000::/32
-    - fd73:33a5:f518:1::/64
-    - 10.0.2.0/24
-bind::root_hint_zone: false
-bind::zones:
-  .:
-    type: mirror
-    file: db.root
-  8.1.5.f.5.a.3.3.3.7.d.f.ip6.arpa.:
-    type: primary
-    file: db.fd73:33a5:f518
-  0.0.10.in-addr.arpa.:
-    type: primary
-    file: db.10.0.0
-
 rsyslog::config::inputs:
   imudp:
     type: imudp
