@@ -57,5 +57,3 @@ profile::vms::kvm::linode::longview_api_key: >
   8Bx6Isk5ku5gt2RzBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBB4ghYBId
   y2CAy2GjUjcWXMgDDNtdt9edoyAJ9YAXa5AdbkpbeYrukZgWFniaN7kxzIaI
   vciHKIgXtVZbPbLshvejg=]
-
-systemd::dns: '::1'
