@@ -437,7 +437,7 @@ systemd::networks:
       LinkLocalAddressing=yes
 
 # DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
-# it, but this isn't in a Debian-packaged version yet.
+# it in systemd 248.
 systemd::dnssec: false
 systemd::domains: kenyonralph.com
 systemd::journald_settings:
