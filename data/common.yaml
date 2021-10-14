@@ -291,6 +291,10 @@ rsyslog::config::actions:
       target: syslog.kenyonralph.com
       port: 20514
 
+rsyslog::config::global_config:
+  workDirectory:
+    value: /var/spool/rsyslog
+
 rsyslog::config::inputs:
   imuxsock_postfix:
     type: imuxsock
