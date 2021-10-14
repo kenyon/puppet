@@ -15,11 +15,6 @@ bind::zones:
   .:
     type: mirror
     file: db.root
-  kenyonralph.com.:
-    type: secondary
-    masters:
-      # darwin
-      - 2600:3c01::f03c:91ff:fe93:b0d1
   8.1.5.f.5.a.3.3.3.7.d.f.ip6.arpa.:
     type: primary
     file: db.fd73:33a5:f518
