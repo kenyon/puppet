@@ -81,13 +81,13 @@ apt::sources:
     include:
       src: false
   puppet-tools:
-    location: http://apt.puppet.com
+    location: https://apt.puppet.com
     release: '%{facts.os.distro.codename}'
     repos: puppet-tools
     include:
       src: false
   vscode:
-    location: http://packages.microsoft.com/repos/vscode
+    location: https://packages.microsoft.com/repos/vscode
     release: stable
     repos: main
     key:
