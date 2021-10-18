@@ -12,7 +12,9 @@ mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
-mod 'puppet-postfix', :latest
+mod 'puppet-postfix',
+  git: 'https://github.com/voxpupuli/puppet-postfix.git',
+  commit: '125d35cafa3de56473c6cbdb55869b31b3d38827'
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest

@@ -10,7 +10,7 @@ lookup_options:
     merge: hash
   logrotate::rules:
     merge: hash
-  profile::mail::sasl_passwd_hash:
+  postfix_sasl_passwd_content:
     convert_to: Sensitive
   rhsm::enabled_repo_ids:
     merge: unique
@@ -196,31 +196,44 @@ kenyon_dotfiles:
 # Debian uses a systemd timer for logrotate instead of a cron job.
 logrotate::manage_cron_daily: false
 
-mailsubmit_password: >
-  ENC[PKCS7,MIIBuQYJKoZIhvcNAQcDoIIBqjCCAaYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhv
-  cNAQEBBQAEggEAo1ZR4/PsWM9JCCtPeCC1+pOe76TI3N/Qzc69QVPsC1Vk9lBMIWOJ0Ef6c5Po52tOqa
-  eqVw3RJ28Du3tbmUaPoerLub3+tyE/96ad7kuaUu9j5Eik93v27pjBdZKE8CsBxCyCBIrZ4bKFdnmGnv
-  TWEuvak/PbTVEmQ0Abdc+xTB8m56snQM1s0GVJAX4tq4IINkNBbuXqwUOO5tcwkqj5eifRcPWx5QSbkR
-  kBB6LdYKxJL6zgFPmIWXEI8HM9AsXhkmYIBx+7ennmtslJT3bpcqfX6gKxBzk0lXHFNPWEW2gY6GzamQ
-  MA0FzC295WLACymRaZIpjP2QrDuoxrh1VMyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCzfgyNTO
-  7lqinNFUVoBPNXgFAu30NgDQrNFeFkNeda9PFd3vy/3VmxPVundgoqmK8N8DPl+UHbzMbopbXpJLigpS
-  97b6xip8c4DaeiLz9QXtfaIACc4kTUPAln3UoJJNji/Q==]
-
-profile::mail::sasl_passwd_hash: |
-  # Managed by Puppet
-  %{lookup('postfix::relayhost')} mailsubmit:%{lookup('mailsubmit_password')}
-
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
 nodejs::npm_package_ensure: present
 
 postfix::inet_interfaces: loopback-only
-# https://github.com/camptocamp/puppet-postfix/pull/256
+# https://github.com/voxpupuli/puppet-postfix/pull/256
 postfix::mydestination: $myhostname, localhost.$mydomain, localhost
-postfix::relayhost: kenyonralph.com:submission
+postfix::relayhost: '[smtp.mail.me.com]:submission'
 postfix::root_mail_recipient: kenyon@kenyonralph.com
 postfix::satellite: true
-profile::mail::postfix_configs:
+
+# The sender addresses need to match my address for iCloud to accept the
+# message. Something like kenyon@hostname.kenyonralph.com would be rejected.
+postfix::maps:
+  sender_rewrite:
+    type: regexp
+    content: |
+      # Managed by Puppet
+      /./ kenyon@kenyonralph.com
+  smtp_header_checks:
+    type: regexp
+    content: |
+      # Managed by Puppet
+      /From:.*/ REPLACE From: kenyon@kenyonralph.com
+
+postfix_sasl_passwd_content: |
+  # Managed by Puppet
+  %{lookup('postfix::relayhost')} kenyonralph:ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAOxKwg3+xtcxw06CJ5Agh/tTV2TWHT6cCWyqwMAHjckImX347aerRNIswK7xOa1EPU3EGQbO/MiLAP1Ol//d1SQKZ5VngoPkhYS0pUZyX5CqL4/S1N9LU5O580ZsBgb+gigYfh8zdQvaXXFbuo3TRMA3M1+wbIoC8qTA8Q9lYUJZS31aW2QVI6ngkQI4R5u3+7rCWOezRD2B3bKRp37X7G6GNSuFFdtcP3TUqqVwCw3e+IYFjR2EcxUf4+UVGjcwwihTinU8pgHQlEbBoGXRyID9CfhoRK1BeAQbEkhOnjhmigTthudTZrNt0ILxvxagJdI7tYTRj/mL1h1UUG7sjtjBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDau85T5DJWjYuIsx6u9XeVgCD12NQWe0zlOiYvJQSp30bBRn3g3zNedABwUk41QLdMoQ==]
+
+postfix::hashes:
+  /etc/postfix/sasl/sasl_passwd:
+    content: '%{alias("postfix_sasl_passwd_content")}'
+
+postfix::configs:
+  sender_canonical_maps:
+    value: regexp:/etc/postfix/sender_rewrite
+  smtp_header_checks:
+    value: regexp:/etc/postfix/smtp_header_checks
   smtp_sasl_auth_enable:
     value: 'yes'
   smtp_tls_security_level:
