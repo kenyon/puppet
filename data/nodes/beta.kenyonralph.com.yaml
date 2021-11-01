@@ -1,0 +1,57 @@
+---
+profile::vms::kvm::linode::longview_api_key: >
+  ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBAD
+  AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAklt5Si/VGctLhON/CQGXoLNhG3
+  2bFS/y4WBwtDg9prelMBBYIDYRaXfcfrq5XgVUwPWaLEJd9EMS0BoEZjbxft
+  PsvohYk00UQL7ihnRIast5TPwqK2E8iY4JGy4BgAWy05avMewo/5A+ZZoFIL
+  HF6xM/jL+wRdRaFu+ryZUCh2RzYOWnsLqRNbUhjv5YGwTQU9aWfA3fRA9eR+
+  MSuo+6LRzPXlXKHBZithU5VXvJyCut9zAk1k9DVW5pj07s83DA9WnWlMmHA0
+  dmW51zYrqNr0JGAuDTJjOL71J9RtdUhOAeHugy4GCm7pZYQXsQGqVPHey57P
+  D6GacXXT2e59U3JTBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDhbdtam9
+  +D+hRU+pAnxEKWgDB+G9lzS14kPJRspu/ot85uNypvu2zbTiKhlK4H9XOFpk
+  uJUTFGZZn0K0NRS0WRFb4=]
+
+rsyslog::config::actions:
+  daemon:
+    priority: 54
+    type: omfile
+    facility: daemon.*
+    config:
+      file: /var/log/daemon.log
+  mail:
+    type: omfile
+    facility: mail.*
+    config:
+      file: /var/log/mail.log
+  syslog:
+    type: omfile
+    facility: '*.*'
+    config:
+      file: /var/log/syslog
+
+rsyslog::config::expression_filters:
+  # filter edgerouter junk
+  edgerouter:
+    conditionals:
+      if:
+        expression: $msg contains '/usr/sbin/ubnt-check-unms.sh'
+        tasks:
+          - stop: true
+
+rsyslog::config::inputs:
+  imrelp:
+    type: imrelp
+    config:
+      port: 20514
+
+rsyslog::config::modules:
+  imklog: {}
+  immark: {}
+  imrelp: {}
+  imuxsock: {}
+  omfile:
+    type: builtin
+    config:
+      FileCreateMode: '0640'
+      FileOwner: root
+      FileGroup: adm
