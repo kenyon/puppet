@@ -50,6 +50,7 @@ packages:
   - ncat
   - ndisc6
   - nmap
+  - pciutils
   - psmisc
   - pwgen
   - rsync
