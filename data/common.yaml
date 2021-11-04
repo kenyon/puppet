@@ -124,7 +124,7 @@ ini_settings:
     path: /etc/puppetlabs/puppet/puppet.conf
     section: server
     setting: reports
-    value: log
+    value: log,store,puppetdb
 
 files:
   /etc/gemrc:
