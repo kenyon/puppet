@@ -122,7 +122,7 @@ ini_settings:
   # https://puppet.com/docs/puppet/latest/report.html
   puppet log reports:
     path: /etc/puppetlabs/puppet/puppet.conf
-    section: master
+    section: server
     setting: reports
     value: log
 
