@@ -2,6 +2,8 @@
 classes:
   - profile::puppetserver
   - profile::puppetserver::hiera_eyaml
+  - puppetboard
+  - puppetboard::apache::conf
   - puppetdb
   - puppetdb::master::config
 

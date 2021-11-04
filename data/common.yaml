@@ -103,6 +103,8 @@ accounts::user_list:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw7d1d4Lhxz7wv02IEUr8ssmc/BvCVEIzFgPko7haXx kenyon@stinkbook.local
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOngf+NPCrcsHcmmqqmGQss1TrZS0VCue5KsXradcIqc ed25519-key-20210606-krPhoneSE-Shelly
 
+apache::mpm_module: event
+
 docker::ipv6: true
 docker::ip_masq: false
 docker::iptables: false

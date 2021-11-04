@@ -15,6 +15,10 @@ mod 'puppet-nodejs', :latest
 mod 'puppet-postfix',
   git: 'https://github.com/voxpupuli/puppet-postfix.git',
   commit: '125d35cafa3de56473c6cbdb55869b31b3d38827'
+mod 'puppet-puppetboard',
+  git: 'https://github.com/kenyon/puppet-puppetboard.git',
+  branch: 'apache-custom-config'
+mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
@@ -23,6 +27,7 @@ mod 'puppet-unattended_upgrades',
   git: 'https://github.com/kenyon/puppet-unattended_upgrades.git',
   branch: 'restore-main-origin'
 mod 'puppetlabs-accounts', :latest
+mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
