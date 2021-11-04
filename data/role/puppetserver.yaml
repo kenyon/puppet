@@ -48,3 +48,8 @@ rsyslog::config::inputs:
     config:
       file: '%{settings::logdir}/puppetserver.log'
       tag: puppetserver.log
+  puppetdb:
+    type: imfile
+    config:
+      file: /var/log/puppetlabs/puppetdb/puppetdb.log
+      tag: puppetdb.log
