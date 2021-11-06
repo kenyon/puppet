@@ -43,11 +43,17 @@ rsyslog::config::inputs:
     type: imrelp
     config:
       port: 20514
+  imtcp:
+    type: imtcp
+    config:
+      port: 514
+      address: '%{facts.networking.ip6}'
 
 rsyslog::config::modules:
   imklog: {}
   immark: {}
   imrelp: {}
+  imtcp: {}
   imuxsock: {}
   omfile:
     type: builtin
