@@ -40,7 +40,6 @@ mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-stdlib', :latest
-mod 'puppetlabs-translate', :latest
 mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
