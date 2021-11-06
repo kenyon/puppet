@@ -87,6 +87,12 @@ lookup('kenyon_host_dotfiles', Array, 'unique', []).each |$dotfile| {
   }
 }
 
+lookup('munin_plugins', Hash, 'hash', {}).each |$key, $value| {
+  munin::plugin { $key:
+    * => $value,
+  }
+}
+
 lookup('npm_packages', Array[String], 'unique', []).each |String $pkg| {
   package { "npm_${pkg}":
     ensure   => present,

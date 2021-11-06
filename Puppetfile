@@ -44,5 +44,6 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
+mod 'ssm-munin', :latest
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest

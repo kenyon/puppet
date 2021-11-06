@@ -18,10 +18,12 @@ lookup_options:
 classes:
   - accounts
   - logrotate
+  - munin::node
   - nodejs
   - postfix
   - profile::mail
   - profile::multitail
+  - profile::munin
   - profile::timesync
   - puppet_agent
   - rkhunter
@@ -197,6 +199,79 @@ kenyon_dotfiles:
 
 # Debian uses a systemd timer for logrotate instead of a cron job.
 logrotate::manage_cron_daily: false
+
+munin::node::allow:
+  - '::1'
+  - 2600:3c01::f03c:92ff:fe8c:f7c9/128
+
+munin_plugins:
+  buddyinfo:
+    ensure: link
+    config:
+      - env.logarithmic yes
+  # TODO: file keeps changing because github doesn't provide the http headers
+  # puppet needs. add checksum_value to munin::plugin that's passed to the file
+  # resource to fix this.
+  # https://github.com/ssm/ssm-munin/blob/main/manifests/plugin.pp
+  # chrony_drift:
+  #   ensure: present
+  #   config:
+  #     - user _chrony
+  #     - env.driftfile /var/lib/chrony/drift
+  #   source: https://raw.githubusercontent.com/munin-monitoring/contrib/02630d318ce12da72631ebacd478e3e214e73d42/plugins/chrony/chrony_drift
+  # TODO: add graphs to this plugin for other values from chronyc tracking.
+  # TODO: add a graph for packets received from chronyc serverstats.
+  # chrony_status:
+  #   ensure: present
+  #   source: https://raw.githubusercontent.com/munin-monitoring/contrib/085d7a9ba8ca26ba44018bda5e7eb528af77bf42/plugins/chrony/chrony_status
+  http_loadtime:
+    ensure: absent
+  if_dummy0:
+    ensure: absent
+  if_err_dummy0:
+    ensure: absent
+  if_erspan0:
+    ensure: absent
+  if_err_erspan0:
+    ensure: absent
+  if_gretap0:
+    ensure: absent
+  if_err_gretap0:
+    ensure: absent
+  if_ip6gre0:
+    ensure: absent
+  if_err_ip6gre0:
+    ensure: absent
+  if_ip6tnl0:
+    ensure: absent
+  if_err_ip6tnl0:
+    ensure: absent
+  if_ip6_vti0:
+    ensure: absent
+  if_err_ip6_vti0:
+    ensure: absent
+  if_ip_vti0:
+    ensure: absent
+  if_err_ip_vti0:
+    ensure: absent
+  if_teql0:
+    ensure: absent
+  if_err_teql0:
+    ensure: absent
+  if_tunl0:
+    ensure: absent
+  if_err_tunl0:
+    ensure: absent
+  nfs4_client:
+    ensure: absent
+  nfs_client:
+    ensure: absent
+  nfsd:
+    ensure: absent
+  nfsd4:
+    ensure: absent
+  tcp:
+    ensure: link
 
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false

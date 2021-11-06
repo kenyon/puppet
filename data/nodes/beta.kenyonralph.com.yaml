@@ -1,4 +1,55 @@
 ---
+classes:
+  - apache::vhosts
+  - apache::mod::cgid
+  - apache::mod::status
+  - munin::master
+
+packages:
+  - libwww-perl # needed for apache munin modules
+
+apache::default_vhost: false
+apache::default_ssl_vhost: false
+apache::purge_vhost_dir: true
+apache::vhosts::vhosts:
+  _default_:
+    port: 80
+    aliases:
+      - alias: /munin/static/
+        path: /var/cache/munin/www/static/
+      - scriptalias: /munin-cgi/munin-cgi-graph
+        path: /usr/lib/munin/cgi/munin-cgi-graph
+      - scriptalias: /munin
+        path: /usr/lib/munin/cgi/munin-cgi-html
+    directories:
+      - path: /var/cache/munin/www
+      - path: /usr/lib/munin/cgi
+        handler: cgi-script
+    docroot: /var/www/html
+    redirectmatch_regexp:
+      - ^/munin$
+    redirectmatch_dest:
+      - /munin/
+    redirectmatch_status:
+      - permanent
+    servername: '%{trusted.certname}'
+
+munin_plugins:
+  fw_conntrack:
+    ensure: absent
+  fw_conntrack_local:
+    ensure: absent
+  munin_update:
+    ensure: link
+  apache_accesses:
+    ensure: link
+  apache_processes:
+    ensure: link
+  apache_volume:
+    ensure: link
+  postfix_mailstats:
+    ensure: link
+
 profile::vms::kvm::linode::longview_api_key: >
   ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBAD
   AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAklt5Si/VGctLhON/CQGXoLNhG3

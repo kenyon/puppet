@@ -1,5 +1,6 @@
 ---
 classes:
+  - apache::mod::status
   - profile::puppetserver
   - profile::puppetserver::hiera_eyaml
   - puppetboard
@@ -9,6 +10,7 @@ classes:
 
 packages:
   - augeas-tools
+  - libwww-perl # needed for apache munin modules
   - puppetserver
   - ruby
 
@@ -31,6 +33,14 @@ logrotate::rules:
     path: /var/log/webhook/access.log
     missingok: true
     postrotate: systemctl restart webhook
+
+munin_plugins:
+  apache_accesses:
+    ensure: link
+  apache_processes:
+    ensure: link
+  apache_volume:
+    ensure: link
 
 # This webhook setup runs a web server on port 8088. Then I have
 # configured a webhook in my puppet environments git repository for

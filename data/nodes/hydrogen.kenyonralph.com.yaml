@@ -3,3 +3,9 @@ packages:
   - fake-hwclock
   - firmware-iwlwifi
   - haveged
+
+munin_plugins:
+  if_err_wlp2s0:
+    ensure: absent
+  if_wlp2s0:
+    ensure: absent

@@ -6,6 +6,16 @@ packages:
   - gh
   - pdk
 
+munin_plugins:
+  if_docker0:
+    ensure: absent
+  if_err_docker0:
+    ensure: absent
+  if_wlp2s0b1:
+    ensure: absent
+  if_err_wlp2s0b1:
+    ensure: absent
+
 profile::puppetserver::r10k_remote: https://gitlab.com/kenyon/puppet.git
 profile::puppetserver::r10k_webhook_token: >-
   ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQE
