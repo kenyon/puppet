@@ -10,8 +10,6 @@ lookup_options:
     merge: hash
   logrotate::rules:
     merge: hash
-  postfix_sasl_passwd_content:
-    convert_to: Sensitive
   rhsm::enabled_repo_ids:
     merge: unique
   rsyslog::config::inputs:
@@ -22,6 +20,7 @@ classes:
   - logrotate
   - nodejs
   - postfix
+  - profile::mail
   - profile::multitail
   - profile::timesync
   - puppet_agent
@@ -224,13 +223,9 @@ postfix::maps:
       # Managed by Puppet
       /From:.*/ REPLACE From: kenyon@kenyonralph.com
 
-postfix_sasl_passwd_content: |
+profile::mail::postfix_sasl_passwd_content: |
   # Managed by Puppet
   %{lookup('postfix::relayhost')} kenyonralph:ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAOxKwg3+xtcxw06CJ5Agh/tTV2TWHT6cCWyqwMAHjckImX347aerRNIswK7xOa1EPU3EGQbO/MiLAP1Ol//d1SQKZ5VngoPkhYS0pUZyX5CqL4/S1N9LU5O580ZsBgb+gigYfh8zdQvaXXFbuo3TRMA3M1+wbIoC8qTA8Q9lYUJZS31aW2QVI6ngkQI4R5u3+7rCWOezRD2B3bKRp37X7G6GNSuFFdtcP3TUqqVwCw3e+IYFjR2EcxUf4+UVGjcwwihTinU8pgHQlEbBoGXRyID9CfhoRK1BeAQbEkhOnjhmigTthudTZrNt0ILxvxagJdI7tYTRj/mL1h1UUG7sjtjBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDau85T5DJWjYuIsx6u9XeVgCD12NQWe0zlOiYvJQSp30bBRn3g3zNedABwUk41QLdMoQ==]
-
-postfix::hashes:
-  /etc/postfix/sasl/sasl_passwd:
-    content: '%{alias("postfix_sasl_passwd_content")}'
 
 postfix::configs:
   sender_canonical_maps:
