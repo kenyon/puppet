@@ -7,6 +7,39 @@ packages:
   - macfanctld
   - pdk
 
+files:
+  /etc/sensors.d/ignore-nonsense-temperatures.conf:
+    ensure: file
+    content: |
+      # Managed by Puppet
+      # Find sensor feature names with `sensors -u`
+      # The following features have nonsense values on this system.
+      chip "applesmc-isa-0300"
+      ignore temp9
+      ignore temp10
+      ignore temp19
+      ignore temp22
+      ignore temp25
+      ignore temp26
+      ignore temp27
+      ignore temp28
+      ignore temp29
+      ignore temp30
+      ignore temp31
+      ignore temp32
+      ignore temp33
+      ignore temp34
+      ignore temp35
+      ignore temp36
+      ignore temp37
+      ignore temp38
+      ignore temp39
+      ignore temp40
+      ignore temp41
+      ignore temp42
+      ignore temp43
+      ignore temp51
+
 munin_plugins:
   if_docker0:
     ensure: absent
