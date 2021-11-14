@@ -4,6 +4,7 @@ packages:
   - firmware-b43-installer
   - firmware-misc-nonfree
   - gh
+  - macfanctld
   - pdk
 
 munin_plugins:
