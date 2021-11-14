@@ -209,21 +209,21 @@ munin_plugins:
     ensure: link
     config:
       - env.logarithmic yes
-  # TODO: file keeps changing because github doesn't provide the http headers
-  # puppet needs. add checksum_value to munin::plugin that's passed to the file
-  # resource to fix this.
-  # https://github.com/ssm/ssm-munin/blob/main/manifests/plugin.pp
-  # chrony_drift:
-  #   ensure: present
-  #   config:
-  #     - user _chrony
-  #     - env.driftfile /var/lib/chrony/drift
-  #   source: https://raw.githubusercontent.com/munin-monitoring/contrib/02630d318ce12da72631ebacd478e3e214e73d42/plugins/chrony/chrony_drift
-  # TODO: add graphs to this plugin for other values from chronyc tracking.
-  # TODO: add a graph for packets received from chronyc serverstats.
-  # chrony_status:
-  #   ensure: present
-  #   source: https://raw.githubusercontent.com/munin-monitoring/contrib/085d7a9ba8ca26ba44018bda5e7eb528af77bf42/plugins/chrony/chrony_status
+  chrony_drift:
+    ensure: present
+    config:
+      - user _chrony
+      - env.driftfile /var/lib/chrony/drift
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/02630d318ce12da72631ebacd478e3e214e73d42/plugins/chrony/chrony_drift
+    checksum: sha256
+    checksum_value: 2ea3c3ebf445b55c47d1530d8a2f1f94a36be8e0cb625d07f909fdf5a38837e7
+  chrony_status:
+    ensure: present
+    config:
+      - user _chrony
+    source: https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/chrony_status_fix_graphs/plugins/chrony/chrony_status
+    checksum: sha256
+    checksum_value: 1ec209a86dce0382b4e60e1c5803035937b2d907a91950a756d526045d91019e
   http_loadtime:
     ensure: absent
   if_dummy0:

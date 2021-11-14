@@ -44,6 +44,8 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
-mod 'ssm-munin', :latest
+mod 'ssm-munin',
+  git: 'https://github.com/kenyon/ssm-munin.git',
+  branch: 'plugin-checksum-value'
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest
