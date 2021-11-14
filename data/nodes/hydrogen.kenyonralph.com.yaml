@@ -2,3 +2,4 @@
 packages:
   - fake-hwclock
   - firmware-iwlwifi
+  - haveged
