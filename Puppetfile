@@ -24,8 +24,8 @@ mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades',
-  git: 'https://github.com/kenyon/puppet-unattended_upgrades.git',
-  branch: 'restore-main-origin'
+  git: 'https://github.com/voxpupuli/puppet-unattended_upgrades.git',
+  commit: '3605678da82e84d763d865ad7936932f0e359643'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
