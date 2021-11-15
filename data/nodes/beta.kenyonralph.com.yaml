@@ -39,6 +39,8 @@ munin_plugins:
     ensure: absent
   fw_conntrack_local:
     ensure: absent
+  fw_forwarded_local:
+    ensure: absent
   munin_update:
     ensure: link
   apache_accesses:
