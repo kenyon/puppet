@@ -13,4 +13,4 @@ then
 fi
 
 printf 'time.value '
-journalctl --grep='Applied catalog' --lines=1 --output=cat _COMM=puppet | cut --delimiter=' ' --field=4
+journalctl --grep='Applied catalog' --lines=1000 --output=cat _COMM=puppet | tail --lines=1 | cut --delimiter=' ' --field=4 || echo U
