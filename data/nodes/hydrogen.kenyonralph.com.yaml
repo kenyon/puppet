@@ -5,6 +5,17 @@ packages:
   - haveged
   - hplip
 
+files:
+  /etc/sensors.d/ignore-nonsense-temperatures.conf:
+    ensure: file
+    content: |
+      # Managed by Puppet
+      # Find sensor feature names with `sensors -u`
+      # The following features have nonsense values on this system.
+      chip "acpitz-acpi-0"
+      ignore temp1
+      ignore temp2
+
 munin_plugins:
   if_err_wlp2s0:
     ensure: absent
