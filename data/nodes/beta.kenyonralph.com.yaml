@@ -3,6 +3,7 @@ classes:
   - apache::vhosts
   - apache::mod::cgid
   - apache::mod::status
+  - letsencrypt
   - munin::master
 
 packages:
@@ -12,8 +13,11 @@ apache::default_vhost: false
 apache::default_ssl_vhost: false
 apache::purge_vhost_dir: true
 apache::vhosts::vhosts:
-  _default_:
+  http:
+    docroot: /var/www/html
     port: 80
+    servername: '%{trusted.certname}'
+  https:
     aliases:
       - alias: /munin/static/
         path: /var/cache/munin/www/static/
@@ -26,6 +30,7 @@ apache::vhosts::vhosts:
       - path: /usr/lib/munin/cgi
         handler: cgi-script
     docroot: /var/www/html
+    port: 443
     redirectmatch_regexp:
       - ^/munin$
     redirectmatch_dest:
@@ -33,6 +38,17 @@ apache::vhosts::vhosts:
     redirectmatch_status:
       - permanent
     servername: '%{trusted.certname}'
+    ssl: true
+    ssl_cert: '/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem'
+    ssl_key: '/etc/letsencrypt/live/%{trusted.certname}/privkey.pem'
+
+letsencrypt_certs:
+  '%{trusted.certname}':
+    plugin: webroot
+    webroot_paths:
+      - /var/www/html
+    deploy_hook_commands:
+      - systemctl reload apache2
 
 munin_plugins:
   fw_conntrack:

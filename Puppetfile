@@ -10,6 +10,7 @@ mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
+mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix',

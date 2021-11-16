@@ -1,6 +1,8 @@
 ---
 classes:
   - apache::mod::status
+  - apache::vhosts
+  - letsencrypt
   - profile::puppetserver
   - profile::puppetserver::hiera_eyaml
   - puppetboard
@@ -21,12 +23,36 @@ gems:
 profile::puppetserver::puppetserver_gems:
   - r10k
 
+apache::default_vhost: false
+apache::default_ssl_vhost: false
+apache::purge_vhost_dir: true
+apache::vhosts::vhosts:
+  http:
+    docroot: /var/www/html
+    port: 80
+    servername: '%{trusted.certname}'
+  https:
+    docroot: /var/www/html
+    port: 443
+    servername: '%{trusted.certname}'
+    ssl: true
+    ssl_cert: '/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem'
+    ssl_key: '/etc/letsencrypt/live/%{trusted.certname}/privkey.pem'
+
 file_lines:
   # Don't want /etc/puppetlabs/code/environments tracked by etckeeper because it contains git
   # repos. This causes etckeeper cron jobs to fail, causing unnecessary emails to me.
   etc_gitignore_puppetlabs_code_environments:
     path: /etc/.gitignore
     line: puppetlabs/code/environments
+
+letsencrypt_certs:
+  '%{trusted.certname}':
+    plugin: webroot
+    webroot_paths:
+      - /var/www/html
+    deploy_hook_commands:
+      - systemctl reload apache2
 
 logrotate::rules:
   webhook:

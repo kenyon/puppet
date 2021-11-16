@@ -197,6 +197,8 @@ kenyon_dotfiles:
   - .zshenv
   - .zshrc
 
+letsencrypt::email: kenyon@kenyonralph.com
+
 # Debian uses a systemd timer for logrotate instead of a cron job.
 logrotate::manage_cron_daily: false
 

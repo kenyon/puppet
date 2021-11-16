@@ -87,6 +87,12 @@ lookup('kenyon_host_dotfiles', Array, 'unique', []).each |$dotfile| {
   }
 }
 
+lookup('letsencrypt_certs', Hash, 'hash', {}).each |$key, $value| {
+  letsencrypt::certonly { $key:
+    * => $value,
+  }
+}
+
 lookup('munin_plugins', Hash, 'hash', {}).each |$key, $value| {
   munin::plugin { $key:
     * => $value,
