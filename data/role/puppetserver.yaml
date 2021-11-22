@@ -1,5 +1,6 @@
 ---
 classes:
+  - apache::mod::http2
   - apache::mod::status
   - apache::vhosts
   - letsencrypt
@@ -23,9 +24,6 @@ gems:
 profile::puppetserver::puppetserver_gems:
   - r10k
 
-apache::default_vhost: false
-apache::default_ssl_vhost: false
-apache::purge_vhost_dir: true
 apache::vhosts::vhosts:
   http:
     docroot: /var/www/html

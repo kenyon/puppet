@@ -104,7 +104,23 @@ accounts::user_list:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw7d1d4Lhxz7wv02IEUr8ssmc/BvCVEIzFgPko7haXx kenyon@stinkbook.local
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOngf+NPCrcsHcmmqqmGQss1TrZS0VCue5KsXradcIqc ed25519-key-20210606-krPhoneSE-Shelly
 
+apache::default_ssl_vhost: false
+apache::default_vhost: false
+apache::mod::ssl::reload_on_change: true
+apache::mod::ssl::ssl_sessiontickets: false
+apache::mod::ssl::ssl_stapling: true
+apache::mod::ssl::ssl_protocol:
+  - all
+  - -SSLv3
+  - -TLSv1
+  - -TLSv1.1
+  - -TLSv1.2
 apache::mpm_module: event
+apache::protocols:
+  - h2
+  - h2c
+  - http/1.1
+apache::purge_vhost_dir: true
 
 docker::ipv6: true
 docker::ip_masq: false

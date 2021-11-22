@@ -2,6 +2,7 @@
 classes:
   - apache::vhosts
   - apache::mod::cgid
+  - apache::mod::http2
   - apache::mod::status
   - letsencrypt
   - munin::master
@@ -9,9 +10,6 @@ classes:
 packages:
   - libwww-perl # needed for apache munin modules
 
-apache::default_vhost: false
-apache::default_ssl_vhost: false
-apache::purge_vhost_dir: true
 apache::vhosts::vhosts:
   http:
     docroot: /var/www/html
