@@ -502,7 +502,7 @@ sysctls:
     value: 2
     target: /etc/sysctl.d/97-net-sysctl.conf
 
-systemd_dropin_files:
+systemd::dropin_files:
   noclear.conf:
     unit: getty@.service
     content: |
