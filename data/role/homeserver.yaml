@@ -1,4 +1,7 @@
 ---
+classes:
+  - smokeping
+
 rsyslog::config::inputs:
   imudp:
     type: imudp
@@ -11,3 +14,5 @@ rsyslog::config::modules:
   imudp: {}
   imuxsock: {}
   omrelp: {}
+
+smokeping::mode: slave

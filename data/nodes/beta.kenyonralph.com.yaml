@@ -6,6 +6,7 @@ classes:
   - apache::mod::status
   - letsencrypt
   - munin::master
+  - smokeping
 
 packages:
   - libwww-perl # needed for apache munin modules
@@ -30,6 +31,10 @@ apache::vhosts::vhosts:
     servername: '%{trusted.certname}'
   https:
     aliases:
+      - scriptalias: /smokeping/smokeping.cgi
+        path: /usr/lib/cgi-bin/smokeping.cgi
+      - alias: /smokeping
+        path: /usr/share/smokeping/www
       - alias: /munin/static/
         path: /var/cache/munin/www/static/
       - scriptalias: /munin-cgi/munin-cgi-graph
@@ -40,6 +45,10 @@ apache::vhosts::vhosts:
       - path: /var/cache/munin/www
       - path: /usr/lib/munin/cgi
         handler: cgi-script
+      - path: /usr/share/smokeping/www
+        options:
+          - FollowSymLinks
+        directoryindex: smokeping.cgi
     docroot: /var/www/html
     port: 443
     redirectmatch_regexp:
@@ -141,3 +150,5 @@ rsyslog::config::modules:
       FileCreateMode: '0640'
       FileOwner: root
       FileGroup: adm
+
+smokeping::mode: master

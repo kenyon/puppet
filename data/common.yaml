@@ -403,6 +403,43 @@ services:
     ensure: stopped
     enable: mask
 
+smokeping::cgi_remark_top: SmokePing
+smokeping::cgiurl: https://beta.kenyonralph.com/smokeping/smokeping.cgi
+smokeping::contact: kenyon@kenyonralph.com
+smokeping::default_probe: FPing6
+smokeping::default_slaves:
+  - hydrogen
+smokeping::mailhost: localhost
+smokeping::master_url: '%{alias("smokeping::cgiurl")}'
+smokeping::owner: Kenyon Ralph
+smokeping::path_piddir: /run/smokeping
+smokeping::probes:
+  - name: FPing
+    binary: /usr/bin/fping
+  - name: FPing6
+    binary: /usr/bin/fping6
+smokeping::targets:
+  cloudflare_dns:
+    host: one.one.one.one
+  google_dns:
+    host: dns.google
+  linode_fremont:
+    host: speedtest.fremont.linode.com
+  spectrum_router:
+    host: 2605:e000:40e:1a::1
+    menu: Spectrum router
+  spectrum_router_ipv4:
+    host: 142.254.184.105
+    menu: Spectrum router (IPv4)
+    probe: FPing
+  turing:
+    host: turing.kenyonralph.com
+    menu: turing
+  turing_ipv4:
+    host: 172.112.148.215
+    menu: turing (IPv4)
+    probe: FPing
+
 ssh::client_options:
   Host *:
     ForwardAgent: yes
