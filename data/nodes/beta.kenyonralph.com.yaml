@@ -11,6 +11,19 @@ packages:
   - libwww-perl # needed for apache munin modules
 
 apache::vhosts::vhosts:
+  pool.ntp.org:
+    docroot: /var/www/html
+    port: 80
+    servername: pool.ntp.org
+    serveraliases:
+      - '*.pool.ntp.org'
+      - '*.ntppool.org'
+    redirect_source:
+      - /
+    redirect_dest:
+      - https://www.ntppool.org/
+    redirect_status:
+      - permanent
   http:
     docroot: /var/www/html
     port: 80
