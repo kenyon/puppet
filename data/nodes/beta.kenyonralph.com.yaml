@@ -169,12 +169,8 @@ rsyslog::config::inputs:
       tag: munin-update
 
 rsyslog::config::modules:
-  imfile: {}
-  imklog: {}
-  immark: {}
   imrelp: {}
   imtcp: {}
-  imuxsock: {}
   omfile:
     type: builtin
     config:
