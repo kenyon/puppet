@@ -9,6 +9,7 @@ rsyslog::config::inputs:
       port: 514
 
 rsyslog::config::modules:
+  imfile: {}
   imklog: {}
   immark: {}
   imudp: {}

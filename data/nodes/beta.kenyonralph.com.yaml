@@ -137,8 +137,39 @@ rsyslog::config::inputs:
     config:
       port: 514
       address: '%{facts.networking.ip6}'
+  munin-cgi-graph:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-cgi-graph.log
+      tag: munin-cgi-graph
+  munin-cgi-html:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-cgi-html.log
+      tag: munin-cgi-html
+  munin-graph:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-graph.log
+      tag: munin-graph
+  munin-html:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-html.log
+      tag: munin-html
+  munin-limits:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-limits.log
+      tag: munin-limits
+  munin-update:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-update.log
+      tag: munin-update
 
 rsyslog::config::modules:
+  imfile: {}
   imklog: {}
   immark: {}
   imrelp: {}

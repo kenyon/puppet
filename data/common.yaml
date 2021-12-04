@@ -387,6 +387,11 @@ rsyslog::config::inputs:
       # mail logging when rsyslog is restarted.  If the directory is missing,
       # rsyslog will silently skip creating the socket.
       Socket: /var/spool/postfix/dev/log
+  munin-node:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-node.log
+      tag: munin-node
 
 rsyslog::config::modules:
   imfile: {}
