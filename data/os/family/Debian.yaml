@@ -14,7 +14,6 @@ packages:
   - apticron
   - aptitude
   - aptitude-doc-en
-  - bash-completion
   - bash-doc
   - bind9-host
   - debian-goodies

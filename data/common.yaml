@@ -38,20 +38,15 @@ classes:
 # Packages I want installed.
 packages:
   - aspell
+  - bash-completion
   - colordiff
   - curl
   - emacs-nox
-  - etckeeper
   - htop
-  - info
   - iotop
   - keychain
-  - lm-sensors
   - lsof
-  - mlocate
   - mutt
-  - ncat
-  - ndisc6
   - nmap
   - pciutils
   - psmisc
@@ -60,7 +55,6 @@ packages:
   - screen
   - smartmontools
   - subnetcalc
-  - time
   - tmux
   - tree
   - unzip

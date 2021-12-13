@@ -1,0 +1,5 @@
+---
+packages:
+  - mtr-nox11
+  - vim
+  - zsh-syntax-highlighting

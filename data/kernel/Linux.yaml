@@ -1,0 +1,9 @@
+---
+packages:
+  - etckeeper
+  - info
+  - lm-sensors
+  - mlocate
+  - ncat
+  - ndisc6
+  - time
