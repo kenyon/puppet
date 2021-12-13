@@ -11,28 +11,28 @@ defaults:
 # https://github.com/camptocamp/facterdb
 
 hierarchy:
-  - name: Per-node data (FQDN)
+  - name: Node (FQDN)
     path: 'nodes/%{trusted.certname}.yaml'
 
-  - name: Per-role data
+  - name: Role
     path: 'role/%{facts.role}.yaml'
 
-  - name: Per OS family and virtualization type data
+  - name: OS family and virtualization type
     path: 'virtualization/%{facts.virtual}/%{facts.os.family}.yaml'
 
-  - name: Per virtualization type data
+  - name: Virtualization type
     path: 'virtualization/%{facts.virtual}.yaml'
 
-  - name: Per OS release codename data
+  - name: OS release codename
     path: 'os/codename/%{facts.os.distro.codename}.yaml'
 
-    # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
-  - name: Per-OS-name data
+  # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
+  - name: OS name
     path: 'os/name/%{facts.os.name}.yaml'
 
-    # example OS families: RedHat, Debian
-  - name: Per-OS-family data
+  # example OS families: RedHat, Debian
+  - name: OS family
     path: 'os/family/%{facts.os.family}.yaml'
 
-  - name: Common data
+  - name: Common
     path: common.yaml
