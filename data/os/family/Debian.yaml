@@ -5,6 +5,7 @@ classes:
   - apt
   - apt::backports
   - profile::debian::apt_listchanges
+  - profile::debian::apticron
   - profile::debian::debsums
   - unattended_upgrades
 
@@ -12,7 +13,6 @@ packages:
   - apt-file
   - apt-listbugs
   - apt-show-versions
-  - apticron
   - aptitude
   - aptitude-doc-en
   - bash-doc
@@ -94,17 +94,6 @@ apt::sources:
       source: https://packages.microsoft.com/keys/microsoft.asc
     include:
       src: false
-
-services:
-  cron:
-    ensure: running
-    enable: true
-
-shellvars:
-  EXTRA_OPTS:
-    target: /etc/default/cron
-    value: -L 15
-    notify: Service[cron]
 
 unattended_upgrades::auto:
   clean: 1
