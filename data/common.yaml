@@ -135,12 +135,6 @@ files:
       facts : {
           blocklist : [ "EC2" ],
       }
-  /etc/systemd/network/10-persistent-net.link:
-    ensure: absent
-  /etc/systemd/network/99-default.link:
-    ensure: absent
-  /etc/udev/rules.d/80-net-setup-link.rules:
-    ensure: absent
   /etc/zlogout:
     ensure: absent
   /home/kenyon/bin:

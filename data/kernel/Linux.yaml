@@ -22,3 +22,11 @@ ini_settings:
     section: Manager
     setting: CtrlAltDelBurstAction
     value: none
+
+files:
+  /etc/systemd/network/10-persistent-net.link:
+    ensure: absent
+  /etc/systemd/network/99-default.link:
+    ensure: absent
+  /etc/udev/rules.d/80-net-setup-link.rules:
+    ensure: absent
