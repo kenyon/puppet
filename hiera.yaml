@@ -34,5 +34,8 @@ hierarchy:
   - name: OS family
     path: 'os/family/%{facts.os.family}.yaml'
 
+  - name: Kernel type
+    path: 'kernel/%{facts.kernel}.yaml'
+
   - name: Common
     path: common.yaml
