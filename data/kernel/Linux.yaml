@@ -1,4 +1,9 @@
 ---
+classes:
+  - nodejs
+  - profile::linux
+  - systemd
+
 packages:
   - etckeeper
   - info
@@ -7,3 +12,6 @@ packages:
   - ncat
   - ndisc6
   - time
+
+npm_packages:
+  - diff-so-fancy

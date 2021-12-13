@@ -6,11 +6,6 @@ ensure_packages(util::lookup_filter('packages_absent'), {ensure => absent})
 Package['zsh'] -> User['kenyon']
 Package['ruby'] -> Package <| provider == 'gem' |>
 
-kernel_parameter { 'quiet':
-  ensure   => absent,
-  bootmode => default,
-}
-
 lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
   augeas { $key:
     * => $value,

@@ -21,7 +21,6 @@ classes:
   - accounts
   - logrotate
   - munin::node
-  - nodejs
   - postfix
   - profile::mail
   - profile::multitail
@@ -32,7 +31,6 @@ classes:
   - rsyslog::config
   - ssh
   - sudo
-  - systemd
   - timezone
 
 # Packages I want installed.
@@ -78,9 +76,6 @@ packages_absent:
   - openresolv
   - rdnssd
   - resolvconf
-
-npm_packages:
-  - diff-so-fancy
 
 accounts::user_list:
   kenyon:
