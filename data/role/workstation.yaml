@@ -10,14 +10,6 @@ packages:
   - gh
   - pdk
 
-concat_fragments:
-  # These files are modified on installation for some reason. Doesn't matter.
-  vscode .desktop files:
-    target: /etc/debsums-ignore
-    content: |
-      ^/usr/share/applications/code\.desktop$
-      ^/usr/share/applications/code-url-handler\.desktop$
-
 sysctls:
   # Docker sets this to 1 for some dumb reason. It needs to be 2
   # because forwarding is enabled and I want RA on br0 configure the

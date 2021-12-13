@@ -4,6 +4,7 @@
 classes:
   - apt
   - apt::backports
+  - profile::debian::debsums
   - unattended_upgrades
 
 packages:
@@ -17,7 +18,6 @@ packages:
   - bash-doc
   - bind9-host
   - debian-goodies
-  - debsums
   - dlocate
   - bind9-dnsutils
   - lsb-release
@@ -109,28 +109,12 @@ ini_settings:
     value: both
     require: Package[apt-listchanges]
 
-concats:
-  # See /usr/share/doc/debsums/README.
-  /etc/debsums-ignore:
-    ensure: present
-
-concat_fragments:
-  # This file gets updated by rkhunter.
-  rkhunter_mirrors:
-    target: /etc/debsums-ignore
-    content: |
-      ^/var/lib/rkhunter/db/mirrors\.dat$
-
 services:
   cron:
     ensure: running
     enable: true
 
 shellvars:
-  CRON_CHECK:
-    target: /etc/default/debsums
-    value: weekly
-    require: Package[debsums]
   EXTRA_OPTS:
     target: /etc/default/cron
     value: -L 15
