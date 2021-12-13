@@ -118,24 +118,6 @@ docker::ip_masq: false
 docker::iptables: false
 docker::log_driver: journald
 
-ini_settings:
-  systemd disable CtrlAltDelBurstAction:
-    path: /etc/systemd/system.conf
-    section: Manager
-    setting: CtrlAltDelBurstAction
-    value: none
-  puppet show_diff:
-    path: /etc/puppetlabs/puppet/puppet.conf
-    section: main
-    setting: show_diff
-    value: 'true'
-  # https://puppet.com/docs/puppet/latest/report.html
-  puppet log reports:
-    path: /etc/puppetlabs/puppet/puppet.conf
-    section: server
-    setting: reports
-    value: log,store,puppetdb
-
 files:
   /etc/gemrc:
     ensure: file
@@ -331,6 +313,13 @@ puppet_agent::config:
   - section: agent
     setting: splay
     value: 'true'
+  - section: main
+    setting: show_diff
+    value: 'true'
+  # https://puppet.com/docs/puppet/latest/report.html
+  - section: server
+    setting: reports
+    value: log,store,puppetdb
 
 rkhunter::allowhiddendir:
   - /etc/.git
