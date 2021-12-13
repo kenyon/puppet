@@ -121,14 +121,6 @@ concat_fragments:
     content: |
       ^/var/lib/rkhunter/db/mirrors\.dat$
 
-profile::hypervisor_kvm::file_capabilities:
-  /usr/lib/qemu/qemu-bridge-helper:
-    capability: cap_net_admin+ep
-
-profile::hypervisor_kvm::packages:
-  - libosinfo-bin
-  - virtinst
-
 services:
   cron:
     ensure: running
