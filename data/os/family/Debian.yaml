@@ -4,13 +4,13 @@
 classes:
   - apt
   - apt::backports
+  - profile::debian::apt_listchanges
   - profile::debian::debsums
   - unattended_upgrades
 
 packages:
   - apt-file
   - apt-listbugs
-  - apt-listchanges
   - apt-show-versions
   - apticron
   - aptitude
@@ -94,20 +94,6 @@ apt::sources:
       source: https://packages.microsoft.com/keys/microsoft.asc
     include:
       src: false
-
-ini_settings:
-  apt-listchanges confirm:
-    path: /etc/apt/listchanges.conf
-    section: apt
-    setting: confirm
-    value: 'yes'
-    require: Package[apt-listchanges]
-  apt-listchanges which:
-    path: /etc/apt/listchanges.conf
-    section: apt
-    setting: which
-    value: both
-    require: Package[apt-listchanges]
 
 services:
   cron:
