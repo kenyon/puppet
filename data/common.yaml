@@ -21,7 +21,6 @@ classes:
   - accounts
   - logrotate
   - munin::node
-  - postfix
   - profile::mail
   - profile::multitail
   - profile::munin
