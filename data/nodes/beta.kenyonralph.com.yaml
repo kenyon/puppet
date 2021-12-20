@@ -85,6 +85,8 @@ munin::master::node_definitions:
     address: hydrogen.kenyonralph.com
   turing.kenyonralph.com:
     address: beta.kenyonralph.com
+  unifi.leafwood.kenyonralph.com:
+    address: unifi.leafwood.kenyonralph.com
   upstairsap.leafwood.kenyonralph.com:
     address: hydrogen.kenyonralph.com
 
