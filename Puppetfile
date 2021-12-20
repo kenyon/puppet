@@ -39,7 +39,9 @@ mod 'puppetlabs-facts', :latest
 mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
-mod 'puppetlabs-postgresql', :latest
+mod 'puppetlabs-postgresql',
+  git: 'https://github.com/puppetlabs/puppetlabs-postgresql.git',
+  commit: '1f352c1bef1837ffa6d2edc18d651103ac154a0d'
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
