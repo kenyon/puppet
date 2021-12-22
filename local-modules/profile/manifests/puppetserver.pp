@@ -28,10 +28,10 @@
 # @param r10k_webhook_access_logfile
 #
 class profile::puppetserver (
-  Array[String[1]] $puppetserver_gems,
   Hash $r10k_deploy_settings,
   String[1] $r10k_remote,
   String[1] $r10k_webhook_token,
+  Array[String[1]] $puppetserver_gems = [],
   Boolean $r10k_webhook_enable_ssl = false,
   String[1] $r10k_webhook_group = 'root',
   String[1] $r10k_webhook_user = 'root',
