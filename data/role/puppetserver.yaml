@@ -6,6 +6,7 @@ classes:
   - letsencrypt
   - profile::puppetserver
   - profile::puppetserver::hiera_eyaml
+  - profile::ruby
   - puppetboard
   - puppetboard::apache::conf
   - puppetdb
@@ -15,7 +16,6 @@ packages:
   - augeas-tools
   - libwww-perl # needed for apache munin modules
   - puppetserver
-  - ruby
 
 gems:
   - hiera-eyaml

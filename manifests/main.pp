@@ -4,7 +4,6 @@ ensure_packages(util::lookup_filter('packages'), {ensure => installed})
 ensure_packages(util::lookup_filter('packages_absent'), {ensure => absent})
 
 Package['zsh'] -> User['kenyon']
-Package['ruby'] -> Package <| provider == 'gem' |>
 
 lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
   augeas { $key:
@@ -45,15 +44,6 @@ lookup('files', Hash, 'hash', {}).each |$key, $value| {
 lookup('file_lines', Hash, 'hash', {}).each |$key, $value| {
   file_line { $key:
     * => $value,
-  }
-}
-
-# Ruby gems.
-lookup('gems', Array[String], 'unique', []).each |String $gem| {
-  package { "gem_${gem}":
-    ensure   => installed,
-    provider => gem,
-    name     => $gem,
   }
 }
 
