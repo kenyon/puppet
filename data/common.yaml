@@ -58,7 +58,7 @@ packages:
   - unzip
   - w3m
   - wdiff
-  - wget
+  - wget2
   - whois
   - zsh
 
