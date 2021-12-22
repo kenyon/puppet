@@ -3,8 +3,6 @@ util::lookup_filter('classes').include
 ensure_packages(util::lookup_filter('packages'), {ensure => installed})
 ensure_packages(util::lookup_filter('packages_absent'), {ensure => absent})
 
-Package['zsh'] -> User['kenyon']
-
 lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
   augeas { $key:
     * => $value,
@@ -50,25 +48,6 @@ lookup('file_lines', Hash, 'hash', {}).each |$key, $value| {
 lookup('ini_settings', Hash, 'hash', {}).each |$key, $value| {
   ini_setting { $key:
     * => $value,
-  }
-}
-
-lookup('kenyon_dotfiles', Array, 'unique', []).each |$dotfile| {
-  file { "/home/kenyon/${dotfile}":
-    ensure  => link,
-    owner   => 'kenyon',
-    target  => "/home/kenyon/.puppet-managed/dotfiles/${dotfile}",
-    require => Vcsrepo['/home/kenyon/.puppet-managed/dotfiles'],
-  }
-}
-
-# Host-specific dotfiles.
-lookup('kenyon_host_dotfiles', Array, 'unique', []).each |$dotfile| {
-  file { "/home/kenyon/${dotfile}":
-    ensure  => link,
-    owner   => 'kenyon',
-    target  => "/home/kenyon/.puppet-managed/dotfiles/hosts/${trusted['hostname']}/${dotfile}",
-    require => Vcsrepo['/home/kenyon/.puppet-managed/dotfiles'],
   }
 }
 

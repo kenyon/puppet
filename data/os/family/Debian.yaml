@@ -29,7 +29,6 @@ packages:
   - popularity-contest
   - reboot-notifier
   - vim
-  - zsh-syntax-highlighting
 
 packages_absent:
   - dnsutils
@@ -119,3 +118,11 @@ unattended_upgrades::syslog_enable: true
 # Disable the "apt-get update" done by the apt-daily systemd service because this is done by
 # apticron, and I don't need it done twice per day.
 unattended_upgrades::update: 0
+
+profile::kenyon::dotfiles:
+  - .devscripts
+  - .dput.cf
+  - .quiltrc
+
+profile::kenyon::groups:
+  - sudo

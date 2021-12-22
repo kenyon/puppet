@@ -7,6 +7,7 @@ classes:
 packages:
   - etckeeper
   - info
+  - iotop
   - lm-sensors
   - mlocate
   - ncat
@@ -30,3 +31,67 @@ files:
     ensure: absent
   /etc/udev/rules.d/80-net-setup-link.rules:
     ensure: absent
+
+# The package installs a systemd timer for logrotate instead of a cron job.
+logrotate::manage_cron_daily: false
+
+munin_plugins:
+  buddyinfo:
+    ensure: link
+    config:
+      - env.logarithmic yes
+  tcp:
+    ensure: link
+
+profile::kenyon::dotfiles:
+  - .toprc
+
+profile::kenyon::groups:
+  - adm
+  - dialout
+
+services:
+  ctrl-alt-del.target:
+    ensure: stopped
+    enable: mask
+
+sysctls:
+  fs.inotify.max_user_watches:
+    value: 1048576
+  net.core.default_qdisc:
+    value: fq_codel
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_ecn:
+    value: 1
+    target: /etc/sysctl.d/97-net-sysctl.conf
+  net.ipv4.tcp_mtu_probing:
+    value: 2
+    target: /etc/sysctl.d/97-net-sysctl.conf
+
+systemd::dropin_files:
+  noclear.conf:
+    unit: getty@.service
+    content: |
+      # Managed by Puppet
+      [Service]
+      TTYVTDisallocate=no
+
+systemd::networks:
+  main.network:
+    content: |
+      [Match]
+      Name=en*
+      [Network]
+      DHCP=yes
+      LinkLocalAddressing=yes
+
+# DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
+# it in systemd 248.
+systemd::dnssec: false
+systemd::domains: kenyonralph.com
+systemd::journald_settings:
+  Storage: persistent
+systemd::llmnr: false
+systemd::manage_networkd: true
+systemd::manage_resolved: true
+systemd::use_stub_resolver: true

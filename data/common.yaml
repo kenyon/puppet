@@ -2,14 +2,14 @@
 # Common data.
 
 lookup_options:
-  accounts::user_list:
-    merge: deep
-  accounts::group_list:
-    merge: deep
   apt::sources:
     merge: hash
   logrotate::rules:
     merge: hash
+  profile::kenyon::dotfiles:
+    merge: unique
+  profile::kenyon::groups:
+    merge: unique
   rhsm::enabled_repo_ids:
     merge: unique
   rsyslog::config::inputs:
@@ -18,15 +18,16 @@ lookup_options:
     merge: hash
 
 classes:
-  - accounts
   - logrotate
   - munin::node
+  - profile::kenyon
   - profile::mail
   - profile::multitail
   - profile::munin
   - profile::puppet
   - profile::ruby
   - profile::timesync
+  - profile::zsh
   - rkhunter
   - rsyslog::config
   - ssh
@@ -42,7 +43,6 @@ packages:
   - emacs-nox
   - htop
   - iftop
-  - iotop
   - keychain
   - lsof
   - mutt
@@ -61,7 +61,6 @@ packages:
   - wdiff
   - wget2
   - whois
-  - zsh
 
 # Packages I want to be absent.
 # Can't really remove multiple packages though, even if I have listed
@@ -77,24 +76,6 @@ packages_absent:
   - openresolv
   - rdnssd
   - resolvconf
-
-accounts::user_list:
-  kenyon:
-    ignore_password_if_empty: true
-    password: ''
-    comment: Kenyon Ralph
-    shell: /bin/zsh
-    groups:
-      - sudo
-      - adm
-      - dialout
-    managevim: false
-    sshkeys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720
-      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZw6oCX3sFTBOnTJSrTPPzcmC2ygu+gxSM8CKuFK/S2 kenyon@iMac
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw7d1d4Lhxz7wv02IEUr8ssmc/BvCVEIzFgPko7haXx kenyon@stinkbook.local
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOngf+NPCrcsHcmmqqmGQss1TrZS0VCue5KsXradcIqc ed25519-key-20210606-krPhoneSE-Shelly
 
 apache::default_ssl_vhost: false
 apache::default_vhost: false
@@ -118,27 +99,7 @@ docker::ip_masq: false
 docker::iptables: false
 docker::log_driver: journald
 
-files:
-  /etc/zlogout:
-    ensure: absent
-  /home/kenyon/bin:
-    ensure: directory
-    owner: kenyon
-  /home/kenyon/.bundle:
-    ensure: directory
-    owner: kenyon
-  /home/kenyon/.config:
-    ensure: directory
-    mode: '0700'
-    owner: kenyon
-  /home/kenyon/.config/git:
-    ensure: directory
-    owner: kenyon
-  /home/kenyon/.puppet-managed:
-    ensure: directory
-    owner: kenyon
-
-kenyon_dotfiles:
+profile::kenyon::dotfiles:
   - .aspell.en.prepl
   - .aspell.en.pws
   - .bash_aliases
@@ -146,17 +107,13 @@ kenyon_dotfiles:
   - .bashrc
   - .bundle/config
   - .config/git/ignore
-  - .devscripts
-  - .dput.cf
   - .emacs.d
   - .gitconfig
   - .inputrc
   - .profile
-  - .quiltrc
   - .screenrc
   - .signature
   - .tmux.conf
-  - .toprc
   - .vim
   - .vimrc
   - .Xresources
@@ -166,18 +123,11 @@ kenyon_dotfiles:
 
 letsencrypt::email: kenyon@kenyonralph.com
 
-# Debian uses a systemd timer for logrotate instead of a cron job.
-logrotate::manage_cron_daily: false
-
 munin::node::allow:
   - '::1'
   - 2600:3c01::f03c:92ff:fe8c:f7c9/128
 
 munin_plugins:
-  buddyinfo:
-    ensure: link
-    config:
-      - env.logarithmic yes
   chrony_drift:
     ensure: present
     config:
@@ -239,8 +189,6 @@ munin_plugins:
     ensure: absent
   nfsd4:
     ensure: absent
-  tcp:
-    ensure: link
 
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
@@ -361,11 +309,6 @@ rsyslog::config::modules:
 rsyslog::feature_packages:
   - rsyslog-relp
 
-services:
-  ctrl-alt-del.target:
-    ensure: stopped
-    enable: mask
-
 smokeping::cgi_remark_top: SmokePing
 smokeping::cgiurl: https://beta.kenyonralph.com/smokeping/smokeping.cgi
 smokeping::contact: kenyon@kenyonralph.com
@@ -468,74 +411,9 @@ sshkeys:
 sudo::configs:
   insults:
     content: Defaults insults
-  kenyon:
-    content: 'kenyon ALL = (ALL:ALL) NOPASSWD: ALL'
   lessenv:
     content: Defaults env_keep += "LESS_TERMCAP_us LESS_TERMCAP_ue LESS_TERMCAP_so LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_md LESS_TERMCAP_mb"
   lessenv2:
     content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
 
-sysctls:
-  fs.inotify.max_user_watches:
-    value: 1048576
-  net.core.default_qdisc:
-    value: fq_codel
-    target: /etc/sysctl.d/97-net-sysctl.conf
-  net.ipv4.tcp_ecn:
-    value: 1
-    target: /etc/sysctl.d/97-net-sysctl.conf
-  net.ipv4.tcp_mtu_probing:
-    value: 2
-    target: /etc/sysctl.d/97-net-sysctl.conf
-
-systemd::dropin_files:
-  noclear.conf:
-    unit: getty@.service
-    content: |
-      # Managed by Puppet
-      [Service]
-      TTYVTDisallocate=no
-
-systemd::networks:
-  main.network:
-    content: |
-      [Match]
-      Name=en*
-      [Network]
-      DHCP=yes
-      LinkLocalAddressing=yes
-
-# DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
-# it in systemd 248.
-systemd::dnssec: false
-systemd::domains: kenyonralph.com
-systemd::journald_settings:
-  Storage: persistent
-systemd::llmnr: false
-systemd::manage_networkd: true
-systemd::manage_resolved: true
-systemd::use_stub_resolver: true
-
 timezone::timezone: America/Los_Angeles
-
-vcsrepos:
-  /home/kenyon/.puppet-managed/dotfiles:
-    ensure: latest
-    provider: git
-    require:
-      - User[kenyon]
-      - File[/home/kenyon/.puppet-managed]
-    source: https://gitlab.com/kenyon/dotfiles.git
-    user: kenyon
-  /home/kenyon/.puppet-managed/scripts:
-    ensure: latest
-    provider: git
-    require:
-      - User[kenyon]
-      - File[/home/kenyon/.puppet-managed]
-    source: https://gitlab.com/kenyon/scripts.git
-    user: kenyon
-  /usr/local/share/zsh-autosuggestions:
-    ensure: latest
-    provider: git
-    source: https://github.com/zsh-users/zsh-autosuggestions.git
