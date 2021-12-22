@@ -41,6 +41,7 @@ packages:
   - curl
   - emacs-nox
   - htop
+  - iftop
   - iotop
   - keychain
   - lsof
