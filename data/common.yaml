@@ -422,20 +422,6 @@ ssh::server_options:
 # managed by puppet. Puppet-managed hosts are automatically added by
 # the ssh module.
 sshkeys:
-  galileo_rsa:
-    type: rsa
-    key: AAAAB3NzaC1yc2EAAAADAQABAAABAQCxD4iEPoeNC+6/nIKa4NAMPbEhCJZJNJRx1wmGCTQa85SthIgXAAAiwrXrBKbjEkzb0AJGbQbtIQY+lln9acDmEtZdsHShklIFeLa3QCoDHaVS7rmc9UgtKQx3bqlwPGveOfDfaFsU5gEfDI1ZqAyCpKnHBuE6S5WkmGobhtnnjJMeVEiNdjJtq4/2S1KyQRUvvMpPqyckgxziXqYGmUNFLb7j6Z0YdaaY0qL74+SqxGCkVMCYjy5JEIZdv9UhyXnbSI2cVqOU7zypk/A69WeyiEwQvXUn5xK8usjA9jFsDi0ULinmmfP+Ux7g8woS3S+7vLU5N9ynR82YjHD0rEPB
-    host_aliases: &galileo_aliases
-      - galileo
-      - galileo.kenyonralph.com
-  galileo_ecdsa:
-    type: ecdsa-sha2-nistp256
-    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBkGpSbI1sgGVz+tnptE7V0xfdh5SUebQAkmf+OBcXqyDQwWZSIHILWB3XevmmwWChFgI+vjuCbUceos96Qgsn4=
-    host_aliases: *galileo_aliases
-  galileo_ed25519:
-    type: ed25519
-    host_aliases: *galileo_aliases
-    key: AAAAC3NzaC1lZDI1NTE5AAAAICjhXAwk7deRXugeQENQSzcI97DAdUAwqBo5115YyLqd
   github.com:
     type: rsa
     key: AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
