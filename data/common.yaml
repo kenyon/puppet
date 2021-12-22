@@ -24,9 +24,9 @@ classes:
   - profile::mail
   - profile::multitail
   - profile::munin
+  - profile::puppet
   - profile::ruby
   - profile::timesync
-  - puppet_agent
   - rkhunter
   - rsyslog::config
   - ssh
@@ -119,15 +119,6 @@ docker::iptables: false
 docker::log_driver: journald
 
 files:
-  /etc/puppetlabs/facter:
-    ensure: directory
-    mode: '0755'
-  /etc/puppetlabs/facter/facter.conf:
-    ensure: file
-    content: |
-      facts : {
-          blocklist : [ "EC2" ],
-      }
   /etc/zlogout:
     ensure: absent
   /home/kenyon/bin:
