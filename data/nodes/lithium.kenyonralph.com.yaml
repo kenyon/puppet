@@ -1,4 +1,7 @@
 ---
+classes:
+  - docker
+
 packages:
   - expect
   - firmware-b43-installer

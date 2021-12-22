@@ -113,7 +113,6 @@ apache::protocols:
   - http/1.1
 apache::purge_vhost_dir: true
 
-docker::ipv6: true
 docker::ip_masq: false
 docker::iptables: false
 docker::log_driver: journald
