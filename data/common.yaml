@@ -2,15 +2,9 @@
 # Common data.
 
 lookup_options:
-  apt::sources:
-    merge: hash
-  logrotate::rules:
-    merge: hash
   profile::kenyon::dotfiles:
     merge: unique
   profile::kenyon::groups:
-    merge: unique
-  rhsm::enabled_repo_ids:
     merge: unique
   rsyslog::config::inputs:
     merge: hash
@@ -18,7 +12,6 @@ lookup_options:
     merge: hash
 
 classes:
-  - logrotate
   - munin::node
   - profile::kenyon
   - profile::mail

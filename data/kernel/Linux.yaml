@@ -1,5 +1,12 @@
 ---
+lookup_options:
+  apt::sources:
+    merge: hash
+  logrotate::rules:
+    merge: hash
+
 classes:
+  - logrotate
   - nodejs
   - profile::linux
   - systemd
