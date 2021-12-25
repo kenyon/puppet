@@ -4,11 +4,16 @@ lookup_options:
     merge: hash
   logrotate::rules:
     merge: hash
+  rsyslog::config::inputs:
+    merge: hash
+  rsyslog::config::modules:
+    merge: hash
 
 classes:
   - logrotate
   - nodejs
   - profile::linux
+  - rsyslog::config
   - systemd
 
 packages:
@@ -56,6 +61,42 @@ profile::kenyon::dotfiles:
 profile::kenyon::groups:
   - adm
   - dialout
+
+rsyslog::config::actions:
+  forward_all:
+    type: omrelp
+    config:
+      target: syslog.kenyonralph.com
+      port: 20514
+
+rsyslog::config::global_config:
+  workDirectory:
+    value: /var/spool/rsyslog
+
+rsyslog::config::inputs:
+  imuxsock_postfix:
+    type: imuxsock
+    config:
+      # Originally this was done in /etc/rsyslog.d/postfix.conf:
+      # Create an additional socket in postfix's chroot in order not to break
+      # mail logging when rsyslog is restarted.  If the directory is missing,
+      # rsyslog will silently skip creating the socket.
+      Socket: /var/spool/postfix/dev/log
+  munin-node:
+    type: imfile
+    config:
+      file: /var/log/munin/munin-node.log
+      tag: munin-node
+
+rsyslog::config::modules:
+  imfile: {}
+  imklog: {}
+  immark: {}
+  imuxsock: {}
+  omrelp: {}
+
+rsyslog::feature_packages:
+  - rsyslog-relp
 
 services:
   ctrl-alt-del.target:

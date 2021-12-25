@@ -4,10 +4,6 @@ lookup_options:
     merge: unique
   profile::kenyon::groups:
     merge: unique
-  rsyslog::config::inputs:
-    merge: hash
-  rsyslog::config::modules:
-    merge: hash
 
 classes:
   - munin::node
@@ -20,7 +16,6 @@ classes:
   - profile::timesync
   - profile::zsh
   - rkhunter
-  - rsyslog::config
   - ssh
   - sudo
   - timezone
@@ -263,42 +258,6 @@ rkhunter::scriptwhitelist:
   - /usr/bin/ldd
   - /usr/sbin/adduser
 rkhunter::use_syslog: authpriv.warning
-
-rsyslog::config::actions:
-  forward_all:
-    type: omrelp
-    config:
-      target: syslog.kenyonralph.com
-      port: 20514
-
-rsyslog::config::global_config:
-  workDirectory:
-    value: /var/spool/rsyslog
-
-rsyslog::config::inputs:
-  imuxsock_postfix:
-    type: imuxsock
-    config:
-      # Originally this was done in /etc/rsyslog.d/postfix.conf:
-      # Create an additional socket in postfix's chroot in order not to break
-      # mail logging when rsyslog is restarted.  If the directory is missing,
-      # rsyslog will silently skip creating the socket.
-      Socket: /var/spool/postfix/dev/log
-  munin-node:
-    type: imfile
-    config:
-      file: /var/log/munin/munin-node.log
-      tag: munin-node
-
-rsyslog::config::modules:
-  imfile: {}
-  imklog: {}
-  immark: {}
-  imuxsock: {}
-  omrelp: {}
-
-rsyslog::feature_packages:
-  - rsyslog-relp
 
 smokeping::cgi_remark_top: SmokePing
 smokeping::cgiurl: https://beta.kenyonralph.com/smokeping/smokeping.cgi
