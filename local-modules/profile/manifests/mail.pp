@@ -9,4 +9,9 @@ class profile::mail (
   postfix::hash { '/etc/postfix/sasl/sasl_passwd':
     content => Sensitive("${postfix_sasl_passwd_content}\n"),
   }
+
+  service { 'sendmail':
+    ensure => stopped,
+    enable => false,
+  }
 }
