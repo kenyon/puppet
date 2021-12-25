@@ -1,6 +1,4 @@
 ---
-# Common data.
-
 lookup_options:
   profile::kenyon::dotfiles:
     merge: unique
