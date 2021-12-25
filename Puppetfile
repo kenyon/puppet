@@ -7,7 +7,9 @@ mod 'herculesteam-augeasproviders_core', :latest
 mod 'herculesteam-augeasproviders_grub', :latest
 mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
-mod 'puppet-chrony', :latest
+mod 'puppet-chrony',
+  git: 'https://github.com/kenyon/puppet-chrony.git',
+  branch: 'hiera-data'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
