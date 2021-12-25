@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-mod 'camptocamp-augeas', :latest
+mod 'camptocamp-augeas',
+  git: 'https://github.com/camptocamp/puppet-augeas.git',
+  commit: '1ff219f3948971f396ffed249428b2e5b16a08ab'
 mod 'cirrax-libvirt', :latest
 mod 'example42-network', :latest
 mod 'herculesteam-augeasproviders_core', :latest
