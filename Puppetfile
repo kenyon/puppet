@@ -49,6 +49,7 @@ mod 'puppetlabs-postgresql',
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
+mod 'puppetlabs-sshkeys_core', :latest
 mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
