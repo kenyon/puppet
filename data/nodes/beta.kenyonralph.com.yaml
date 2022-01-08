@@ -83,8 +83,6 @@ munin::master::node_definitions:
     address: hydrogen.kenyonralph.com
   mainswitch.leafwood.kenyonralph.com:
     address: hydrogen.kenyonralph.com
-  turing.kenyonralph.com:
-    address: beta.kenyonralph.com
   unifi.leafwood.kenyonralph.com:
     address: unifi.leafwood.kenyonralph.com
   upstairsap.leafwood.kenyonralph.com:
@@ -107,46 +105,6 @@ munin_plugins:
     ensure: link
   postfix_mailstats:
     ensure: link
-  snmp_turing.kenyonralph.com_cpuload:
-    ensure: link
-    target: snmp__cpuload
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_if_multi:
-    ensure: link
-    target: snmp__if_multi
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_load:
-    ensure: link
-    target: snmp__load
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_memory:
-    ensure: link
-    target: snmp__memory
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_netstat:
-    ensure: link
-    target: snmp__netstat
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_processes:
-    ensure: link
-    target: snmp__processes
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_uptime:
-    ensure: link
-    target: snmp__uptime
-    config:
-      - env.domain udp6
-  snmp_turing.kenyonralph.com_users:
-    ensure: link
-    target: snmp__users
-    config:
-      - env.domain udp6
 
 profile::vms::kvm::linode::longview_api_key: >
   ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBAD

@@ -288,13 +288,6 @@ smokeping::targets:
     host: 142.254.184.105
     menu: Spectrum router (IPv4)
     probe: FPing
-  turing:
-    host: turing.kenyonralph.com
-    menu: turing
-  turing_ipv4:
-    host: 172.112.148.215
-    menu: turing (IPv4)
-    probe: FPing
 
 ssh::client_options:
   Host *:
@@ -342,21 +335,6 @@ sshkeys:
     type: ed25519
     host_aliases: lish-fremont.linode.com
     key: AAAAC3NzaC1lZDI1NTE5AAAAIHAIXJ8SyXG2St6DgT6gQmkQSsX3pyp5FcQoSy/R2x9i
-  turing_rsa:
-    type: rsa
-    host_aliases: &turing_aliases
-      - turing
-      - turing.kenyonralph.com
-      - 10.0.0.1
-    key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDTgU2aUT/K2l1fOHScGz3f1llY1Whzt4DzmubwonyypxBS6PdXMaMs7rJ7hqwil50bN5IfluI766IFZfzz++Os4jGTDh7Ri4lr1pqiM2alieJfddLpH9JEgDfXGx7xTLV4+iKKagzDIdf/WHGwmfuK2j9pDBUuzz3igDkcJOOC91RgcUn/+v06c/21aS3n68psozTO2JkEwYlcQDozwW/eE3vwNNWdtMzd4Lyfvh6amWus6vt/hOh1TS5SM37NBRYS5jpcm39ZMhzc/+HPUt3uU0ht7FJFO0n8Dn0+QaeCR+c4y7jbGKXuGRgNPDNjGoV8Q+N0sw95ObZV2Qqeuood
-  turing_ecdsa:
-    type: ecdsa-sha2-nistp256
-    host_aliases: *turing_aliases
-    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAr4mZeYB3lqS3Xw9V8Lp+PNhELJLqUNb8M6+D++Qm8WUD+zxwuc2pgnjimr5wVSv5iS/w96O4PUFAaRcWBJTzI=
-  turing_ed25519:
-    type: ed25519
-    host_aliases: *turing_aliases
-    key: AAAAC3NzaC1lZDI1NTE5AAAAIIHgJAOsIt2Q50bojzd/B3OlV3LIkg3C+fp/WeEwJqLX
 
 sudo::configs:
   insults:
