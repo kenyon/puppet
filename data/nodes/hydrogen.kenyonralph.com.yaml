@@ -21,3 +21,8 @@ munin_plugins:
     ensure: absent
   if_wlp2s0:
     ensure: absent
+  arris_cablemodem:
+    ensure: present
+    source: https://raw.githubusercontent.com/bradh352/munin-plugins/ba760b9cde2d9ffab951d4c1892aa8bfe089718e/arris_cablemodem
+    checksum: sha256
+    checksum_value: fc3645cacd6957316374748ca2731d71191957278b5e18090a54055be4f78881
