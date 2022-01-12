@@ -308,11 +308,20 @@ ssh::server_options:
 # managed by puppet. Puppet-managed hosts are automatically added by
 # the ssh module.
 sshkeys:
-  github.com:
-    type: rsa
+  github.com_rsa:
+    type: ssh-rsa
+    host_aliases: github.com
     key: AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+  github.com_ecdsa:
+    type: ecdsa-sha2-nistp256
+    host_aliases: github.com
+    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+  github.com_ed25519:
+    type: ssh-ed25519
+    host_aliases: github.com
+    key: AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
   gitlab.com_rsa:
-    type: rsa
+    type: ssh-rsa
     host_aliases: gitlab.com
     key: AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9
   gitlab.com_ecdsa:
@@ -320,11 +329,11 @@ sshkeys:
     host_aliases: gitlab.com
     key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=
   gitlab.com_ed25519:
-    type: ed25519
+    type: ssh-ed25519
     host_aliases: gitlab.com
     key: AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
   lish_fremont_rsa:
-    type: rsa
+    type: ssh-rsa
     host_aliases: lish-fremont.linode.com
     key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDb9siUm3yq4fVBYPtLh3Dg6VofNkgbRb9GaL+8q4uRRcQCOqVjGdB1ur6qZCQxknDKPwNvMuEYbWia/3svvbjCESkZAc8+DjLwe1gNE9fZ+x+KNOZTKmrQRh2+anYVi9oaHFwY/oNnfr9KeEKtRHd1lHTExO2mdyeAS1Ly+A5P6sjWyTLcOHQWGYEXxzwbsyjrmgjIHnmqRpKxlrBsdUokLKcFQvzuB3xiH2fvdXPlBJQcUb7g9tuITWzsjz6lozVPSQuvOJHthDZVIEfkT49F+Cpe9xviIAd/XqZG6xtosK/4Eu4Hof13jlT1uli9ZXnn0ROS6wKGsmLl3YWBG6DL
   lish_fremont_ecdsa:
@@ -332,7 +341,7 @@ sshkeys:
     key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEptV+WZ7MZXFnIEV9GXDEstViqlLKTSw9QY9qNE4CERwO537KAlYAaDoPut5YT4TpCZgqP32B1ECHc3LSD987o=
     host_aliases: lish-fremont.linode.com
   lish_fremont_ed25519:
-    type: ed25519
+    type: ssh-ed25519
     host_aliases: lish-fremont.linode.com
     key: AAAAC3NzaC1lZDI1NTE5AAAAIHAIXJ8SyXG2St6DgT6gQmkQSsX3pyp5FcQoSy/R2x9i
 
