@@ -129,6 +129,10 @@ munin_plugins:
     source: https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/chrony_status_fix_graphs/plugins/chrony/chrony_status
     checksum: sha256
     checksum_value: 1ec209a86dce0382b4e60e1c5803035937b2d907a91950a756d526045d91019e
+  exim_mailqueue:
+    ensure: absent
+  exim_mailstats:
+    ensure: absent
   http_loadtime:
     ensure: absent
   if_dummy0:
@@ -167,6 +171,8 @@ munin_plugins:
     ensure: absent
   if_err_tunl0:
     ensure: absent
+  netstat:
+    ensure: link
   nfs4_client:
     ensure: absent
   nfs_client:
@@ -175,6 +181,8 @@ munin_plugins:
     ensure: absent
   nfsd4:
     ensure: absent
+  postfix_mailqueue:
+    ensure: link
 
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
