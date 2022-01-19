@@ -140,6 +140,7 @@ systemd::domains: kenyonralph.com
 systemd::journald_settings:
   Storage: persistent
 systemd::llmnr: false
+systemd::manage_all_network_files: true
 systemd::manage_networkd: true
 systemd::manage_resolved: true
 systemd::use_stub_resolver: true
