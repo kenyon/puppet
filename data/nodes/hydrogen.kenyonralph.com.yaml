@@ -2,7 +2,6 @@
 packages:
   - fake-hwclock
   - firmware-iwlwifi
-  - haveged
   - hplip
 
 files:

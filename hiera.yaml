@@ -20,6 +20,9 @@ hierarchy:
   - name: OS family and virtualization type
     path: 'virtualization/%{facts.virtual}/%{facts.os.family}.yaml'
 
+  - name: Kernel type and virtualization type
+    path: 'virtualization/%{facts.virtual}/%{facts.kernel}.yaml'
+
   - name: Virtualization type
     path: 'virtualization/%{facts.virtual}.yaml'
 
