@@ -131,7 +131,9 @@ systemd::networks:
       Name=en*
       [Network]
       DHCP=yes
+      EmitLLDP=yes
       LinkLocalAddressing=yes
+      LLDP=yes
       MulticastDNS=yes
 
 # DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
