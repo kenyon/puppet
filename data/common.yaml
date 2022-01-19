@@ -299,6 +299,7 @@ smokeping::targets:
 
 ssh::client_options:
   Host *:
+    CheckHostIP: no
     ForwardAgent: yes
     ForwardX11: yes
     HashKnownHosts: no
