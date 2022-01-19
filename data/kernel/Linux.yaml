@@ -29,9 +29,6 @@ packages:
 npm_packages:
   - diff-so-fancy
 
-packages_absent:
-  - avahi-daemon
-
 ini_settings:
   systemd disable CtrlAltDelBurstAction:
     path: /etc/systemd/system.conf
