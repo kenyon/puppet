@@ -127,8 +127,11 @@ systemd::dropin_files:
 systemd::networks:
   main.network:
     content: |
+      # Managed by Puppet
+
       [Match]
       Name=en*
+
       [Network]
       DHCP=yes
       EmitLLDP=yes
