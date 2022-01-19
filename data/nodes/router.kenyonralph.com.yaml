@@ -3,6 +3,10 @@ packages:
   - firmware-realtek
 
 munin_plugins:
+  if_err_wlp2s0:
+    ensure: absent
+  if_wlp2s0:
+    ensure: absent
   smart_sda:
     ensure: link
     target: smart_
