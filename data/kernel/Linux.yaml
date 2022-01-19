@@ -125,7 +125,7 @@ systemd::dropin_files:
       TTYVTDisallocate=no
 
 systemd::networks:
-  main.network:
+  10-main.network:
     content: |
       # Managed by Puppet
 
