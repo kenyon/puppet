@@ -140,11 +140,11 @@ rsyslog::config::actions:
       file: /var/log/syslog
 
 rsyslog::config::expression_filters:
-  # filter edgerouter junk
-  edgerouter:
+  # filter systemd-networkd debug mode junk
+  systemd-networkd-debug-junk:
     conditionals:
       if:
-        expression: $msg contains '/usr/sbin/ubnt-check-unms.sh'
+        expression: "$msg contains 'rtnl: received non-static neighbor, ignoring.'"
         tasks:
           - stop: true
 

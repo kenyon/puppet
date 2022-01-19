@@ -7,6 +7,173 @@ munin_plugins:
     ensure: absent
   if_wlp2s0:
     ensure: absent
+  if_err_eno1:
+    ensure: absent
+  if_eno1:
+    ensure: absent
+  if_err_enp1s0:
+    ensure: absent
+  if_enp1s0:
+    ensure: absent
+
+  if_err_wan:
+    ensure: link
+    target: if_err_
+  if_wan:
+    ensure: link
+    target: if_
+
+  if_err_lan:
+    ensure: link
+    target: if_err_
+  if_lan:
+    ensure: link
+    target: if_
+
+  if_err_leafwood:
+    ensure: link
+    target: if_err_
+  if_leafwood:
+    ensure: link
+    target: if_
+
   smart_sda:
     ensure: link
     target: smart_
+
+systemd::dns: 2001:4860:4860::8888 2606:4700:4700::1111 8.8.8.8 1.1.1.1
+
+systemd::networks:
+  10-lan.link:
+    content: |
+      # Managed by Puppet
+
+      [Match]
+      Type=ether
+      MACAddress=80:ee:73:f1:f2:fa
+
+      [Link]
+      Description=Next to USB ports
+      Name=lan
+
+  10-lan.network:
+    content: |
+      # Managed by Puppet
+
+      [Match]
+      Name=lan
+
+      [Link]
+      RequiredFamilyForOnline=ipv6
+
+      [Network]
+      Address=10.0.0.1/24
+      Description=LAN
+      DHCPServer=yes
+      DHCPv6PrefixDelegation=yes
+      EmitLLDP=yes
+      IPForward=yes
+      IPMasquerade=yes
+      IPv6SendRA=yes
+      LinkLocalAddressing=yes
+      LLDP=yes
+      MulticastDNS=yes
+      VLAN=leafwood
+
+      [DHCPServer]
+      DefaultLeaseTimeSec=1 day
+      MaxLeaseTimeSec=1 week
+
+      [DHCPv6PrefixDelegation]
+      SubnetId=0
+
+      [IPv6SendRA]
+      DNS=2001:4860:4860::8888 2606:4700:4700::1111
+      Domains=%{trusted.domain}
+
+  10-wan.link:
+    content: |
+      # Managed by Puppet
+
+      [Match]
+      Type=ether
+      MACAddress=80:ee:73:f1:f2:f9
+
+      [Link]
+      Description=Next to power jack
+      Name=wan
+
+  10-wan.network:
+    content: |
+      # Managed by Puppet
+
+      [Match]
+      Name=wan
+
+      [Link]
+      RequiredFamilyForOnline=ipv6
+
+      [Network]
+      Description=Internet
+      DHCP=yes
+      IPForward=yes
+      IPv6AcceptRA=yes
+      LinkLocalAddressing=yes
+      LLDP=yes
+
+      [DHCPv4]
+      UseDNS=no
+      UseHostname=no
+      SendRelease=no
+
+      [DHCPv6]
+      UseDNS=no
+      PrefixDelegationHint=::/56
+
+      [IPv6AcceptRA]
+      UseDNS=no
+
+  10-leafwood.netdev:
+    content: |
+      # Managed by Puppet
+
+      [NetDev]
+      Description=Guest network
+      Kind=vlan
+      Name=leafwood
+
+      [VLAN]
+      Id=2
+
+  10-leafwood.network:
+    content: |
+      # Managed by Puppet
+
+      [Match]
+      Name=leafwood
+
+      [Link]
+      RequiredFamilyForOnline=ipv6
+
+      [Network]
+      Address=10.0.2.1/24
+      Description=Guest network
+      DHCPServer=yes
+      DHCPv6PrefixDelegation=yes
+      EmitLLDP=yes
+      IPForward=yes
+      IPMasquerade=yes
+      IPv6SendRA=yes
+      LinkLocalAddressing=yes
+      LLDP=yes
+      MulticastDNS=yes
+
+      [DHCPServer]
+      DefaultLeaseTimeSec=1 day
+      MaxLeaseTimeSec=1 week
+
+      [DHCPv6PrefixDelegation]
+      SubnetId=1
+
+      [IPv6SendRA]
+      DNS=2001:4860:4860::8888 2606:4700:4700::1111
