@@ -2,6 +2,7 @@
 classes:
   - apache::vhosts
   - apache::mod::cgid
+  - apache::mod::fcgid
   - apache::mod::http2
   - apache::mod::status
   - letsencrypt
@@ -44,7 +45,9 @@ apache::vhosts::vhosts:
     directories:
       - path: /var/cache/munin/www
       - path: /usr/lib/munin/cgi
-        handler: cgi-script
+        sethandler: fcgid-script
+        options:
+          - +ExecCGI
       - path: /usr/share/smokeping/www
         options:
           - FollowSymLinks
