@@ -52,6 +52,8 @@ munin_plugins:
     ensure: link
     config:
       - env.logarithmic yes
+  diskstats:
+    ensure: link
   tcp:
     ensure: link
 
