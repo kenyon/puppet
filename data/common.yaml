@@ -239,7 +239,7 @@ puppet_agent::config:
   # https://puppet.com/docs/puppet/latest/report.html
   - section: server
     setting: reports
-    value: log,store,puppetdb
+    value: log,puppetdb
 
 rkhunter::allowhiddendir:
   - /etc/.git
