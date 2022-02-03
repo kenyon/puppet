@@ -1,5 +1,7 @@
 ---
 lookup_options:
+  munin::node::plugins:
+    merge: hash
   profile::kenyon::dotfiles:
     merge: unique
   profile::kenyon::groups:
@@ -113,7 +115,7 @@ munin::node::allow:
   - '::1'
   - 2600:3c01::f03c:92ff:fe8c:f7c9/128
 
-munin_plugins:
+munin::node::plugins:
   chrony_drift:
     ensure: present
     config:

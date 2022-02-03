@@ -58,7 +58,7 @@ logrotate::rules:
     missingok: true
     postrotate: systemctl restart webhook
 
-munin_plugins:
+munin::node::plugins:
   apache_accesses:
     ensure: link
   apache_processes:

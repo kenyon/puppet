@@ -47,7 +47,7 @@ files:
 # The package installs a systemd timer for logrotate instead of a cron job.
 logrotate::manage_cron_daily: false
 
-munin_plugins:
+munin::node::plugins:
   buddyinfo:
     ensure: link
     config:

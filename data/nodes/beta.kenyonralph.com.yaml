@@ -91,7 +91,7 @@ munin::master::node_definitions:
   upstairsap.leafwood.kenyonralph.com:
     address: hydrogen.kenyonralph.com
 
-munin_plugins:
+munin::node::plugins:
   fw_conntrack:
     ensure: absent
   fw_conntrack_local:

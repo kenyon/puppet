@@ -2,7 +2,7 @@
 classes:
   - smokeping
 
-munin_plugins:
+munin::node::plugins:
   snmp_backyardap.leafwood.kenyonralph.com_cpuload:
     ensure: link
     target: snmp__cpuload

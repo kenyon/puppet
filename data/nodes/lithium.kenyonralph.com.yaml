@@ -43,7 +43,7 @@ files:
       ignore temp43
       ignore temp51
 
-munin_plugins:
+munin::node::plugins:
   if_docker0:
     ensure: absent
   if_err_docker0:
