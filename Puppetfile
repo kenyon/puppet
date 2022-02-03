@@ -9,8 +9,8 @@ mod 'herculesteam-augeasproviders_grub', :latest
 mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony',
-  git: 'https://github.com/kenyon/puppet-chrony.git',
-  branch: 'hiera-data'
+  git: 'https://github.com/voxpupuli/puppet-chrony.git',
+  commit: '847e993c129330f803f4fc767934dff58bf26ab1'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
@@ -32,7 +32,7 @@ mod 'puppet-smokeping',
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades',
   git: 'https://github.com/voxpupuli/puppet-unattended_upgrades.git',
-  commit: '3605678da82e84d763d865ad7936932f0e359643'
+  commit: '6a211951a2612e174b97cd153a78755f537ee66a'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
@@ -44,7 +44,7 @@ mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql',
   git: 'https://github.com/puppetlabs/puppetlabs-postgresql.git',
-  commit: '1f352c1bef1837ffa6d2edc18d651103ac154a0d'
+  commit: '51179f1725b0e29b0e6242108e2f15eab8b926f3'
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
