@@ -119,14 +119,14 @@ munin_plugins:
     config:
       - user _chrony
       - env.driftfile /var/lib/chrony/drift
-    source: https://raw.githubusercontent.com/munin-monitoring/contrib/02630d318ce12da72631ebacd478e3e214e73d42/plugins/chrony/chrony_drift
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/c909c075610c76bc3d191d5f4d85a3d2aa0cf02e/plugins/chrony/chrony_drift
     checksum: sha256
     checksum_value: 2ea3c3ebf445b55c47d1530d8a2f1f94a36be8e0cb625d07f909fdf5a38837e7
   chrony_status:
     ensure: present
     config:
       - user _chrony
-    source: https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/chrony_status_fix_graphs/plugins/chrony/chrony_status
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/c909c075610c76bc3d191d5f4d85a3d2aa0cf02e/plugins/chrony/chrony_status
     checksum: sha256
     checksum_value: 1ec209a86dce0382b4e60e1c5803035937b2d907a91950a756d526045d91019e
   exim_mailqueue:
