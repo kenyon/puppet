@@ -83,6 +83,7 @@ systemd::networks:
       [DHCPServer]
       DefaultLeaseTimeSec=1 day
       MaxLeaseTimeSec=1 week
+      DNS=8.8.8.8 1.1.1.1
 
       [DHCPv6PrefixDelegation]
       SubnetId=0
@@ -171,6 +172,7 @@ systemd::networks:
       [DHCPServer]
       DefaultLeaseTimeSec=1 day
       MaxLeaseTimeSec=1 week
+      DNS=8.8.8.8 1.1.1.1
 
       [DHCPv6PrefixDelegation]
       SubnetId=1
