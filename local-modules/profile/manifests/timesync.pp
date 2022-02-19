@@ -13,4 +13,13 @@ class profile::timesync (Array[String[1]] $refclocks = []) {
     refclocks  => $refclocks,
     queryhosts => [''],
   }
+
+  systemd::dropin_file { 'chrony.conf':
+    unit    => 'chrony.service',
+    content => @(EOT),
+      [Service]
+      Restart=on-failure
+      | EOT
+    notify  => Class['chrony'],
+  }
 }
