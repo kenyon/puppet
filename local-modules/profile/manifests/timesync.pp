@@ -3,7 +3,9 @@
 # @param refclocks
 #   Chrony reference clock config lines.
 #
-class profile::timesync (Array[String[1]] $refclocks = []) {
+class profile::timesync (
+  Array[String[1]] $refclocks = [],
+) {
   package { 'ntp':
     ensure => absent,
   }
