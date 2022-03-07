@@ -6,11 +6,16 @@
 class profile::timesync (
   Array[String[1]] $refclocks = [],
 ) {
+  $servers = $trusted['hostname'] ? {
+    'router' => [],
+    default  => ["ntp.${trusted['domain']}"],
+  }
+
   package { 'ntp':
     ensure => absent,
   }
   -> class { 'chrony':
-    servers    => [],
+    servers    => $servers,
     pools      => ['2.pool.ntp.org'],
     refclocks  => $refclocks,
     queryhosts => [''],
