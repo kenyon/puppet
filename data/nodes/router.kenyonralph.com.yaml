@@ -1,6 +1,16 @@
 ---
+classes:
+  - profile::gpsd
+
 packages:
   - firmware-realtek
+  - pps-tools
+
+profile::apparmor::profile_files:
+  usr.sbin.chronyd:
+    content: |
+      # Managed by Puppet.
+      @{run}/chrony.pps{,*}.sock rw,
 
 munin::node::plugins:
   if_err_wlp2s0:
@@ -40,6 +50,14 @@ munin::node::plugins:
   smart_sda:
     ensure: link
     target: smart_
+
+profile::gpsd::devices:
+  - /dev/ttyS0
+  - /dev/pps1
+
+profile::timesync::refclocks:
+  - SOCK /run/chrony.ttyS0.sock refid GPS precision 1e-1
+  - SOCK /run/chrony.pps1.sock refid PPS precision 1e-7
 
 systemd::dns: 2001:4860:4860::8888 2606:4700:4700::1111 8.8.8.8 1.1.1.1
 
