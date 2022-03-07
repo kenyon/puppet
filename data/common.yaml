@@ -9,6 +9,7 @@ lookup_options:
 
 classes:
   - munin::node
+  - profile::apparmor
   - profile::kenyon
   - profile::mail
   - profile::multitail
