@@ -24,6 +24,7 @@ class profile::kenyon (
     shell                    => "${freebsd_path}/bin/zsh",
     groups                   => $groups,
     managevim                => false,
+    purge_sshkeys            => true,
     sshkeys                  => [
       'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZw6oCX3sFTBOnTJSrTPPzcmC2ygu+gxSM8CKuFK/S2 kenyon@iMac',
