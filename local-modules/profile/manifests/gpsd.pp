@@ -51,4 +51,18 @@ class profile::gpsd (
       USBAUTO="true"
       | EOT
   }
+
+  [
+    'satellites',
+    'dop',
+  ].each |String[1] $graph_type| {
+    munin::plugin { "gpsd_${graph_type}":
+      ensure  => present,
+      content => epp("${module_name}/munin/gpsd.epp",
+        {
+          graph_type => $graph_type,
+        },
+      ),
+    }
+  }
 }
