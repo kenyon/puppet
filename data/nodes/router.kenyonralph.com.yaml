@@ -4,8 +4,6 @@ classes:
 
 packages:
   - firmware-realtek
-  - pps-tools
-  - gpsd-clients
 
 profile::apparmor::profile_files:
   usr.sbin.chronyd:

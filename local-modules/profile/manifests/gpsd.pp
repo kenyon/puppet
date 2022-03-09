@@ -5,10 +5,17 @@
 class profile::gpsd (
   Array[String[1]] $devices = [],
 ) {
-  package { 'gpsd':
-    ensure => installed,
+  [
+    'gpsd-clients',
+    'gpsd',
+    'pps-tools',
+  ].each |String[1] $pkg| {
+    package { $pkg:
+      ensure => installed,
+    }
   }
-  -> systemd::dropin_file { 'gpsd.conf':
+
+  systemd::dropin_file { 'gpsd.conf':
     unit    => 'gpsd.service',
     content => @(EOT),
       # Managed by Puppet.
@@ -16,6 +23,7 @@ class profile::gpsd (
       # gpsd needs to be restarted if chrony is restarted.
       PartOf=chrony.service
       | EOT
+    require => Package['gpsd'],
   }
   -> service { 'gpsd':
     ensure => running,
