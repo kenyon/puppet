@@ -56,6 +56,6 @@ mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'ssm-munin',
   git: 'https://github.com/kenyon/ssm-munin.git',
-  branch: 'plugin-checksum-value'
+  branch: 'plugin-content'
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest
