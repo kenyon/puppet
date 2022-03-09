@@ -42,6 +42,7 @@ packages:
   - pwgen
   - rsync
   - screen
+  - shellcheck
   - smartmontools
   - subnetcalc
   - tmux
