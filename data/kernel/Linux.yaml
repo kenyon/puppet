@@ -89,6 +89,7 @@ rsyslog::config::inputs:
     config:
       file: /var/log/munin/munin-node.log
       tag: munin-node
+      reopenOnTruncate: 'on'
 
 rsyslog::config::modules:
   imfile: {}
