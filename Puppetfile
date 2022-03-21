@@ -55,7 +55,7 @@ mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'ssm-munin',
-  git: 'https://github.com/kenyon/ssm-munin.git',
-  branch: 'plugin-content'
+  git: 'https://github.com/ssm/ssm-munin.git',
+  commit: '13774115888afa3a2fa487f4593c7a6ebc4df145'
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest
