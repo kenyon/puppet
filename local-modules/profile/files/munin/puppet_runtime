@@ -6,11 +6,9 @@ if [[ "$1" == "config" ]]
 then
     echo 'graph_title Puppet Agent Run Time'
     echo 'graph_category puppet'
-    echo 'graph_args --base 1000 -l 0'
+    echo 'graph_args --base 1000 --lower-limit 0'
     echo 'graph_vlabel seconds'
     echo 'time.label time'
-    exit
+    printf 'time.value '
+    journalctl --grep='Applied catalog' --lines=1000 --output=cat _COMM=puppet | tail --lines=1 | cut --delimiter=' ' --field=4 || echo U
 fi
-
-printf 'time.value '
-journalctl --grep='Applied catalog' --lines=1000 --output=cat _COMM=puppet | tail --lines=1 | cut --delimiter=' ' --field=4 || echo U
