@@ -107,10 +107,7 @@ unattended_upgrades::extra_origins:
   - origin=vscode stable
 
 unattended_upgrades::mail:
-  # FIXME: after upgrading to unattended-upgrades 1.13 or newer (in Debian 11), remove
-  # only_on_error and uncomment report.
-  only_on_error: false
-  #report: on-change
+  report: on-change
   to: root@localhost
 
 unattended_upgrades::syslog_enable: true
