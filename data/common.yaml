@@ -13,7 +13,6 @@ classes:
   - profile::kenyon
   - profile::mail
   - profile::multitail
-  - profile::munin
   - profile::puppet
   - profile::ruby
   - profile::timesync
@@ -188,6 +187,14 @@ munin::node::plugins:
     ensure: absent
   postfix_mailqueue:
     ensure: link
+  puppet_runtime:
+    ensure: present
+    config:
+      - user root
+      - env.PATH /opt/puppetlabs/bin:/usr/bin
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/8dcc91493811196735d4b734e069b817d9b0f32e/plugins/puppet/puppet_runtime
+    checksum: sha256
+    checksum_value: 5794598a673f181dd5033fc90f33f0e059c501152455ee5b190a4cc7b2a4cdd3
 
 nodejs::manage_package_repo: false
 nodejs::manage_nodejs_package: false
