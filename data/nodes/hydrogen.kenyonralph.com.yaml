@@ -27,7 +27,7 @@ munin::node::plugins:
     checksum_value: fc3645cacd6957316374748ca2731d71191957278b5e18090a54055be4f78881
   tesla_wall_connector:
     ensure: present
-    source: https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/tesla_wall_connector/plugins/tesla/tesla_wall_connector
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/e3f08308abfc92d19e12f85c6820e2164738caa8/plugins/tesla/tesla_wall_connector
     checksum: sha256
     checksum_value: 3720c139797694e6640ca0341b9c02806dcedb84d94370ee66ac969314943b7e
     config:
