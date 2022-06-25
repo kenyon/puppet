@@ -289,11 +289,13 @@ smokeping::mailhost: localhost
 smokeping::master_url: '%{alias("smokeping::cgiurl")}'
 smokeping::owner: Kenyon Ralph
 smokeping::path_piddir: /run/smokeping
+
 smokeping::probes:
   - name: FPing
     binary: /usr/bin/fping
   - name: FPing6
     binary: /usr/bin/fping6
+
 smokeping::targets:
   cloudflare_dns:
     host: one.one.one.one
@@ -308,6 +310,10 @@ smokeping::targets:
     host: 142.254.184.105
     menu: Spectrum router (IPv4)
     probe: FPing
+  krAppleTV4k:
+    host: 2603:8001:4e01:c900:11ec:c05a:1868:78ce
+  chimneyswitch:
+    host: chimneyswitch.leafwood.kenyonralph.com
 
 ssh::client_options:
   Host *:
