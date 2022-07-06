@@ -52,17 +52,10 @@ class profile::gpsd (
       | EOT
   }
 
-  [
-    'satellites',
-    'dop',
-  ].each |String[1] $graph_type| {
-    munin::plugin { "gpsd_${graph_type}":
-      ensure  => present,
-      content => epp("${module_name}/munin/gpsd.epp",
-        {
-          graph_type => $graph_type,
-        },
-      ),
-    }
+  munin::plugin { 'gpsd':
+    ensure         => present,
+    source         => 'https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/c31973d3c8a0e7c78f90d3b1dd8aa3854180f7f8/plugins/gpsd/gpsd',
+    checksum       => 'sha256',
+    checksum_value => '3fc236dac1d1d53f0ec7058459dd6c526385927099d46a1ac0389825ed91cace',
   }
 }
