@@ -310,8 +310,6 @@ smokeping::targets:
     host: 142.254.184.105
     menu: Spectrum router (IPv4)
     probe: FPing
-  krAppleTV4k:
-    host: 2603:8001:4e00:4300:8070:7d59:c2a:b116
   chimneyswitch:
     host: chimneyswitch.leafwood.kenyonralph.com
 
