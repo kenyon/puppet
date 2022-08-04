@@ -19,10 +19,6 @@ packages:
 
 gems:
   - hiera-eyaml
-  - r10k
-
-profile::puppetserver::puppetserver_gems:
-  - r10k
 
 apache::vhosts::vhosts:
   http:

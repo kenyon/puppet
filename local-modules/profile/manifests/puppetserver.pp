@@ -38,7 +38,7 @@ class profile::puppetserver (
   Boolean $r10k_webhook_protected = false,
   Variant[Stdlib::Absolutepath, Enum['stderr']] $r10k_webhook_access_logfile = 'stderr',
 ) {
-  class { 'r10k::config':
+  class { 'r10k':
     deploy_settings => $r10k_deploy_settings,
     remote          => $r10k_remote,
   }
