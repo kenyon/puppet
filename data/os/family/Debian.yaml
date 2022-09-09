@@ -75,7 +75,7 @@ apt::sources:
     release: '%{facts.os.distro.codename}'
     repos: main
     key:
-      id: 2CA32056ED206CB81F44A8CAC99B11DEB97541F0
+      id: 2C6106201985B60E6C7AC87323F3D4EA75716059
     include:
       src: false
   puppet-tools:
