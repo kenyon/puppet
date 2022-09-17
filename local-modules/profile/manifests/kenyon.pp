@@ -26,12 +26,12 @@ class profile::kenyon (
     managevim                => false,
     purge_sshkeys            => true,
     sshkeys                  => [
-      'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG4GGrdvTXn6n9xcf9pdMKsjrrgyas176VEkBqN9Tw9IV9H2fEHFRkIKutaajss0OfI/KQqE8pmy220FshpWNwM= krPhoneSE',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZw6oCX3sFTBOnTJSrTPPzcmC2ygu+gxSM8CKuFK/S2 kenyon@iMac',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw7d1d4Lhxz7wv02IEUr8ssmc/BvCVEIzFgPko7haXx kenyon@stinkbook.local',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOngf+NPCrcsHcmmqqmGQss1TrZS0VCue5KsXradcIqc ed25519-key-20210606-krPhoneSE-Shelly',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII4dqbnK4NXF72lVF7wScUpGhtCfdidW6RtvXikTdBiP ed25519-key-20200720',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICym4kLheyoo/sKjG3MscG0UKFTti1c3o3Zz5tgbL2N8 kralph@KRALPH',
+      'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUsK6xdkpeKqewTcSEsAJpwQdII2AnDZEAvLQozS+Rq krPhone14-Termius',
     ],
     require                  => Class['profile::zsh'],
   }
