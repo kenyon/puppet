@@ -1,8 +1,6 @@
 ---
 packages:
   - firmware-iwlwifi
-  - hplip
-  - ipp-usb
 
 files:
   /etc/sensors.d/ignore-nonsense-temperatures.conf:
