@@ -21,7 +21,7 @@ function util::is_vultr_vm >> Boolean {
     '2001:19f0:9400::/38',
     '2001:19f0:a800::/38',
     '2001:19f0:ac00::/38',
-    '2001:19f0:b000::/38'
+    '2001:19f0:b000::/38',
   ]
 
   stdlib::ip_in_range($facts['networking']['ip6'], $vultr_prefixes)

@@ -15,9 +15,9 @@ class profile::puppetserver::hiera_eyaml (
   Stdlib::Absolutepath $eyaml_config      = '/etc/eyaml/config.yaml',
 ) {
   ensure_resources('file', {
-    dirname($eyaml_private_key) => {},
-    dirname($eyaml_public_key) => {},
-  }, {
+      dirname($eyaml_private_key) => {},
+      dirname($eyaml_public_key) => {},
+    }, {
       ensure  => directory,
       mode    => '0700',
       owner   => 'puppet',
@@ -34,7 +34,7 @@ class profile::puppetserver::hiera_eyaml (
 
   [$eyaml_private_key, $eyaml_public_key].each |$file| {
     file { $file:
-      ensure    => present,
+      ensure    => file,
       mode      => '0400',
       owner     => 'puppet',
       group     => 'puppet',
@@ -47,7 +47,7 @@ class profile::puppetserver::hiera_eyaml (
   }
 
   file { $eyaml_config:
-    ensure  => present,
+    ensure  => file,
     content => @("CONF"),
       ---
       # This file is managed by puppet.

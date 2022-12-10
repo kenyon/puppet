@@ -1,7 +1,7 @@
 util::lookup_filter('classes').include
 
-ensure_packages(util::lookup_filter('packages'), {ensure => installed})
-ensure_packages(util::lookup_filter('packages_absent'), {ensure => absent})
+ensure_packages(util::lookup_filter('packages'), { ensure => installed })
+ensure_packages(util::lookup_filter('packages_absent'), { ensure => absent })
 
 lookup('augeases', Hash, 'hash', {}).each |$key, $value| {
   augeas { $key:

@@ -14,7 +14,7 @@ class profile::vms::kvm::linode (
     key      => {
       id     => 'D12F8D2C47B4A16917C9A040BED67E64325A043E',
       source => 'https://apt-longview.linode.com/linode.gpg',
-    }
+    },
   }
   -> package { 'linode-longview':
     ensure => installed,
