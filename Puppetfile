@@ -10,7 +10,7 @@ mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony',
   git: 'https://github.com/voxpupuli/puppet-chrony.git',
-  commit: '847e993c129330f803f4fc767934dff58bf26ab1'
+  commit: 'e803b9de36f9fdcd91de3b6735d651dbf34491fc'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
@@ -18,10 +18,10 @@ mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix',
   git: 'https://github.com/voxpupuli/puppet-postfix.git',
-  commit: '125d35cafa3de56473c6cbdb55869b31b3d38827'
+  commit: '2323d124e38f72860da17b375039f4243f2b3e9c'
 mod 'puppet-puppetboard',
-  git: 'https://github.com/kenyon/puppet-puppetboard.git',
-  branch: 'apache-custom-config'
+  git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
+  commit: 'b1c8182f4d057d9c18b9aded985942b8248332a2'
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
@@ -32,7 +32,7 @@ mod 'puppet-smokeping',
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades',
   git: 'https://github.com/voxpupuli/puppet-unattended_upgrades.git',
-  commit: '6a211951a2612e174b97cd153a78755f537ee66a'
+  commit: '2eed717e1327c36ddb588ab6f2b49357e6196661'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
@@ -44,7 +44,7 @@ mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql',
   git: 'https://github.com/puppetlabs/puppetlabs-postgresql.git',
-  commit: '51179f1725b0e29b0e6242108e2f15eab8b926f3'
+  commit: 'b051aa8ec6aebc3ac94091d5075b3bf69e25042a'
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
@@ -54,8 +54,6 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
-mod 'ssm-munin',
-  git: 'https://github.com/ssm/ssm-munin.git',
-  commit: '13774115888afa3a2fa487f4593c7a6ebc4df145'
+mod 'ssm-munin', :latest
 mod 'stm-debconf', :latest
 mod 'stm-file_capability', :latest
