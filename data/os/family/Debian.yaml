@@ -26,6 +26,7 @@ packages:
   - molly-guard
   - moreutils
   - mtr-tiny
+  - needrestart
   - popularity-contest
   - reboot-notifier
   - vim
