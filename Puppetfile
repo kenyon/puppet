@@ -10,7 +10,7 @@ mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony',
   git: 'https://github.com/voxpupuli/puppet-chrony.git',
-  commit: 'e803b9de36f9fdcd91de3b6735d651dbf34491fc'
+  commit: '3a4b67726a172c3c3cef2f93ce9b8472ad2f960e'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
@@ -18,10 +18,10 @@ mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix',
   git: 'https://github.com/voxpupuli/puppet-postfix.git',
-  commit: '2323d124e38f72860da17b375039f4243f2b3e9c'
+  commit: '03e6ccd4260ded329346c64346afd1516a94dd3f'
 mod 'puppet-puppetboard',
   git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  commit: 'b1c8182f4d057d9c18b9aded985942b8248332a2'
+  commit: '5af216494448a902a2acb59449929867cf469e85'
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
@@ -32,7 +32,7 @@ mod 'puppet-smokeping',
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades',
   git: 'https://github.com/voxpupuli/puppet-unattended_upgrades.git',
-  commit: '2eed717e1327c36ddb588ab6f2b49357e6196661'
+  commit: '29d04e5278fc64805dc4cfd9e397b293ffe5052e'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
