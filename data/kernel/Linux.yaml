@@ -68,7 +68,7 @@ rsyslog::config::actions:
   forward_all:
     type: omrelp
     config:
-      target: syslog.kenyonralph.com
+      target: 'syslog.%{trusted.domain}'
       port: 20514
 
 rsyslog::config::global_config:
@@ -145,7 +145,7 @@ systemd::networks:
 # DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
 # it in systemd 248.
 systemd::dnssec: false
-systemd::domains: kenyonralph.com
+systemd::domains: '%{trusted.domain}'
 systemd::journald_settings:
   Storage: persistent
 systemd::llmnr: false
