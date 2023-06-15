@@ -29,4 +29,4 @@ munin::node::plugins:
     checksum: sha256
     checksum_value: 3720c139797694e6640ca0341b9c02806dcedb84d94370ee66ac969314943b7e
     config:
-      - env.address 10.0.0.138
+      - env.address 10.0.0.136
