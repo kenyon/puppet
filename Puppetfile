@@ -35,7 +35,7 @@ mod 'puppet-unattended_upgrades',
   commit: '29d04e5278fc64805dc4cfd9e397b293ffe5052e'
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
-mod 'puppetlabs-apt', :latest
+mod 'puppetlabs-apt', '9.0.2'
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-facts', :latest
@@ -49,7 +49,7 @@ mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-sshkeys_core', :latest
-mod 'puppetlabs-stdlib', :latest
+mod 'puppetlabs-stdlib', '8.6.0'
 mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
