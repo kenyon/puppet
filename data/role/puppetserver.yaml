@@ -64,12 +64,6 @@ munin::node::plugins:
 
 puppetdb::postgres_version: '14'
 
-# This webhook setup runs a web server on port 8088. Then I have
-# configured a webhook in my puppet environments git repository for
-# URL http://puppet.kenyonralph.com:8088/payload that runs on push events:
-# https://gitlab.com/kenyon/puppet/hooks
-# So when I push to gitlab, 'r10k deploy environment --verbose --puppetfile'
-# gets run.
 profile::puppetserver::r10k_deploy_settings:
   purge_levels:
     - deployment
