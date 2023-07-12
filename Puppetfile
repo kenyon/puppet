@@ -51,7 +51,7 @@ mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-sshkeys_core', :latest
 mod 'puppetlabs-stdlib', '8.6.0'
 mod 'puppetlabs-vcsrepo', :latest
-mod 'saz-ssh', :latest
+mod 'saz-ssh', '10.2.0'
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'ssm-munin', :latest
