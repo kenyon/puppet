@@ -19,6 +19,7 @@ class profile::timesync (
     pools      => ['2.pool.ntp.org'],
     refclocks  => $refclocks,
     queryhosts => [''],
+    leapsectz  => 'right/UTC',
   }
 
   systemd::dropin_file { 'chrony.conf':
