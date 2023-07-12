@@ -9,8 +9,8 @@ mod 'herculesteam-augeasproviders_grub', :latest
 mod 'herculesteam-augeasproviders_shellvar', :latest
 mod 'herculesteam-augeasproviders_sysctl', :latest
 mod 'puppet-chrony',
-  git: 'https://github.com/voxpupuli/puppet-chrony.git',
-  commit: '3a4b67726a172c3c3cef2f93ce9b8472ad2f960e'
+  git: 'https://github.com/kenyon/puppet-chrony.git',
+  branch: 'debian-defaults'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
