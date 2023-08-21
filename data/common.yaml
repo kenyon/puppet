@@ -297,6 +297,8 @@ smokeping::probes:
     binary: /usr/bin/fping6
 
 smokeping::targets:
+  chimneyswitch:
+    host: chimneyswitch.leafwood.kenyonralph.com
   cloudflare_dns:
     host: one.one.one.one
   google_dns:
@@ -310,8 +312,6 @@ smokeping::targets:
     host: 142.254.184.105
     menu: Spectrum router (IPv4)
     probe: FPing
-  chimneyswitch:
-    host: chimneyswitch.leafwood.kenyonralph.com
 
 ssh::client_options:
   Host *:
