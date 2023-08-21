@@ -39,7 +39,7 @@ mod 'puppetlabs-apt', '9.0.2'
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', '7.0.0'
 mod 'puppetlabs-facts', :latest
-mod 'puppetlabs-firewall', :latest
+mod 'puppetlabs-firewall', '5.0.0'
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql',
