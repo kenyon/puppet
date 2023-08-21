@@ -295,6 +295,7 @@ smokeping::probes:
     binary: /usr/bin/fping
   - name: FPing6
     binary: /usr/bin/fping6
+  - name: AnotherCurl
 
 smokeping::targets:
   chimneyswitch:
@@ -305,6 +306,14 @@ smokeping::targets:
     host: dns.google
   linode_fremont:
     host: speedtest.fremont.linode.com
+  qc_vpn:
+    host: 192.190.110.201
+    menu: QC VPN
+    options:
+      insecure_ssl: 1
+      urlformat: 'https://%host%/'
+      write_out: time_connect
+    probe: AnotherCurl
   spectrum_router:
     host: 2605:e000:40e:1a::1
     menu: Spectrum router
