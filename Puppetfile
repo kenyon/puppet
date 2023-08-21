@@ -23,7 +23,7 @@ mod 'puppet-puppetboard',
   git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
   commit: '5af216494448a902a2acb59449929867cf469e85'
 mod 'puppet-python', :latest
-mod 'puppet-r10k', :latest
+mod 'puppet-r10k', '11.0.1'
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-smokeping',
