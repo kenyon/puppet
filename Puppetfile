@@ -13,42 +13,36 @@ mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
-mod 'puppet-postfix',
-  git: 'https://github.com/voxpupuli/puppet-postfix.git',
-  commit: '03e6ccd4260ded329346c64346afd1516a94dd3f'
+mod 'puppet-postfix', :latest
 mod 'puppet-puppetboard',
   git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  commit: '5af216494448a902a2acb59449929867cf469e85'
+  commit: 'c23187c7bb9b7276c1f5005b11ee5bd0112ad097'
 mod 'puppet-python', :latest
-mod 'puppet-r10k', '11.0.1'
+mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
 mod 'puppet-smokeping',
-  git: 'https://github.com/kenyon/puppet-smokeping.git',
-  branch: 'enhance'
+  git: 'https://github.com/voxpupuli/puppet-smokeping.git',
+  branch: 'master'
 mod 'puppet-systemd', :latest
-mod 'puppet-unattended_upgrades',
-  git: 'https://github.com/voxpupuli/puppet-unattended_upgrades.git',
-  commit: '29d04e5278fc64805dc4cfd9e397b293ffe5052e'
+mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
-mod 'puppetlabs-apt', '9.0.2'
+mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
-mod 'puppetlabs-docker', '7.0.0'
+mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-facts', :latest
-mod 'puppetlabs-firewall', '5.0.0'
+mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
-mod 'puppetlabs-postgresql',
-  git: 'https://github.com/puppetlabs/puppetlabs-postgresql.git',
-  commit: 'b051aa8ec6aebc3ac94091d5075b3bf69e25042a'
+mod 'puppetlabs-postgresql', :latest
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-sshkeys_core', :latest
-mod 'puppetlabs-stdlib', '8.6.0'
+mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-vcsrepo', :latest
-mod 'saz-ssh', '10.2.0'
+mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'ssm-munin', :latest
