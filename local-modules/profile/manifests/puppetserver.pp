@@ -27,4 +27,8 @@ class profile::puppetserver (
       provider => 'puppetserver_gem',
     }
   }
+
+  class { 'puppetboard':
+    secret_key => fqdn_rand_string(32),
+  }
 }

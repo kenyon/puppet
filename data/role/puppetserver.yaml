@@ -7,7 +7,6 @@ classes:
   - profile::puppetserver
   - profile::puppetserver::hiera_eyaml
   - profile::ruby
-  - puppetboard
   - puppetboard::apache::conf
   - puppetdb
   - puppetdb::master::config
