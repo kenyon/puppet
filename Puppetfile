@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 mod 'cirrax-libvirt', :latest
-mod 'herculesteam-augeasproviders_core', :latest
-mod 'herculesteam-augeasproviders_grub', :latest
-mod 'herculesteam-augeasproviders_shellvar', :latest
-mod 'herculesteam-augeasproviders_sysctl', :latest
+mod 'puppet-augeasproviders_core', :latest
+mod 'puppet-augeasproviders_grub', :latest
+mod 'puppet-augeasproviders_shellvar', :latest
+mod 'puppet-augeasproviders_sysctl', :latest
 mod 'puppet-chrony',
   git: 'https://github.com/kenyon/puppet-chrony.git',
   branch: 'debian-defaults'
