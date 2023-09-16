@@ -240,7 +240,7 @@ postfix::configs:
     value: noanonymous
 
 puppet_agent::package_version: auto
-puppet_agent::collection: puppet
+puppet_agent::collection: puppet8
 puppet_agent::config:
   - section: agent
     setting: splay
