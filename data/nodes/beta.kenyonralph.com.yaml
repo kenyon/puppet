@@ -138,11 +138,26 @@ rsyslog::config::actions:
       file: /var/log/syslog
 
 rsyslog::config::expression_filters:
-  # filter systemd-networkd debug mode junk
-  systemd-networkd-debug-junk:
+  junk:
     conditionals:
       if:
-        expression: "$msg contains 'rtnl: received non-static neighbor, ignoring.'"
+        # systemd-networkd debug mode junk
+        # router pci error junk
+        # cloud key junk
+        expression: >
+          $msg contains 'rtnl: received non-static neighbor, ignoring.'
+          or
+          $msg contains 'pcieport 0000:00:1d.0: AER: Multiple Corrected error received: 0000:02:00.0'
+          or
+          $msg contains 'pci 0000:02:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)'
+          or
+          $msg contains 'pci 0000:02:00.0:   device [10ec:c821] error status/mask=00000001/0000e000'
+          or
+          $msg contains 'pci 0000:02:00.0:    [ 0] RxErr                  (First)'
+          or
+          ($hostname == 'LeafwoodCloudKey' and $msg startswith 'net_ratelimit')
+          or
+          $msg contains 'ax88179_178a 2-1.1:1.0 eth0: kevent 2 may have been dropped'
         tasks:
           - stop: true
 
