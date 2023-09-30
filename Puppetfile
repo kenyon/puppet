@@ -36,9 +36,7 @@ mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql', :latest
-mod 'puppetlabs-puppet_agent',
-  git: 'https://github.com/puppetlabs/puppetlabs-puppet_agent.git',
-  commit: '04bee65e4ea936faa2ed91872b24d26cbd44009e'
+mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-sshkeys_core', :latest
