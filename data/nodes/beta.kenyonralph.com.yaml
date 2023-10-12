@@ -18,8 +18,8 @@ apache::vhosts::vhosts:
     port: 80
     servername: pool.ntp.org
     serveraliases:
-      - '*.pool.ntp.org'
-      - '*.ntppool.org'
+      - "*.pool.ntp.org"
+      - "*.ntppool.org"
     redirect_source:
       - /
     redirect_dest:
@@ -29,7 +29,7 @@ apache::vhosts::vhosts:
   http:
     docroot: /var/www/html
     port: 80
-    servername: '%{trusted.certname}'
+    servername: "%{trusted.certname}"
   https:
     aliases:
       - scriptalias: /smokeping/smokeping.cgi
@@ -60,13 +60,13 @@ apache::vhosts::vhosts:
       - /munin/
     redirectmatch_status:
       - permanent
-    servername: '%{trusted.certname}'
+    servername: "%{trusted.certname}"
     ssl: true
-    ssl_cert: '/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem'
-    ssl_key: '/etc/letsencrypt/live/%{trusted.certname}/privkey.pem'
+    ssl_cert: "/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem"
+    ssl_key: "/etc/letsencrypt/live/%{trusted.certname}/privkey.pem"
 
 letsencrypt_certs:
-  '%{trusted.certname}':
+  "%{trusted.certname}":
     plugin: webroot
     webroot_paths:
       - /var/www/html
@@ -135,7 +135,7 @@ rsyslog::config::actions:
       file: /var/log/mail.log
   syslog:
     type: omfile
-    facility: '*.*'
+    facility: "*.*"
     config:
       file: /var/log/syslog
 
@@ -172,7 +172,7 @@ rsyslog::config::inputs:
     type: imtcp
     config:
       port: 514
-      address: '%{facts.networking.ip6}'
+      address: "%{facts.networking.ip6}"
   munin-cgi-graph:
     type: imfile
     config:
@@ -210,7 +210,7 @@ rsyslog::config::modules:
   omfile:
     type: builtin
     config:
-      FileCreateMode: '0640'
+      FileCreateMode: "0640"
       FileOwner: root
       FileGroup: adm
 

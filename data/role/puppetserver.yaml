@@ -23,14 +23,14 @@ apache::vhosts::vhosts:
   http:
     docroot: /var/www/html
     port: 80
-    servername: '%{trusted.certname}'
+    servername: "%{trusted.certname}"
   https:
     docroot: /var/www/html
     port: 443
-    servername: '%{trusted.certname}'
+    servername: "%{trusted.certname}"
     ssl: true
-    ssl_cert: '/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem'
-    ssl_key: '/etc/letsencrypt/live/%{trusted.certname}/privkey.pem'
+    ssl_cert: "/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem"
+    ssl_key: "/etc/letsencrypt/live/%{trusted.certname}/privkey.pem"
 
 file_lines:
   # Don't want /etc/puppetlabs/code/environments tracked by etckeeper because it contains git
@@ -40,7 +40,7 @@ file_lines:
     line: puppetlabs/code/environments
 
 letsencrypt_certs:
-  '%{trusted.certname}':
+  "%{trusted.certname}":
     plugin: webroot
     webroot_paths:
       - /var/www/html
@@ -61,7 +61,7 @@ munin::node::plugins:
   apache_volume:
     ensure: link
 
-puppetdb::postgres_version: '14'
+puppetdb::postgres_version: "14"
 
 profile::puppetserver::r10k_deploy_settings:
   purge_levels:
@@ -73,7 +73,7 @@ rsyslog::config::inputs:
   puppetserver:
     type: imfile
     config:
-      file: '%{settings::logdir}/puppetserver.log'
+      file: "%{settings::logdir}/puppetserver.log"
       tag: puppetserver.log
   puppetdb:
     type: imfile
