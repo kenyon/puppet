@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-mod 'cirrax-libvirt', :latest
 mod 'puppet-augeasproviders_core', :latest
 mod 'puppet-augeasproviders_grub', :latest
 mod 'puppet-augeasproviders_shellvar', :latest
@@ -41,12 +40,11 @@ mod 'puppetlabs-postgresql',
 mod 'puppetlabs-puppet_agent', :latest
 mod 'puppetlabs-puppetdb', :latest
 mod 'puppetlabs-puppetserver_gem', :latest
-mod 'puppetlabs-sshkeys_core', :latest
 mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'saz-timezone', :latest
 mod 'ssm-munin', :latest
+# Used by saz-timezone
 mod 'stm-debconf', :latest
-mod 'stm-file_capability', :latest
