@@ -45,12 +45,6 @@ lookup('ini_settings', Hash, 'hash', {}).each |$key, $value| {
   }
 }
 
-lookup('letsencrypt_certs', Hash, 'hash', {}).each |$key, $value| {
-  letsencrypt::certonly { $key:
-    * => $value,
-  }
-}
-
 lookup('npm_packages', Array[String], 'unique', []).each |String $pkg| {
   package { "npm_${pkg}":
     ensure   => present,

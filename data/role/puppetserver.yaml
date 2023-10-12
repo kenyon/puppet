@@ -39,7 +39,7 @@ file_lines:
     path: /etc/.gitignore
     line: puppetlabs/code/environments
 
-letsencrypt_certs:
+letsencrypt::certificates:
   "%{trusted.certname}":
     plugin: webroot
     webroot_paths:

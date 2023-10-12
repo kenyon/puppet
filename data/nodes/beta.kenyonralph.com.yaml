@@ -65,7 +65,7 @@ apache::vhosts::vhosts:
     ssl_cert: "/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem"
     ssl_key: "/etc/letsencrypt/live/%{trusted.certname}/privkey.pem"
 
-letsencrypt_certs:
+letsencrypt::certificates:
   "%{trusted.certname}":
     plugin: webroot
     webroot_paths:
