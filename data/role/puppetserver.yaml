@@ -64,6 +64,7 @@ munin::node::plugins:
 puppetdb::postgres_version: "14"
 
 profile::puppetserver::r10k_deploy_settings:
+  generate_types: true
   purge_levels:
     - deployment
     - environment
