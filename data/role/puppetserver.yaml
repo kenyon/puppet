@@ -65,6 +65,7 @@ puppetdb::postgres_version: "14"
 
 profile::puppetserver::r10k_deploy_settings:
   generate_types: true
+  incremental: true
   purge_levels:
     - deployment
     - environment
