@@ -1,7 +1,7 @@
 # Implemented this function because of bugs:
-# https://tickets.puppetlabs.com/browse/HI-223
-# https://tickets.puppetlabs.com/browse/PUP-7428
-# https://tickets.puppetlabs.com/browse/PUP-8405
+# https://puppet.atlassian.net/browse/HI-223
+# https://puppet.atlassian.net/browse/PUP-7428
+# https://puppet.atlassian.net/browse/PUP-8405
 
 # Does a hiera lookup for the given key, which must be an
 # array of strings, and returns an array of strings with items

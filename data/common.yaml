@@ -56,8 +56,8 @@ packages:
 # Can't really remove multiple packages though, even if I have listed
 # all of their dependencies, because Puppet tries to remove each package
 # individually:
-# https://tickets.puppetlabs.com/browse/PUP-146
-# https://tickets.puppetlabs.com/browse/PUP-1061
+# https://puppet.atlassian.net/browse/PUP-146
+# https://puppet.atlassian.net/browse/PUP-1061
 packages_absent:
   - ifupdown
   - isc-dhcp-client
