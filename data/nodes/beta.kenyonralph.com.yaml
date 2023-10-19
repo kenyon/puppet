@@ -157,7 +157,7 @@ rsyslog::config::expression_filters:
           or
           $msg contains 'pci 0000:02:00.0:    [ 0] RxErr                  (First)'
           or
-          ($hostname == 'LeafwoodCloudKey' and $msg startswith 'net_ratelimit')
+          re_match($msg, 'net_ratelimit: [[:digit:]]+ callbacks suppressed')
           or
           $msg contains 'ax88179_178a 2-1.1:1.0 eth0: kevent 2 may have been dropped'
         tasks:
