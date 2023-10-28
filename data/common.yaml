@@ -309,7 +309,7 @@ smokeping::targets:
     host: speedtest.fremont.linode.com
   qc_vpn:
     host: 192.190.110.201
-    menu: QC VPN
+    menu: QC VPN (IPv4)
     options:
       insecure_ssl: 1
       urlformat: "https://%host%/"
