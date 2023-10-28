@@ -305,8 +305,8 @@ smokeping::targets:
     host: one.one.one.one
   google_dns:
     host: dns.google
-  linode_fremont:
-    host: speedtest.fremont.linode.com
+  linode_la:
+    host: speedtest.los-angeles.linode.com
   qc_vpn:
     host: 192.190.110.201
     menu: QC VPN (IPv4)
