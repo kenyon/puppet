@@ -114,7 +114,7 @@ profile::kenyon::dotfiles:
 letsencrypt::email: kenyon@kenyonralph.com
 
 munin::node::allow:
-  - '::1'
+  - "::1"
   # beta.kenyonralph.com
   - 2a01:7e03::f03c:92ff:fe8c:f7c9/128
 
@@ -204,7 +204,7 @@ nodejs::npm_package_ensure: present
 postfix::inet_interfaces: loopback-only
 # https://github.com/voxpupuli/puppet-postfix/pull/256
 postfix::mydestination: $myhostname, localhost.$mydomain, localhost
-postfix::relayhost: '[smtp.mail.me.com]:submission'
+postfix::relayhost: "[smtp.mail.me.com]:submission"
 postfix::root_mail_recipient: kenyon@kenyonralph.com
 postfix::satellite: true
 
@@ -232,7 +232,7 @@ postfix::configs:
   smtp_header_checks:
     value: regexp:/etc/postfix/smtp_header_checks
   smtp_sasl_auth_enable:
-    value: 'yes'
+    value: "yes"
   smtp_tls_security_level:
     value: encrypt
   smtp_sasl_password_maps:
@@ -245,10 +245,10 @@ puppet_agent::collection: puppet8
 puppet_agent::config:
   - section: agent
     setting: splay
-    value: 'true'
+    value: "true"
   - section: main
     setting: show_diff
-    value: 'true'
+    value: "true"
   # https://puppet.com/docs/puppet/latest/report.html
   - section: server
     setting: reports
@@ -267,7 +267,7 @@ rkhunter::allowipcproc:
   - /usr/lib/thunderbird/thunderbird-bin
   - /usr/sbin/apache2
 rkhunter::allow_syslog_remote_logging: true
-rkhunter::allow_ssh_prot_v1: '2'
+rkhunter::allow_ssh_prot_v1: "2"
 rkhunter::allow_ssh_root_user: without-password
 rkhunter::auto_x_detect: true
 rkhunter::disable_tests: suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps properties
@@ -312,7 +312,7 @@ smokeping::targets:
     menu: QC VPN
     options:
       insecure_ssl: 1
-      urlformat: 'https://%host%/'
+      urlformat: "https://%host%/"
       write_out: time_connect
     probe: AnotherCurl
   spectrum_router:
