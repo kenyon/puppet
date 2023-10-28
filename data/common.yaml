@@ -115,7 +115,8 @@ letsencrypt::email: kenyon@kenyonralph.com
 
 munin::node::allow:
   - '::1'
-  - 2600:3c01::f03c:92ff:fe8c:f7c9/128
+  # beta.kenyonralph.com
+  - 2a01:7e03::f03c:92ff:fe8c:f7c9/128
 
 munin::node::plugins:
   chrony_drift:
