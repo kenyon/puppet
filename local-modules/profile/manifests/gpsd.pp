@@ -54,7 +54,7 @@ class profile::gpsd (
 
   munin::plugin { 'gpsd':
     ensure         => present,
-    source         => 'https://raw.githubusercontent.com/kenyon/munin-monitoring-contrib/c31973d3c8a0e7c78f90d3b1dd8aa3854180f7f8/plugins/gpsd/gpsd',
+    source         => 'https://raw.githubusercontent.com/munin-monitoring/contrib/f2080448e1b606d6bd41a9ed1fb8996a29a13e2b/plugins/gpsd/gpsd',
     checksum       => 'sha256',
     checksum_value => '3fc236dac1d1d53f0ec7058459dd6c526385927099d46a1ac0389825ed91cace',
   }
