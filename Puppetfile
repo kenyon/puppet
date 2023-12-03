@@ -9,7 +9,9 @@ mod 'puppet-chrony',
   branch: 'debian-defaults'
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
-mod 'puppet-letsencrypt', :latest
+mod 'puppet-letsencrypt',
+  git: 'https://github.com/voxpupuli/puppet-letsencrypt.git',
+  ref: 'refs/pull/220/head'
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix', :latest
