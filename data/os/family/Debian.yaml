@@ -61,19 +61,19 @@ apt::purge:
 apt::sources:
   debian:
     location: https://deb.debian.org/debian
-    release: '%{facts.os.distro.codename}'
+    release: "%{facts.os.distro.codename}"
     repos: main contrib non-free
     include:
       src: true
   updates:
     location: https://deb.debian.org/debian
-    release: '%{facts.os.distro.codename}-updates'
+    release: "%{facts.os.distro.codename}-updates"
     repos: main contrib non-free
     include:
       src: true
   github-cli:
     location: https://cli.github.com/packages
-    release: '%{facts.os.distro.codename}'
+    release: "%{facts.os.distro.codename}"
     repos: main
     key:
       id: 2C6106201985B60E6C7AC87323F3D4EA75716059
@@ -81,7 +81,7 @@ apt::sources:
       src: false
   puppet-tools:
     location: https://apt.puppet.com
-    release: '%{facts.os.distro.codename}'
+    release: "%{facts.os.distro.codename}"
     repos: puppet-tools
     include:
       src: false

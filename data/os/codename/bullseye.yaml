@@ -2,7 +2,7 @@
 apt::sources:
   security:
     location: https://deb.debian.org/debian-security
-    release: '%{facts.os.distro.codename}-security'
+    release: "%{facts.os.distro.codename}-security"
     repos: main contrib non-free
     include:
       src: true
