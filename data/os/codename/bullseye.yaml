@@ -6,3 +6,5 @@ apt::sources:
     repos: main contrib non-free
     include:
       src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg

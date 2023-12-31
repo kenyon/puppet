@@ -65,35 +65,50 @@ apt::sources:
     repos: main contrib non-free
     include:
       src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg
+
   updates:
     location: https://deb.debian.org/debian
     release: "%{facts.os.distro.codename}-updates"
     repos: main contrib non-free
     include:
       src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg
+
   github-cli:
     location: https://cli.github.com/packages
     release: "%{facts.os.distro.codename}"
     repos: main
     key:
-      id: 2C6106201985B60E6C7AC87323F3D4EA75716059
+      name: github-cli.gpg
+      source: https://cli.github.com/packages/githubcli-archive-keyring.gpg
     include:
       src: false
+    architecture: "%{facts.os.architecture}"
+
   puppet-tools:
     location: https://apt.puppet.com
     release: "%{facts.os.distro.codename}"
     repos: puppet-tools
+    key:
+      name: puppet.gpg
+      source: https://apt.puppet.com/keyring.gpg
     include:
       src: false
+    architecture: "%{facts.os.architecture}"
+
   vscode:
     location: https://packages.microsoft.com/repos/vscode
     release: stable
     repos: main
     key:
-      id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+      name: microsoft.asc
       source: https://packages.microsoft.com/keys/microsoft.asc
     include:
       src: false
+    architecture: "%{facts.os.architecture}"
 
 unattended_upgrades::auto:
   clean: 1

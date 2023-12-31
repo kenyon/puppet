@@ -8,13 +8,14 @@ class profile::vms::kvm::linode (
   String[1] $longview_api_key,
 ) {
   apt::source { 'linode-longview':
-    location => 'https://apt-longview.linode.com/',
-    release  => $facts['os']['distro']['codename'],
-    repos    => 'main',
-    key      => {
-      id     => 'D12F8D2C47B4A16917C9A040BED67E64325A043E',
+    location     => 'https://apt-longview.linode.com/',
+    release      => $facts['os']['distro']['codename'],
+    repos        => 'main',
+    key          => {
+      name   => 'linode.gpg',
       source => 'https://apt-longview.linode.com/linode.gpg',
     },
+    architecture => $facts['os']['architecture'],
   }
   -> package { 'linode-longview':
     ensure => installed,
