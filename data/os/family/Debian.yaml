@@ -51,6 +51,9 @@ apt::confs:
               Advance-On-Action "1";
           }
       };
+  show-versions:
+    content: |
+      APT::Get::Show-Versions "1";
 
 apt::purge:
   sources.list: true
