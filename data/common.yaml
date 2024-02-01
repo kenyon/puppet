@@ -131,9 +131,9 @@ munin::node::plugins:
     ensure: present
     config:
       - user _chrony
-    source: https://raw.githubusercontent.com/munin-monitoring/contrib/c909c075610c76bc3d191d5f4d85a3d2aa0cf02e/plugins/chrony/chrony_status
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/d3386b8a747f27b7da8ac1660ef8f8f3457e94d2/plugins/chrony/chrony_status
     checksum: sha256
-    checksum_value: 1ec209a86dce0382b4e60e1c5803035937b2d907a91950a756d526045d91019e
+    checksum_value: 6b81247ebec270b895eb063922e29974b874e3cd641a8bc811ce932510b25ec5
   exim_mailqueue:
     ensure: absent
   exim_mailstats:
