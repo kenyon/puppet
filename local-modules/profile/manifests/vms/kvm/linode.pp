@@ -32,7 +32,7 @@ class profile::vms::kvm::linode (
       ${longview_api_key.unwrap}
       | EOT
   }
-  -> service { 'longview':
+  ~> service { 'longview':
     ensure => running,
     enable => true,
   }
