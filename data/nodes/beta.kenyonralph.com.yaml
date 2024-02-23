@@ -151,11 +151,11 @@ rsyslog::config::expression_filters:
           or
           $msg contains 'pcieport 0000:00:1d.0: AER: Multiple Corrected error received: 0000:02:00.0'
           or
-          $msg contains 'pci 0000:02:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)'
+          $msg contains '0000:02:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)'
           or
-          $msg contains 'pci 0000:02:00.0:   device [10ec:c821] error status/mask=00000001/0000e000'
+          $msg contains '0000:02:00.0:   device [10ec:c821] error status/mask=00000001/0000e000'
           or
-          $msg contains 'pci 0000:02:00.0:    [ 0] RxErr                  (First)'
+          $msg contains '0000:02:00.0:    [ 0] RxErr                  (First)'
           or
           re_match($msg, 'net_ratelimit: [[:digit:]]+ callbacks suppressed')
           or
