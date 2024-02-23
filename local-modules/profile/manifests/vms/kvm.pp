@@ -26,7 +26,7 @@ class profile::vms::kvm (
     # This systemd service allows for accessing the VM's serial console
     # using "virsh console <domain>".
     service { 'serial-getty@ttyS0':
-      ensure => $enable_serial_console,
+      ensure => stdlib::ensure($enable_serial_console, 'service'),
       enable => $enable_serial_console,
     }
   }
