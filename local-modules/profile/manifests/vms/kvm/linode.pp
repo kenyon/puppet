@@ -5,7 +5,7 @@
 #   Longview API key.
 #
 class profile::vms::kvm::linode (
-  String[1] $longview_api_key,
+  Sensitive[String[1]] $longview_api_key,
 ) {
   apt::source { 'linode-longview':
     location     => 'https://apt-longview.linode.com/',
@@ -29,7 +29,7 @@ class profile::vms::kvm::linode (
     group   => root,
     mode    => '0400',
     content => @("EOT"),
-      ${longview_api_key}
+      ${longview_api_key.unwrap}
       | EOT
   }
   -> service { 'longview':

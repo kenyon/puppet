@@ -1,6 +1,10 @@
 ---
 # Config data for virtual machines running under KVM, including Linodes.
 
+lookup_options:
+  profile::vms::kvm::linode::longview_api_key:
+    convert_to: Sensitive
+
 classes:
   - profile::vms::kvm
 
