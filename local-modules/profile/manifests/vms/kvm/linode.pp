@@ -7,6 +7,23 @@
 class profile::vms::kvm::linode (
   Sensitive[String[1]] $longview_api_key,
 ) {
+  kernel_parameter { 'console':
+    ensure => present,
+    value  => 'ttyS0,19200n8',
+  }
+
+  grub_config { 'GRUB_GFXPAYLOAD_LINUX':
+    value => 'text',
+  }
+
+  grub_config { 'GRUB_SERIAL_COMMAND':
+    value => 'serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1',
+  }
+
+  grub_config { 'GRUB_TERMINAL':
+    value => 'serial',
+  }
+
   apt::source { 'linode-longview':
     location     => 'https://apt-longview.linode.com/',
     release      => $facts['os']['distro']['codename'],

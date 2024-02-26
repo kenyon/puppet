@@ -10,6 +10,12 @@ class profile::vms::kvm (
   Boolean $enable_serial_console = true,
   String[1] $ensure_qemu_guest_agent = installed,
 ) {
+  include kmod
+
+  kmod::load { 'ptp_kvm':
+    before => Class['profile::timesync'],
+  }
+
   if util::is_linode() {
     include profile::vms::kvm::linode
   } elsif util::is_vultr_vm() {
@@ -28,15 +34,6 @@ class profile::vms::kvm (
     service { 'serial-getty@ttyS0':
       ensure => stdlib::ensure($enable_serial_console, 'service'),
       enable => $enable_serial_console,
-    }
-  }
-
-  # Linode kernels have CONFIG_PTP_1588_CLOCK and
-  # CONFIG_PTP_1588_CLOCK_KVM built in (not as modules).
-  unless util::is_linode() {
-    include kmod
-    kmod::load { 'ptp_kvm':
-      before => Class['profile::timesync'],
     }
   }
 }
