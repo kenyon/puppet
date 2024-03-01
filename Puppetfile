@@ -25,7 +25,9 @@ mod 'puppet-smokeping',
   branch: 'master'
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
-mod 'puppetlabs-accounts', :latest
+mod 'puppetlabs-accounts',
+  git: 'https://github.com/puppetlabs/puppetlabs-accounts.git',
+  ref: 'refs/pull/476/merge'
 mod 'puppetlabs-apache',
   git: 'https://github.com/puppetlabs/puppetlabs-apache.git',
   commit: 'bde17ea2aff4d8bd7840ab6b39339baf8b2ba87a'
