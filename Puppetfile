@@ -26,7 +26,9 @@ mod 'puppet-smokeping',
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
-mod 'puppetlabs-apache', :latest
+mod 'puppetlabs-apache',
+  git: 'https://github.com/puppetlabs/puppetlabs-apache.git',
+  commit: 'bde17ea2aff4d8bd7840ab6b39339baf8b2ba87a'
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
