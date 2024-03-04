@@ -140,7 +140,6 @@ systemd::networks:
       [Network]
       DHCP=yes
       EmitLLDP=yes
-      LinkLocalAddressing=yes
       LLDP=yes
       MulticastDNS=yes
 

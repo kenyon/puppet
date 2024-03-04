@@ -92,7 +92,6 @@ systemd::networks:
       IPForward=yes
       IPMasquerade=yes
       IPv6SendRA=yes
-      LinkLocalAddressing=yes
       LLDP=yes
       MulticastDNS=yes
       VLAN=leafwood
@@ -137,7 +136,6 @@ systemd::networks:
       DHCP=yes
       IPForward=yes
       IPv6AcceptRA=yes
-      LinkLocalAddressing=yes
       LLDP=yes
 
       [DHCPv4]
@@ -183,7 +181,6 @@ systemd::networks:
       IPForward=yes
       IPMasquerade=yes
       IPv6SendRA=yes
-      LinkLocalAddressing=yes
       LLDP=yes
       MulticastDNS=yes
 
