@@ -70,7 +70,7 @@ rsyslog::config::actions:
   forward_all:
     type: omrelp
     config:
-      target: 'syslog.%{trusted.domain}'
+      target: "syslog.%{trusted.domain}"
       port: 20514
 
 rsyslog::config::global_config:
@@ -91,7 +91,7 @@ rsyslog::config::inputs:
     config:
       file: /var/log/munin/munin-node.log
       tag: munin-node
-      reopenOnTruncate: 'on'
+      reopenOnTruncate: "on"
 
 rsyslog::config::modules:
   imfile: {}
@@ -147,7 +147,7 @@ systemd::networks:
 # DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
 # it in systemd 248.
 systemd::dnssec: false
-systemd::domains: '%{trusted.domain}'
+systemd::domains: "%{trusted.domain}"
 systemd::journald_settings:
   Storage: persistent
 systemd::llmnr: false
