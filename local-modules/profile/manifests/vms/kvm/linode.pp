@@ -44,7 +44,7 @@ class profile::vms::kvm::linode (
     ensure  => file,
     owner   => root,
     group   => root,
-    mode    => '0400',
+    mode    => '0600',
     content => @("EOT"),
       ${longview_api_key.unwrap}
       | EOT
