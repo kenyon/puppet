@@ -28,6 +28,46 @@ class profile::puppetserver (
     }
   }
 
+  # Provides /opt/puppetlabs/puppet/bin/puppet-query.
+  # https://www.puppet.com/docs/puppetdb/latest/pdb_client_tools.html#step-2-install-and-configure-the-puppetdb-cli
+  package { 'puppetdb_cli':
+    ensure   => installed,
+    provider => 'puppet_gem',
+  }
+
+  [
+    'db',
+    'query',
+  ].each |String[1] $cmd| {
+    file { "/opt/puppetlabs/bin/puppet-${cmd}":
+      ensure => link,
+      target => "../puppet/bin/puppet-${cmd}",
+    }
+  }
+
+  file { '/etc/puppetlabs/client-tools':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
+
+  file { '/etc/puppetlabs/client-tools/puppetdb.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => stdlib::to_json_pretty(
+      {
+        puppetdb => {
+          server_urls => "https://${trusted['certname']}:8081",
+          cacert      => $settings::localcacert,
+          cert        => $settings::hostcert,
+          key         => $settings::hostprivkey,
+        },
+      },
+    ),
+  }
+
   class { 'puppetboard':
     secret_key => fqdn_rand_string(32),
   }
