@@ -15,7 +15,7 @@ hierarchy:
     path: "nodes/%{trusted.certname}.yaml"
 
   - name: Role
-    path: "role/%{facts.role}.yaml"
+    path: "role/%{trusted.extensions.pp_role}.yaml"
 
   - name: OS family and virtualization type
     path: "virtualization/%{facts.virtual}/%{facts.os.family}.yaml"
