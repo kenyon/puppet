@@ -12,33 +12,33 @@ defaults:
 
 hierarchy:
   - name: Node (FQDN)
-    path: 'nodes/%{trusted.certname}.yaml'
+    path: "nodes/%{trusted.certname}.yaml"
 
   - name: Role
-    path: 'role/%{facts.role}.yaml'
+    path: "role/%{facts.role}.yaml"
 
   - name: OS family and virtualization type
-    path: 'virtualization/%{facts.virtual}/%{facts.os.family}.yaml'
+    path: "virtualization/%{facts.virtual}/%{facts.os.family}.yaml"
 
   - name: Kernel type and virtualization type
-    path: 'virtualization/%{facts.virtual}/%{facts.kernel}.yaml'
+    path: "virtualization/%{facts.virtual}/%{facts.kernel}.yaml"
 
   - name: Virtualization type
-    path: 'virtualization/%{facts.virtual}.yaml'
+    path: "virtualization/%{facts.virtual}.yaml"
 
   - name: OS release codename
-    path: 'os/codename/%{facts.os.distro.codename}.yaml'
+    path: "os/codename/%{facts.os.distro.codename}.yaml"
 
   # example OS names: Fedora, RedHat, Debian, Ubuntu, CentOS
   - name: OS name
-    path: 'os/name/%{facts.os.name}.yaml'
+    path: "os/name/%{facts.os.name}.yaml"
 
   # example OS families: RedHat, Debian
   - name: OS family
-    path: 'os/family/%{facts.os.family}.yaml'
+    path: "os/family/%{facts.os.family}.yaml"
 
   - name: Kernel type
-    path: 'kernel/%{facts.kernel}.yaml'
+    path: "kernel/%{facts.kernel}.yaml"
 
   - name: Common
     path: common.yaml
