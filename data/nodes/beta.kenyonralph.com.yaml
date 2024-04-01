@@ -155,7 +155,7 @@ rsyslog::config::expression_filters:
           or
           $msg contains '0000:02:00.0:   device [10ec:c821] error status/mask=00000001/0000e000'
           or
-          $msg contains '0000:02:00.0:    [ 0] RxErr                  (First)'
+          $msg contains '0000:02:00.0:    [ 0] RxErr'
           or
           re_match($msg, 'net_ratelimit: [[:digit:]]+ callbacks suppressed')
           or
