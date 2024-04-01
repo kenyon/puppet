@@ -69,6 +69,6 @@ class profile::puppetserver (
   }
 
   class { 'puppetboard':
-    secret_key => fqdn_rand_string(32),
+    secret_key => stdlib::fqdn_rand_string(32),
   }
 }
