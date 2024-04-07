@@ -91,7 +91,7 @@ apt::sources:
 
   github-cli:
     location: https://cli.github.com/packages
-    release: "%{facts.os.distro.codename}"
+    release: stable
     repos: main
     key:
       name: github-cli.gpg
