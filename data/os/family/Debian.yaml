@@ -100,17 +100,6 @@ apt::sources:
       src: false
     architecture: "%{facts.os.architecture}"
 
-  vscode:
-    location: https://packages.microsoft.com/repos/vscode
-    release: stable
-    repos: main
-    key:
-      name: microsoft.asc
-      source: https://packages.microsoft.com/keys/microsoft.asc
-    include:
-      src: false
-    architecture: "%{facts.os.architecture}"
-
 unattended_upgrades::auto:
   clean: 1
 
