@@ -100,17 +100,6 @@ apt::sources:
       src: false
     architecture: "%{facts.os.architecture}"
 
-  puppet-tools:
-    location: https://apt.puppet.com
-    release: "%{facts.os.distro.codename}"
-    repos: puppet-tools
-    key:
-      name: puppet.gpg
-      source: https://apt.puppet.com/keyring.gpg
-    include:
-      src: false
-    architecture: "%{facts.os.architecture}"
-
   vscode:
     location: https://packages.microsoft.com/repos/vscode
     release: stable
