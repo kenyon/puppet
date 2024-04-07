@@ -1,4 +1,31 @@
 apt::sources:
+  debian:
+    location: https://deb.debian.org/debian
+    release: "%{facts.os.distro.codename}"
+    repos: main contrib non-free
+    include:
+      src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg
+
+  security:
+    location: https://deb.debian.org/debian-security
+    release: "%{facts.os.distro.codename}-security"
+    repos: main contrib non-free
+    include:
+      src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg
+
+  updates:
+    location: https://deb.debian.org/debian
+    release: "%{facts.os.distro.codename}-updates"
+    repos: main contrib non-free
+    include:
+      src: true
+    architecture: "%{facts.os.architecture}"
+    keyring: /usr/share/keyrings/debian-archive-keyring.gpg
+
   puppet-tools:
     location: https://apt.puppet.com
     release: "%{facts.os.distro.codename}"

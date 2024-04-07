@@ -1,5 +1,7 @@
 ---
 lookup_options:
+  apt::sources:
+    merge: hash
   munin::node::plugins:
     merge: hash
   profile::kenyon::dotfiles:
