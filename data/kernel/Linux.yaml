@@ -144,9 +144,6 @@ systemd::networks:
       LLDP=yes
       MulticastDNS=yes
 
-# DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
-# it in systemd 248.
-systemd::dnssec: false
 systemd::domains: "%{trusted.domain}"
 systemd::journald_settings:
   Storage: persistent

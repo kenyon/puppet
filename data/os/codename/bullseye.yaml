@@ -36,3 +36,7 @@ apt::sources:
     include:
       src: false
     architecture: "%{facts.os.architecture}"
+
+# DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
+# it in systemd 248.
+systemd::dnssec: false
