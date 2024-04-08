@@ -139,6 +139,7 @@ systemd::networks:
 
       [Network]
       DHCP=yes
+      Domains=%{trusted.domain}
       EmitLLDP=yes
       LLDP=yes
       MulticastDNS=yes
