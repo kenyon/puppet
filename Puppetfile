@@ -13,9 +13,7 @@ mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix', :latest
-mod 'puppet-puppetboard',
-  git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  commit: 'c23187c7bb9b7276c1f5005b11ee5bd0112ad097'
+mod 'puppet-puppetboard', :latest
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
@@ -25,12 +23,8 @@ mod 'puppet-smokeping',
   branch: 'master'
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
-mod 'puppetlabs-accounts',
-  git: 'https://github.com/puppetlabs/puppetlabs-accounts.git',
-  ref: 'refs/pull/476/merge'
-mod 'puppetlabs-apache',
-  git: 'https://github.com/puppetlabs/puppetlabs-apache.git',
-  commit: 'bde17ea2aff4d8bd7840ab6b39339baf8b2ba87a'
+mod 'puppetlabs-accounts', :latest
+mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
