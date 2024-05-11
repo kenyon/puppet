@@ -7,6 +7,7 @@ classes:
   - apache::mod::status
   - letsencrypt
   - munin::master
+  - profile::smokeping
   - smokeping
 
 packages:
