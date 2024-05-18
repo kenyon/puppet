@@ -25,7 +25,9 @@ mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
-mod 'puppetlabs-apt', :latest
+mod 'puppetlabs-apt',
+  git: 'https://github.com/puppetlabs/puppetlabs-apt.git',
+  ref: 'refs/pull/1180/merge'
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-facts', :latest
