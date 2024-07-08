@@ -154,6 +154,8 @@ rsyslog::config::expression_filters:
           or
           $msg contains 'pcieport 0000:00:1d.0: AER: Multiple Corrected error message received from 0000:02:00.0'
           or
+          $msg contains 'pcieport 0000:00:1d.0: AER: Corrected error message received from 0000:02:00.0'
+          or
           $msg contains '0000:02:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)'
           or
           $msg contains '0000:02:00.0:   device [10ec:c821] error status/mask=00000001/0000e000'
