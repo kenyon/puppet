@@ -53,4 +53,12 @@ class profile::vms::kvm::linode (
     ensure => running,
     enable => true,
   }
+
+  systemd::dropin_file { 'longview.conf':
+    unit    => 'longview.service',
+    content => @(EOT),
+      [Service]
+      Restart=on-failure
+      | EOT
+  }
 }
