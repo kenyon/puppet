@@ -26,6 +26,7 @@ class profile::smokeping {
     content => @(EOT),
       [Service]
       Environment=OPENSSL_CONF=/etc/smokeping/openssl.cnf
+      Restart=on-failure
       | EOT
   }
 }
