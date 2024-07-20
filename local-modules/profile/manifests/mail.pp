@@ -10,6 +10,16 @@ class profile::mail (
     content => Sensitive("${postfix_sasl_passwd_content}\n"),
   }
 
+  systemd::dropin_file { 'postfix.conf':
+    unit    => 'postfix.service',
+    content => @(EOT),
+      # Managed by Puppet.
+      [Service]
+      Restart=on-failure
+      | EOT
+    require => Package['postfix'],
+  }
+
   service { 'sendmail':
     ensure => stopped,
     enable => false,
