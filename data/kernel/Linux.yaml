@@ -128,6 +128,12 @@ systemd::dropin_files:
       # Managed by Puppet
       [Service]
       TTYVTDisallocate=no
+  puppet.conf:
+    unit: puppet.service
+    content: |
+      # Managed by Puppet
+      [Service]
+      Restart=on-failure
 
 systemd::networks:
   10-main.network:
