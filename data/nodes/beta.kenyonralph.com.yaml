@@ -220,3 +220,11 @@ rsyslog::config::modules:
       FileGroup: adm
 
 smokeping::mode: master
+
+systemd::dropin_files:
+  apache2.conf:
+    unit: apache2.service
+    content: |
+      # Managed by Puppet
+      [Service]
+      Restart=on-failure
