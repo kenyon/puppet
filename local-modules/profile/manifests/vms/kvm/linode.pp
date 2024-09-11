@@ -26,7 +26,7 @@ class profile::vms::kvm::linode (
 
   apt::source { 'linode-longview':
     location     => 'https://apt-longview.linode.com/',
-    release      => $facts['os']['distro']['codename'],
+    release      => 'bullseye',
     repos        => 'main',
     key          => {
       name   => 'linode.gpg',
