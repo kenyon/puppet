@@ -104,6 +104,15 @@ apt::sources:
       src: false
     architecture: "%{facts.os.architecture}"
 
+  puppet-tools:
+    location: https://apt.puppet.com
+    release: "%{facts.os.distro.codename}"
+    repos: puppet-tools
+    include:
+      src: false
+    architecture: "%{facts.os.architecture}"
+    keyring: /etc/apt/keyrings/GPG-KEY-puppet-20250406.asc
+
 unattended_upgrades::auto:
   clean: 1
 

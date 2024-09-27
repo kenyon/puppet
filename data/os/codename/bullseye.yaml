@@ -26,17 +26,6 @@ apt::sources:
     architecture: "%{facts.os.architecture}"
     keyring: /usr/share/keyrings/debian-archive-keyring.gpg
 
-  puppet-tools:
-    location: https://apt.puppet.com
-    release: "%{facts.os.distro.codename}"
-    repos: puppet-tools
-    key:
-      name: puppet.gpg
-      source: https://apt.puppet.com/keyring.gpg
-    include:
-      src: false
-    architecture: "%{facts.os.architecture}"
-
 # DNSSEC disabled due to bugs. Looks like https://github.com/systemd/systemd/pull/18624 should fix
 # it in systemd 248.
 systemd::dnssec: false
