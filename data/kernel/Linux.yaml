@@ -1,7 +1,5 @@
 ---
 lookup_options:
-  apt::sources:
-    merge: hash
   logrotate::rules:
     merge: hash
   rsyslog::config::inputs:

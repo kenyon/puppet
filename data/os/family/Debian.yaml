@@ -1,6 +1,10 @@
 ---
 # Debian-family-specific data.
 
+lookup_options:
+  apt::sources:
+    merge: hash
+
 classes:
   - apt
   - apt::backports
