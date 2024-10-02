@@ -145,6 +145,22 @@ munin::node::plugins:
     config:
       - env.domain udp6
 
+  snmp_switch1.leafwood.kenyonralph.com_if_multi:
+    ensure: link
+    target: snmp__if_multi
+    config:
+      - env.domain udp6
+  snmp_switch1.leafwood.kenyonralph.com_netstat:
+    ensure: link
+    target: snmp__netstat
+    config:
+      - env.domain udp6
+  snmp_switch1.leafwood.kenyonralph.com_uptime:
+    ensure: link
+    target: snmp__uptime
+    config:
+      - env.domain udp6
+
   snmp_upstairsap.leafwood.kenyonralph.com_cpuload:
     ensure: link
     target: snmp__cpuload
