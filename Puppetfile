@@ -31,7 +31,9 @@ mod 'puppetlabs-apt',
   git: 'https://github.com/puppetlabs/puppetlabs-apt.git',
   ref: 'refs/pull/1188/merge'
 mod 'puppetlabs-concat', :latest
-mod 'puppetlabs-docker', :latest
+mod 'puppetlabs-docker',
+  git: 'https://github.com/puppetlabs/puppetlabs-docker.git',
+  ref: 'refs/pull/965/merge'
 mod 'puppetlabs-facts', :latest
 mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
