@@ -27,7 +27,7 @@ mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt',
   git: 'https://github.com/puppetlabs/puppetlabs-apt.git',
-  ref: 'refs/pull/1180/merge'
+  ref: 'refs/pull/1188/merge'
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-facts', :latest
