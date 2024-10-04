@@ -13,7 +13,9 @@ mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix', :latest
-mod 'puppet-puppetboard', :latest
+mod 'puppet-puppetboard',
+  git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
+  ref: 'refs/pull/396/merge'
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
