@@ -148,6 +148,7 @@ systemd::networks:
       LLDP=yes
       MulticastDNS=yes
 
+systemd::dnssec: true
 systemd::domains: "%{trusted.domain}"
 systemd::journald_settings:
   Storage: persistent
