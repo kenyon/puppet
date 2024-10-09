@@ -16,7 +16,10 @@ mod 'puppet-postfix', :latest
 mod 'puppet-puppetboard',
   git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
   ref: 'refs/pull/396/merge'
-mod 'puppet-python', :latest
+# Go back to release after 7.4.0 is released.
+mod 'puppet-python',
+  git: 'https://github.com/voxpupuli/puppet-python.git',
+  commit: '04e4d4cedbd5b42d29e174458a5adb63b9cde530'
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
