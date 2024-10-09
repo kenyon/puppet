@@ -71,6 +71,8 @@ profile::puppetserver::r10k_deploy_settings:
     - environment
     - puppetfile
 
+python::venv: installed
+
 rsyslog::config::inputs:
   puppetserver:
     type: imfile
