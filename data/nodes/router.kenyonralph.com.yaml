@@ -102,6 +102,16 @@ systemd::networks:
       DNS=8.8.8.8 1.1.1.1
       NTP=10.0.0.1
 
+      # Garage Wall Connector
+      [DHCPServerStaticLease]
+      MACAddress=98:ed:5c:9a:81:7e
+      Address=10.0.0.136
+
+      # Driveway Wall Connector
+      [DHCPServerStaticLease]
+      MACAddress=54:f8:f0:21:0c:c6
+      Address=10.0.0.171
+
       [DHCPv6PrefixDelegation]
       SubnetId=0
 
