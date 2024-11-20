@@ -24,9 +24,14 @@ munin::node::plugins:
     checksum: sha256
     checksum_value: fc3645cacd6957316374748ca2731d71191957278b5e18090a54055be4f78881
   tesla_wall_connector:
+    ensure: absent
+  tesla_wall_connector_10.0.0.136:
     ensure: present
-    source: https://raw.githubusercontent.com/munin-monitoring/contrib/e3f08308abfc92d19e12f85c6820e2164738caa8/plugins/tesla/tesla_wall_connector
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/8fa02efe0a66660d4cfcf159ebd457f5d717aa90/plugins/tesla/tesla_wall_connector_
     checksum: sha256
-    checksum_value: 3720c139797694e6640ca0341b9c02806dcedb84d94370ee66ac969314943b7e
-    config:
-      - env.address 10.0.0.136
+    checksum_value: 2bf0d9a690d47f77bfde2cc2f99c3b72dea2319495e2a13946d989d103e885ff
+  tesla_wall_connector_10.0.0.171:
+    ensure: present
+    source: https://raw.githubusercontent.com/munin-monitoring/contrib/8fa02efe0a66660d4cfcf159ebd457f5d717aa90/plugins/tesla/tesla_wall_connector_
+    checksum: sha256
+    checksum_value: 2bf0d9a690d47f77bfde2cc2f99c3b72dea2319495e2a13946d989d103e885ff
