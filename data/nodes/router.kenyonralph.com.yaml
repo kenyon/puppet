@@ -90,7 +90,7 @@ systemd::networks:
       DHCPv6PrefixDelegation=yes
       EmitLLDP=yes
       IPForward=yes
-      IPMasquerade=yes
+      IPMasquerade=ipv4
       IPv6SendRA=yes
       LLDP=yes
       MulticastDNS=yes
@@ -189,7 +189,7 @@ systemd::networks:
       DHCPv6PrefixDelegation=yes
       EmitLLDP=yes
       IPForward=yes
-      IPMasquerade=yes
+      IPMasquerade=ipv4
       IPv6SendRA=yes
       LLDP=yes
       MulticastDNS=yes
