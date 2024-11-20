@@ -23,8 +23,6 @@ munin::node::plugins:
     source: https://raw.githubusercontent.com/bradh352/munin-plugins/ba760b9cde2d9ffab951d4c1892aa8bfe089718e/arris_cablemodem
     checksum: sha256
     checksum_value: fc3645cacd6957316374748ca2731d71191957278b5e18090a54055be4f78881
-  tesla_wall_connector:
-    ensure: absent
   tesla_wall_connector_10.0.0.136:
     ensure: present
     source: https://raw.githubusercontent.com/munin-monitoring/contrib/8fa02efe0a66660d4cfcf159ebd457f5d717aa90/plugins/tesla/tesla_wall_connector_
