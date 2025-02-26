@@ -1,7 +1,7 @@
 util::lookup_filter('classes').include
 
-ensure_packages(util::lookup_filter('packages'), { ensure => installed })
-ensure_packages(util::lookup_filter('packages_absent'), { ensure => purged })
+stdlib::ensure_packages(util::lookup_filter('packages'), { ensure => installed })
+stdlib::ensure_packages(util::lookup_filter('packages_absent'), { ensure => purged })
 
 lookup('files', Hash, 'hash', {}).each |$key, $value| {
   file { $key:
