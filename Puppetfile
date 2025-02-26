@@ -13,13 +13,8 @@ mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-nodejs', :latest
 mod 'puppet-postfix', :latest
-mod 'puppet-puppetboard',
-  git: 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  ref: 'refs/pull/396/merge'
-# Go back to release after 7.4.0 is released.
-mod 'puppet-python',
-  git: 'https://github.com/voxpupuli/puppet-python.git',
-  commit: '04e4d4cedbd5b42d29e174458a5adb63b9cde530'
+mod 'puppet-puppetboard', :latest
+mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
@@ -30,9 +25,7 @@ mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
-mod 'puppetlabs-apt',
-  git: 'https://github.com/puppetlabs/puppetlabs-apt.git',
-  ref: 'refs/pull/1188/merge'
+mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
 mod 'puppetlabs-docker',
   git: 'https://github.com/puppetlabs/puppetlabs-docker.git',
