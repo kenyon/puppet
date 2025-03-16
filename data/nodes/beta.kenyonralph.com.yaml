@@ -230,3 +230,28 @@ systemd::dropin_files:
       # Managed by Puppet
       [Service]
       Restart=on-failure
+
+systemd::manage_units:
+  mkswap.service:
+    ensure: present
+    unit_entry:
+      Description: Format swap file
+      ConditionPathExists: "!/swap"
+    service_entry:
+      Type: oneshot
+      ExecStart:
+        - dd if=/dev/zero of=/swap bs=1M count=2048
+        - chmod --changes 0600 /swap
+        - mkswap /swap
+  swap.swap:
+    ensure: present
+    enable: true
+    active: true
+    unit_entry:
+      Description: Swap file
+      After: mkswap.service
+      Requires: mkswap.service
+    install_entry:
+      WantedBy: multi-user.target
+    swap_entry:
+      What: /swap
