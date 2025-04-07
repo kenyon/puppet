@@ -20,7 +20,6 @@ classes:
   - rkhunter
   - ssh
   - sudo
-  - timezone
 
 # Packages I want installed.
 packages:
@@ -388,4 +387,4 @@ sudo::configs:
   lessenv2:
     content: Defaults env_keep += "PAGER LESS MANWIDTH LESSOPEN BLOCKSIZE"
 
-timezone::timezone: America/Los_Angeles
+systemd::timezone: America/Los_Angeles

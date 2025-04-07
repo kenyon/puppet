@@ -42,7 +42,4 @@ mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
-mod 'saz-timezone', :latest
 mod 'ssm-munin', :latest
-# Used by saz-timezone
-mod 'stm-debconf', :latest
