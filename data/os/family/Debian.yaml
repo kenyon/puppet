@@ -111,7 +111,7 @@ apt::sources:
     include:
       src: false
     architecture: "%{facts.os.architecture}"
-    keyring: /etc/apt/keyrings/GPG-KEY-puppet-20250406.asc
+    keyring: /etc/apt/keyrings/puppet-keyring.gpg
 
 unattended_upgrades::auto:
   clean: 1
