@@ -100,8 +100,6 @@ apt::sources:
     key:
       name: github-cli.gpg
       source: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-    include:
-      src: false
     architecture: "%{facts.os.architecture}"
 
   puppet-tools:
