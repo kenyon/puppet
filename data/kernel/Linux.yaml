@@ -105,6 +105,9 @@ services:
   ctrl-alt-del.target:
     ensure: stopped
     enable: mask
+  systemd-journald-audit.socket:
+    ensure: stopped
+    enable: false
 
 sysctls:
   fs.inotify.max_user_watches:
