@@ -61,7 +61,7 @@ munin::node::plugins:
   apache_volume:
     ensure: link
 
-puppetdb::postgres_version: "14"
+puppetdb::postgres_version: "17"
 
 profile::puppetserver::r10k_deploy_settings:
   generate_types: true
