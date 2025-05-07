@@ -102,14 +102,13 @@ apt::sources:
       source: https://cli.github.com/packages/githubcli-archive-keyring.gpg
     architecture: "%{facts.os.architecture}"
 
-  puppet-tools:
-    location: https://apt.puppet.com
-    release: "%{facts.os.distro.codename}"
-    repos: puppet-tools
-    include:
-      src: false
-    architecture: "%{facts.os.architecture}"
-    keyring: /etc/apt/keyrings/puppet-keyring.gpg
+  openvox:
+    location: https://apt.voxpupuli.org
+    release: "debian%{facts.os.release.major}"
+    repos: openvox8
+    key:
+      name: openvox-keyring.gpg
+      source: https://apt.voxpupuli.org/openvox-keyring.gpg
 
 unattended_upgrades::auto:
   clean: 1

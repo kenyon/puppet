@@ -35,9 +35,6 @@ mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql', :latest
-mod 'puppetlabs-puppet_agent',
-  git: 'https://github.com/puppetlabs/puppetlabs-puppet_agent.git',
-  commit: '141bc5801359ecf15cf4d2bbd3e63687edf2a560'
 mod 'puppetlabs-puppetdb', '8.0.1'
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-stdlib', :latest
@@ -45,3 +42,4 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'ssm-munin', :latest
+mod 'theforeman-puppet', '20.1.0'

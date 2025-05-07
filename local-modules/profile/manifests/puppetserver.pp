@@ -15,6 +15,9 @@ class profile::puppetserver (
   String[1] $r10k_remote,
   Array[String[1]] $puppetserver_gems = [],
 ) {
+  Apt::Source['openvox'] -> Class['apt::update'] -> Class['Puppet::Server::Puppetdb']
+  Apt::Source['openvox'] -> Class['apt::update'] -> Class['Puppet::Server::Install']
+
   class { 'r10k':
     deploy_settings => $r10k_deploy_settings,
     remote          => $r10k_remote,

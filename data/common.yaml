@@ -63,6 +63,7 @@ packages_absent:
   - nano
   - network-manager
   - openresolv
+  - puppet8-release
   - rdnssd
   - resolvconf
 
@@ -239,19 +240,10 @@ postfix::configs:
   smtp_sasl_tls_security_options:
     value: noanonymous
 
-puppet_agent::package_version: auto
-puppet_agent::collection: puppet8
-puppet_agent::config:
-  - section: agent
-    setting: splay
-    value: "true"
-  - section: main
-    setting: show_diff
-    value: "true"
-  # https://puppet.com/docs/puppet/latest/report.html
-  - section: server
-    setting: reports
-    value: log,puppetdb
+puppet::agent_server_hostname: "puppet.%{trusted.domain}"
+puppet::client_package: openvox-agent
+puppet::show_diff: true
+puppet::splay: true
 
 rkhunter::allowhiddendir:
   - /etc/.git

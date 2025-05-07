@@ -9,12 +9,11 @@ classes:
   - profile::ruby
   - puppetboard::apache::conf
   - puppetdb
-  - puppetdb::master::config
+  - puppet::server::puppetdb
 
 packages:
   - augeas-tools
   - libwww-perl # needed for apache munin modules
-  - puppetserver
 
 gems:
   - hiera-eyaml
@@ -61,7 +60,21 @@ munin::node::plugins:
   apache_volume:
     ensure: link
 
+puppet::server_common_modules_path: ''
+puppet::server_external_nodes: ''
+puppet::server_foreman: false
+puppet::server_reports: log,puppetdb
+puppet::server_storeconfigs: true
+puppet::server_strict_variables: true
+puppet::server: true
+puppet::server::package: openvox-server
+puppet::server::puppetdb::server: "%{trusted.certname}"
+
+# theforeman-puppet manages the puppetserver service
+puppetdb::master::config::create_puppet_service_resource: false
+puppetdb::master::config::terminus_package: openvoxdb-termini
 puppetdb::postgres_version: "17"
+puppetdb::puppetdb_package: openvoxdb
 
 profile::puppetserver::r10k_deploy_settings:
   generate_types: true
