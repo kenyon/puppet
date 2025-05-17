@@ -5,6 +5,11 @@ classes:
 packages:
   - firmware-realtek
 
+kernel_parameters:
+  pci:
+    ensure: present
+    value: noaer
+
 profile::apparmor::profile_files:
   usr.sbin.chronyd:
     content: |
