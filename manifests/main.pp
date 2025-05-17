@@ -21,6 +21,12 @@ lookup('ini_settings', Hash, 'hash', {}).each |$key, $value| {
   }
 }
 
+lookup('kernel_parameters', Hash, 'hash', {}).each |$key, $value| {
+  kernel_parameter { $key:
+    * => $value,
+  }
+}
+
 lookup('npm_packages', Array[String], 'unique', []).each |String $pkg| {
   package { "npm_${pkg}":
     ensure   => present,
