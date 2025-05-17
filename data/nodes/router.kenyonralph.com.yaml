@@ -1,5 +1,6 @@
 ---
 classes:
+  - kmod
   - profile::gpsd
 
 packages:
@@ -9,6 +10,10 @@ kernel_parameters:
   pci:
     ensure: present
     value: noaer
+
+kmod::list_of_installs:
+  rtw88_8821ce:
+    command: /bin/false
 
 profile::apparmor::profile_files:
   usr.sbin.chronyd:
