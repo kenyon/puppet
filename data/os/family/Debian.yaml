@@ -119,7 +119,7 @@ unattended_upgrades::extra_origins:
   - origin=Debian,codename=${distro_codename}-updates,label=Debian
   - origin=Docker
   - origin=gh
-  - origin=Puppetlabs,component=puppet-tools
+  - origin=Vox Pupuli
   - origin=vscode stable
 
 unattended_upgrades::mail:
