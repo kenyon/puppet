@@ -6,6 +6,9 @@ mod 'puppet-augeasproviders_shellvar', :latest
 mod 'puppet-augeasproviders_sysctl', :latest
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
+mod 'puppet-hiera',
+  :git => 'https://github.com/kenyon/puppet-hiera.git',
+  :branch => 'manage-eyaml-config'
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
