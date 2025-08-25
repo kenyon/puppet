@@ -3,9 +3,9 @@ classes:
   - apache::mod::http2
   - apache::mod::status
   - apache::vhosts
+  - hiera
   - letsencrypt
   - profile::puppetserver
-  - profile::puppetserver::hiera_eyaml
   - profile::ruby
   - puppetboard::apache::conf
   - puppetdb
@@ -14,9 +14,6 @@ classes:
 packages:
   - augeas-tools
   - libwww-perl # needed for apache munin modules
-
-gems:
-  - hiera-eyaml
 
 apache::vhosts::vhosts:
   http:
@@ -37,6 +34,16 @@ file_lines:
   etc_gitignore_puppetlabs_code_environments:
     path: /etc/.gitignore
     line: puppetlabs/code/environments
+
+hiera::create_symlink: false
+hiera::eyaml_pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pem
+hiera::eyaml_pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pem
+hiera::eyaml: true
+hiera::group: root
+hiera::hiera_version: '5'
+hiera::keysdir: /etc/puppetlabs/puppet/eyaml
+hiera::owner: root
+hiera::puppet_conf_manage: false
 
 letsencrypt::certificates:
   "%{trusted.certname}":

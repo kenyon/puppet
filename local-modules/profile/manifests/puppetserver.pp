@@ -5,15 +5,11 @@
 # @param r10k_deploy_settings
 #   r10k deploy settings.
 #
-# @param puppetserver_gems
-#   Ruby gems for the Puppet Server's embedded Ruby environment.
-#
 # @param r10k_remote
 #   The URL of the control repo that r10k should deploy.
 class profile::puppetserver (
   Hash $r10k_deploy_settings,
   String[1] $r10k_remote,
-  Array[String[1]] $puppetserver_gems = [],
 ) {
   Apt::Source['openvox'] -> Class['apt::update'] -> Class['Puppet::Server::Puppetdb']
   Apt::Source['openvox'] -> Class['apt::update'] -> Class['Puppet::Server::Install']
@@ -21,14 +17,6 @@ class profile::puppetserver (
   class { 'r10k':
     deploy_settings => $r10k_deploy_settings,
     remote          => $r10k_remote,
-  }
-
-  $puppetserver_gems.each |String $pkg| {
-    package { "puppetserver_gem_${pkg}":
-      ensure   => installed,
-      name     => $pkg,
-      provider => 'puppetserver_gem',
-    }
   }
 
   # Provides /opt/puppetlabs/puppet/bin/puppet-query.
