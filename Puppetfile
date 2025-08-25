@@ -4,9 +4,7 @@ mod 'puppet-augeasproviders_core', :latest
 mod 'puppet-augeasproviders_grub', :latest
 mod 'puppet-augeasproviders_shellvar', :latest
 mod 'puppet-augeasproviders_sysctl', :latest
-mod 'puppet-chrony',
-  git: 'https://github.com/kenyon/puppet-chrony.git',
-  branch: 'debian-defaults'
+mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
