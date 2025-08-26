@@ -16,9 +16,7 @@ mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
 mod 'puppet-rsyslog', :latest
-mod 'puppet-smokeping',
-  git: 'https://github.com/voxpupuli/puppet-smokeping.git',
-  branch: 'master'
+mod 'puppet-smokeping', :latest
 mod 'puppet-systemd', :latest
 mod 'puppet-unattended_upgrades', :latest
 mod 'puppetlabs-accounts', :latest
