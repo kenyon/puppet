@@ -26,12 +26,6 @@ hiera::keysdir: /etc/puppetlabs/puppet/eyaml
 hiera::owner: root
 hiera::puppet_conf_manage: false
 
-logrotate::rules:
-  webhook:
-    path: /var/log/webhook/access.log
-    missingok: true
-    postrotate: systemctl restart webhook
-
 puppet::server_common_modules_path: ''
 puppet::server_external_nodes: ''
 puppet::server_foreman: false
