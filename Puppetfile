@@ -7,8 +7,8 @@ mod 'puppet-augeasproviders_sysctl', :latest
 mod 'puppet-chrony', :latest
 mod 'puppet-extlib', :latest
 mod 'puppet-hiera',
-  :git => 'https://github.com/kenyon/puppet-hiera.git',
-  :branch => 'manage-eyaml-config'
+  :git => 'https://github.com/voxpupuli/puppet-hiera.git',
+  :commit => 'fd0e76cfe0212528041e7ea19debbbf4eaf52bc0'
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
