@@ -59,10 +59,6 @@ class profile::puppetserver (
     ),
   }
 
-  class { 'puppetboard':
-    secret_key => stdlib::fqdn_rand_string(32),
-  }
-
   file { '/var/log/puppetlabs':
     ensure => directory,
     owner  => 'puppet',

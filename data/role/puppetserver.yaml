@@ -1,32 +1,13 @@
 ---
 classes:
-  - apache::mod::http2
-  - apache::mod::status
-  - apache::vhosts
   - hiera
-  - letsencrypt
   - profile::puppetserver
   - profile::ruby
-  - puppetboard::apache::conf
   - puppetdb
   - puppet::server::puppetdb
 
 packages:
   - augeas-tools
-  - libwww-perl # needed for apache munin modules
-
-apache::vhosts::vhosts:
-  http:
-    docroot: /var/www/html
-    port: 80
-    servername: "%{trusted.certname}"
-  https:
-    docroot: /var/www/html
-    port: 443
-    servername: "%{trusted.certname}"
-    ssl: true
-    ssl_cert: "/etc/letsencrypt/live/%{trusted.certname}/fullchain.pem"
-    ssl_key: "/etc/letsencrypt/live/%{trusted.certname}/privkey.pem"
 
 file_lines:
   # Don't want /etc/puppetlabs/code/environments tracked by etckeeper because it contains git
@@ -45,27 +26,11 @@ hiera::keysdir: /etc/puppetlabs/puppet/eyaml
 hiera::owner: root
 hiera::puppet_conf_manage: false
 
-letsencrypt::certificates:
-  "%{trusted.certname}":
-    plugin: webroot
-    webroot_paths:
-      - /var/www/html
-    deploy_hook_commands:
-      - systemctl reload apache2
-
 logrotate::rules:
   webhook:
     path: /var/log/webhook/access.log
     missingok: true
     postrotate: systemctl restart webhook
-
-munin::node::plugins:
-  apache_accesses:
-    ensure: link
-  apache_processes:
-    ensure: link
-  apache_volume:
-    ensure: link
 
 puppet::server_common_modules_path: ''
 puppet::server_external_nodes: ''
