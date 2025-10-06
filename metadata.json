@@ -10,7 +10,8 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "10"
+        "12",
+        "13"
       ]
     }
   ],
