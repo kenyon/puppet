@@ -299,7 +299,7 @@ smokeping::targets:
   linode_la:
     host: speedtest.los-angeles.linode.com
   qc_vpn:
-    host: 192.190.110.201
+    host: 192.190.110.199
     menu: QC VPN (IPv4)
     options:
       insecure_ssl: 1
