@@ -310,7 +310,7 @@ smokeping::targets:
     host: 2605:e000:40e:1a::1
     menu: Spectrum router
   spectrum_router_ipv4:
-    host: 142.254.184.105
+    host: 76.167.17.177
     menu: Spectrum router (IPv4)
     probe: FPing
 
