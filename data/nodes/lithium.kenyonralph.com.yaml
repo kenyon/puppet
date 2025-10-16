@@ -2,6 +2,18 @@
 classes:
   - docker
 
+apt::sources:
+  vscode:
+    location: https://packages.microsoft.com/repos/vscode
+    release: stable
+    repos: main
+    key:
+      name: microsoft.asc
+      source: https://packages.microsoft.com/keys/microsoft.asc
+    include:
+      src: false
+    architecture: "%{facts.os.architecture}"
+
 packages:
   - expect
   - firmware-b43-installer
