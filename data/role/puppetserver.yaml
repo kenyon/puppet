@@ -39,7 +39,7 @@ puppet::server::puppetdb::server: "%{trusted.certname}"
 # theforeman-puppet manages the puppetserver service
 puppetdb::master::config::create_puppet_service_resource: false
 puppetdb::master::config::terminus_package: openvoxdb-termini
-puppetdb::postgres_version: "17"
+puppetdb::postgres_version: "18"
 puppetdb::puppetdb_package: openvoxdb
 
 profile::puppetserver::r10k_deploy_settings:
