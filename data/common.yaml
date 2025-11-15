@@ -206,8 +206,6 @@ munin::node::plugins:
     checksum_value: 5794598a673f181dd5033fc90f33f0e059c501152455ee5b190a4cc7b2a4cdd3
 
 postfix::inet_interfaces: loopback-only
-# https://github.com/voxpupuli/puppet-postfix/pull/256
-postfix::mydestination: $myhostname, localhost.$mydomain, localhost
 postfix::relayhost: "[smtp.mail.me.com]:submission"
 postfix::root_mail_recipient: kenyon@kenyonralph.com
 postfix::satellite: true
