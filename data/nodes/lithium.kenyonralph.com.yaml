@@ -20,7 +20,6 @@ packages:
   - firmware-misc-nonfree
   - gh
   - macfanctld
-  - pdk
 
 files:
   /etc/sensors.d/ignore-nonsense-temperatures.conf:
