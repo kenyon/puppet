@@ -9,7 +9,6 @@ lookup_options:
 
 classes:
   - logrotate
-  - nodejs
   - profile::linux
   - rsyslog::config
   - systemd
@@ -23,9 +22,6 @@ packages:
   - ncat
   - ndisc6
   - time
-
-npm_packages:
-  - diff-so-fancy
 
 ini_settings:
   systemd disable CtrlAltDelBurstAction:

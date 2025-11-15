@@ -27,14 +27,6 @@ lookup('kernel_parameters', Hash, 'hash', {}).each |$key, $value| {
   }
 }
 
-lookup('npm_packages', Array[String], 'unique', []).each |String $pkg| {
-  package { "npm_${pkg}":
-    ensure   => present,
-    provider => 'npm',
-    name     => $pkg,
-  }
-}
-
 lookup('services', Hash, 'hash', {}).each |$key, $value| {
   service { $key:
     * => $value,

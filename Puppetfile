@@ -12,7 +12,6 @@ mod 'puppet-hiera',
 mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
-mod 'puppet-nodejs', :latest
 mod 'puppet-postfix', :latest
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest

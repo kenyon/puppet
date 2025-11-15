@@ -67,6 +67,14 @@ packages_absent:
   - rdnssd
   - resolvconf
 
+files:
+  /usr/local/bin/diff-so-fancy:
+    ensure: file
+    mode: '0755'
+    owner: root
+    group: root
+    source: https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.4/diff-so-fancy
+
 apache::default_ssl_vhost: false
 apache::default_vhost: false
 apache::mod::ssl::reload_on_change: true
@@ -196,10 +204,6 @@ munin::node::plugins:
     source: https://raw.githubusercontent.com/munin-monitoring/contrib/8dcc91493811196735d4b734e069b817d9b0f32e/plugins/puppet/puppet_runtime
     checksum: sha256
     checksum_value: 5794598a673f181dd5033fc90f33f0e059c501152455ee5b190a4cc7b2a4cdd3
-
-nodejs::manage_package_repo: false
-nodejs::manage_nodejs_package: false
-nodejs::npm_package_ensure: present
 
 postfix::inet_interfaces: loopback-only
 # https://github.com/voxpupuli/puppet-postfix/pull/256
