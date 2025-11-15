@@ -229,6 +229,8 @@ profile::mail::postfix_sasl_passwd_content: |
   %{lookup('postfix::relayhost')} kenyonralph:ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAKA2hmjVI+YAaUewmsnMEm8/9rUVB9tntYOBlMrOSXTMXwPGaIbUKR8uRJPbpXgkxVGemPnLg1KCErVjPWJsn4Zk2EmXW62ReDdrtqoDi05IiLXg6Z24MPZxE2Ouf5NRicNmqHLngnad6arxk92b0VNF9ddMTDzzYnd4wru3DSPT2v/QUSQ/t1BBb3EyBWT5dKRDNd47cusQu2coC8mP2eV1AjPbhvq1c0FuTpjK4W76doAlCwnw6Df063/Ahkaz3+wKDq6R5pSXGo/jriDnae4DTwzbzWS3uaeeCc40YIVSKbsneP6PyNG/GcC8QcCqgU8cUPycerzm5IKmye6VyhzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBD6SifOiRxxBdioy/o2kSbrgCBLzydgHUXFyvbODWQLA7hTQ9lcpafm0O30xhEcneCaIA==]
 
 postfix::configs:
+  compatibility_level:
+    value: '3.6'
   sender_canonical_maps:
     value: regexp:/etc/postfix/sender_rewrite
   smtp_header_checks:
