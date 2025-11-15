@@ -241,6 +241,8 @@ postfix::configs:
     value: hash:/etc/postfix/sasl/sasl_passwd
   smtp_sasl_tls_security_options:
     value: noanonymous
+  smtpd_use_tls:
+    ensure: absent
 
 puppet::agent_server_hostname: "puppet.%{trusted.domain}"
 puppet::client_package: openvox-agent
