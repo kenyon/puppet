@@ -35,9 +35,6 @@ packages:
   - reboot-notifier
   - vim
 
-packages_absent:
-  - dnsutils
-
 apt::backports::include:
   src: true
 
