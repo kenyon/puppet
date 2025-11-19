@@ -30,7 +30,7 @@ class profile::vms::kvm::linode (
     repos        => 'main',
     key          => {
       name   => 'linode.gpg',
-      source => 'https://apt-longview.linode.com/linode.gpg',
+      source => 'https://apt-longview.linode.com/linode-new.gpg',
     },
     architecture => $facts['os']['architecture'],
   }
