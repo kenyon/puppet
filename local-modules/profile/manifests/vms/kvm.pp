@@ -25,8 +25,7 @@ class profile::vms::kvm (
       ensure => $ensure_qemu_guest_agent,
     }
 
-    # Linodes don't need to set up serial console (can access console
-    # through Linode's web interface). Same with Vultr VMs.
+    # Needed for Vultr VMs?
     # This systemd service allows for accessing the VM's serial console
     # using "virsh console <domain>".
     service { 'serial-getty@ttyS0':
