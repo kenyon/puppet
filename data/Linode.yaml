@@ -1,0 +1,5 @@
+classes:
+  - profile::vms::kvm::linode
+
+profile::vms::kvm::enable_serial_console: false
+profile::vms::kvm::ensure_qemu_guest_agent: absent

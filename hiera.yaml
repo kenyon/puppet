@@ -17,6 +17,9 @@ hierarchy:
   - name: Role
     path: "role/%{trusted.extensions.pp_role}.yaml"
 
+  - name: dmi.manufacturer
+    path: "%{facts.dmi.manufacturer}.yaml"
+
   - name: OS family and virtualization type
     path: "virtualization/%{facts.virtual}/%{facts.os.family}.yaml"
 

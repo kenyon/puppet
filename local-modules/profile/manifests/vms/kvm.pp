@@ -16,9 +16,7 @@ class profile::vms::kvm (
     before => Class['profile::timesync'],
   }
 
-  if util::is_linode() {
-    include profile::vms::kvm::linode
-  } elsif util::is_vultr_vm() {
+  if util::is_vultr_vm() {
     include profile::vms::kvm::vultr
   } else {
     # Don't install this on Linodes, it just hangs when it starts.
