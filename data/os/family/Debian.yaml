@@ -8,6 +8,7 @@ lookup_options:
 classes:
   - apt
   - apt::backports
+  - profile::apparmor
   - profile::debian::apt_listchanges
   - profile::debian::apticron
   - profile::debian::debsums
