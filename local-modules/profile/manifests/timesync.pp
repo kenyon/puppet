@@ -15,6 +15,7 @@ class profile::timesync (
     ensure => absent,
   }
   -> class { 'chrony':
+    driftfile  => '/var/lib/chrony/drift',
     servers    => $servers,
     pools      => ['2.pool.ntp.org'],
     refclocks  => $refclocks,
