@@ -36,6 +36,11 @@ packages:
   - reboot-notifier
   - vim
 
+files:
+  # This is for the apt_all plugin, which I don't use.
+  /etc/cron.d/munin-node:
+    ensure: absent
+
 apt::backports::include:
   src: true
 
