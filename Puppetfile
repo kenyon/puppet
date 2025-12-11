@@ -11,6 +11,9 @@ mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-postfix', :latest
+mod 'puppet-puppetdb',
+  git: 'https://github.com/voxpupuli/puppet-openvoxdb.git',
+  commit: 'c19edab376a76400173ad41564ce371a526d96d3'
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
@@ -30,7 +33,6 @@ mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
 mod 'puppetlabs-mailalias_core', :latest
 mod 'puppetlabs-postgresql', :latest
-mod 'puppetlabs-puppetdb', '8.0.1'
 mod 'puppetlabs-puppetserver_gem', :latest
 mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-vcsrepo', :latest
