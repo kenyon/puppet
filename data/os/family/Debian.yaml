@@ -16,7 +16,6 @@ classes:
 
 packages:
   - apt-file
-  - apt-listbugs
   - apt-show-versions
   - aptitude
   - aptitude-doc-en
