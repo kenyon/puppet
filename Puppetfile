@@ -35,4 +35,6 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'ssm-munin', :latest
-mod 'theforeman-puppet', :latest
+mod 'theforeman-puppet',
+  :git => 'https://github.com/theforeman/puppet-puppet.git',
+  :ref => 'refs/pull/982/merge'
