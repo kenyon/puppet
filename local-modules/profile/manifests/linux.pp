@@ -4,4 +4,9 @@ class profile::linux {
     ensure   => absent,
     bootmode => default,
   }
+
+  kernel_parameter { 'fsck.repair':
+    ensure => present,
+    value  => 'yes',
+  }
 }
