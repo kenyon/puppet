@@ -11,9 +11,7 @@ mod 'puppet-kmod', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'puppet-logrotate', :latest
 mod 'puppet-postfix', :latest
-mod 'puppet-puppetdb',
-  git: 'https://github.com/voxpupuli/puppet-openvoxdb.git',
-  commit: 'c19edab376a76400173ad41564ce371a526d96d3'
+mod 'puppet-openvoxdb', :latest
 mod 'puppet-python', :latest
 mod 'puppet-r10k', :latest
 mod 'puppet-rkhunter', :latest
