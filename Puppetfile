@@ -37,4 +37,4 @@ mod 'puppetlabs-vcsrepo', :latest
 mod 'saz-ssh', :latest
 mod 'saz-sudo', :latest
 mod 'ssm-munin', :latest
-mod 'theforeman-puppet', '21.0.0'
+mod 'theforeman-puppet', :latest
