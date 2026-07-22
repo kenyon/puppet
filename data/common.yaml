@@ -312,10 +312,10 @@ smokeping::targets:
       write_out: time_connect
     probe: AnotherCurl
   spectrum_router:
-    host: 2605:e000:40e:1a::1
+    host: 2602:107:4e10:359::2
     menu: Spectrum router
   spectrum_router_ipv4:
-    host: 76.167.17.177
+    host: 24.30.174.90
     menu: Spectrum router (IPv4)
     probe: FPing
 
