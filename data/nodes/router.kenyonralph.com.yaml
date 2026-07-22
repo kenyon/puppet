@@ -168,6 +168,7 @@ systemd::networks:
 
       [IPv6AcceptRA]
       UseDNS=no
+      UseMTU=no
 
   10-leafwood.netdev:
     content: |
