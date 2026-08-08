@@ -47,7 +47,7 @@ munin::node::plugins:
     config:
       - env.logarithmic yes
   diskstats:
-    ensure: link
+    ensure: absent
   entropy:
     ensure: absent
   tcp:
