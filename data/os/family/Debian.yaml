@@ -122,7 +122,6 @@ unattended_upgrades::extra_origins:
   - origin=apt.postgresql.org
   - origin=Debian Backports,codename=${distro_codename}-backports,label=Debian Backports
   - origin=Debian,codename=${distro_codename}-updates,label=Debian
-  - origin=Docker
   - origin=gh
   - origin=Vox Pupuli
   - origin=vscode stable

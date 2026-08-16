@@ -92,10 +92,6 @@ apache::protocols:
   - http/1.1
 apache::purge_vhost_dir: true
 
-docker::ip_masq: false
-docker::iptables: false
-docker::log_driver: journald
-
 profile::kenyon::dotfiles:
   - .aspell.en.prepl
   - .aspell.en.pws

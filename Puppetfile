@@ -23,7 +23,6 @@ mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-apache', :latest
 mod 'puppetlabs-apt', :latest
 mod 'puppetlabs-concat', :latest
-mod 'puppetlabs-docker', :latest
 mod 'puppetlabs-facts', :latest
 mod 'puppetlabs-firewall', :latest
 mod 'puppetlabs-inifile', :latest
