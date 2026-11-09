@@ -7,6 +7,7 @@ classes:
   - apache::mod::status
   - letsencrypt
   - munin::master
+  - profile::munin
   - profile::smokeping
   - smokeping
 
@@ -45,10 +46,18 @@ apache::vhosts::vhosts:
         path: /usr/lib/munin/cgi/munin-cgi-html
     directories:
       - path: /var/cache/munin/www
+        auth_type: Basic
+        auth_name: Munin
+        auth_user_file: /etc/apache2/munin.htpasswd
+        require: valid-user
       - path: /usr/lib/munin/cgi
         sethandler: fcgid-script
         options:
           - +ExecCGI
+        auth_type: Basic
+        auth_name: Munin
+        auth_user_file: /etc/apache2/munin.htpasswd
+        require: valid-user
       - path: /usr/share/smokeping/www
         options:
           - FollowSymLinks
