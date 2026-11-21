@@ -26,6 +26,7 @@ class profile::kenyon (
     managevim                => false,
     purge_sshkeys            => true,
     sshkeys                  => [
+      'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtv57CE3/lwNQquNFaKnGtAWCukiTzjS9HS5zZecf9x kenyon@iMac2',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZw6oCX3sFTBOnTJSrTPPzcmC2ygu+gxSM8CKuFK/S2 kenyon@iMac',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw7d1d4Lhxz7wv02IEUr8ssmc/BvCVEIzFgPko7haXx kenyon@stinkbook.local',
       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOngf+NPCrcsHcmmqqmGQss1TrZS0VCue5KsXradcIqc ed25519-key-20210606-krPhoneSE-Shelly',
