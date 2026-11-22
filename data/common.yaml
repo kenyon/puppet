@@ -111,6 +111,7 @@ profile::kenyon::dotfiles:
   - .vimrc
   - .Xresources
   - .zlogin
+  - .zprofile
   - .zshenv
   - .zshrc
 
